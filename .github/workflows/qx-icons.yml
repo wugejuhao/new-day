@@ -19,7 +19,7 @@ jobs:
       - name: Install Image Processing Library
         run: npm install sharp
 
-      - name: Process SVGs to 144px Liquid Glass Icons
+      - name: Process SVGs to Clean 144px Icons
         run: |
           cat << 'EOF' > process.js
           const fs = require('fs');
@@ -60,27 +60,13 @@ jobs:
                       // 2. iOS 26 超椭圆角比例 (30%)
                       const radius = Math.floor(Math.min(w, h) * 0.3);
 
-                      // 3. 相对 144x144 画布的居中坐标 (比如国旗高度只有 96，那上下各留白 24)
+                      // 3. 相对 144x144 画布的居中坐标
                       const x = Math.floor((canvasSize - w) / 2);
                       const y = Math.floor((canvasSize - h) / 2);
 
-                      // 4. 创建 Liquid Glass 内部光影层 (光泽 + 内阴影)
-                      const glassOverlaySvg = Buffer.from(`
+                      // 4. 创建纯净版 Liquid Glass 内边缘 (仅保留极细半透明描边，去除所有内阴影/高光)
+                      const cleanBorderSvg = Buffer.from(`
                           <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
-                              <defs>
-                                  <linearGradient id="glassLighting" x1="0%" y1="0%" x2="0%" y2="100%">
-                                      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
-                                      <stop offset="15%" stop-color="#ffffff" stop-opacity="0.1"/>
-                                      <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
-                                      <stop offset="85%" stop-color="#000000" stop-opacity="0.1"/>
-                                      <stop offset="100%" stop-color="#000000" stop-opacity="0.4"/>
-                                  </linearGradient>
-                              </defs>
-                              
-                              <rect x="0" y="0" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="url(#glassLighting)" />
-                              
-                              <rect x="0" y="0" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="none" stroke="#000000" stroke-width="4" filter="blur(2px)" opacity="0.25" />
-                              
                               <rect x="0.5" y="0.5" width="${w-1}" height="${h-1}" rx="${radius}" ry="${radius}" fill="none" stroke="rgba(60,60,67,0.15)" stroke-width="1.2" />
                           </svg>
                       `);
@@ -92,12 +78,12 @@ jobs:
                           </svg>
                       `);
 
-                      // 6. 处理国旗本体：垫上 #f2f2f7 灰白底，加上内部光影，并精细裁切圆角
+                      // 6. 处理国旗本体：垫上 #f2f2f7 灰白底，裁切圆角，叠加纯净描边
                       const flagEntity = await sharp(resizedBuffer)
-                          .flatten({ background: '#f2f2f7' }) // 苹果 SystemGray 6，完美适配你的 #feffff 背景
+                          .flatten({ background: '#f2f2f7' }) 
                           .composite([
-                              { input: glassOverlaySvg, blend: 'over' }, // 加上光影和内阴影
-                              { input: maskSvg, blend: 'dest-in' }       // 裁出超椭圆倒角
+                              { input: maskSvg, blend: 'dest-in' },
+                              { input: cleanBorderSvg, blend: 'over' } 
                           ])
                           .png()
                           .toBuffer();
@@ -120,15 +106,15 @@ jobs:
                           url: `${repoUrlBase}/${name}.png`
                       });
 
-                      console.log(`完成 144px 满格内阴影渲染: ${name}.png`);
+                      console.log(`完成纯净版 144px 满格渲染: ${name}.png`);
                   } catch (e) {
                       console.error(`${name} 处理失败:`, e);
                   }
               }
 
               const qxJson = {
-                  name: "iOS 26 Liquid Glass Max",
-                  description: "144px 满格液态玻璃国旗图标库，带精美内透视阴影",
+                  name: "iOS 26 Pure Icons",
+                  description: "144px 满格纯净版国旗，无光影，适配 #feffff 背景",
                   icons: iconList
               };
 
@@ -143,5 +129,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add qx-icons/
-          git commit -m "style: 升级至 144px 满格 Liquid Glass，采用内阴影体积光" || echo "无变动"
+          git commit -m "style: 去除内斜面光影，生成纯净版 144px 满格图标" || echo "无变动"
           git push
