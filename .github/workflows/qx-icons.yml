@@ -9,7 +9,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout Repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -78,7 +78,6 @@ jobs:
                           </svg>
                       `);
 
-                      // 组合出带圆角和边框的国旗本体
                       // 优化点：使用 flatten 强制给所有国旗垫上一层浅白色（银白色 #F0F0F0）底色，防止白色部分隐形
                       const roundedFlag = await sharp(resizedBuffer)
                           .flatten({ background: '#F0F0F0' }) 
