@@ -19,7 +19,7 @@ jobs:
       - name: Install Image Processing Library
         run: npm install sharp
 
-      - name: Process SVGs to iOS-Style Icons
+      - name: Process SVGs to Liquid Glass Icons
         run: |
           cat << 'EOF' > process.js
           const fs = require('fs');
@@ -36,7 +36,7 @@ jobs:
 
           const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.svg'));
           const size = 144;
-          const maxFlagSize = 104; 
+          const maxFlagSize = 96; 
 
           let iconList = [];
 
@@ -47,7 +47,6 @@ jobs:
                   const outputPath = path.join(outputDir, `${name}.png`);
 
                   try {
-                      // 1. 等比缩放国旗（绝不破坏原有比例）
                       const resizedBuffer = await sharp(inputPath)
                           .resize(maxFlagSize, maxFlagSize, { fit: 'inside' })
                           .png()
@@ -57,30 +56,29 @@ jobs:
                       const w = meta.width;
                       const h = meta.height;
 
-                      // 2. 动态计算 Apple 级平滑圆角 (最短边的 22.5%)
+                      // 保持极具现代感的超椭圆角比例
                       const minEdge = Math.min(w, h);
-                      const radius = Math.floor(minEdge * 0.225);
+                      const radius = Math.floor(minEdge * 0.3);
 
                       const x = Math.floor((size - w) / 2);
                       const y = Math.floor((size - h) / 2);
 
-                      // 3. 制作国旗的圆角遮罩
                       const maskSvg = Buffer.from(`
                           <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
                               <rect x="0" y="0" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="#FFFFFF" />
                           </svg>
                       `);
 
-                      // 制作高级微边框 (1px 半透明灰，适配深/浅色模式)
+                      // 采用 ChatGPT 建议的 Liquid Glass 官方边框色：rgba(60,60,67,0.12)
                       const borderSvg = Buffer.from(`
                           <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="0" y="0" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="none" stroke="rgba(128,128,128,0.3)" stroke-width="2" />
+                              <rect x="1" y="1" width="${w-2}" height="${h-2}" rx="${radius-1}" ry="${radius-1}" fill="none" stroke="rgba(60,60,67,0.12)" stroke-width="2" />
                           </svg>
                       `);
 
-                      // 优化点：使用 flatten 强制给所有国旗垫上一层浅白色（银白色 #F0F0F0）底色，防止白色部分隐形
+                      // 采用 ChatGPT 建议的苹果系统灰底色：#F2F2F7
                       const roundedFlag = await sharp(resizedBuffer)
-                          .flatten({ background: '#F0F0F0' }) 
+                          .flatten({ background: '#F2F2F7' }) 
                           .composite([
                               { input: maskSvg, blend: 'dest-in' },
                               { input: borderSvg, blend: 'over' }
@@ -88,19 +86,18 @@ jobs:
                           .png()
                           .toBuffer();
 
-                      // 4. 绘制底层阴影画布 (弥散悬浮效果)
+                      // 柔和的弥散阴影，配合通透的玻璃质感
                       const shadowCanvas = Buffer.from(`
                           <svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
                               <defs>
                                   <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-                                      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.25"/>
+                                      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.15"/>
                                   </filter>
                               </defs>
                               <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="#000000" filter="url(#shadow)" />
                           </svg>
                       `);
 
-                      // 5. 将国旗本体精准地叠放在阴影画布的对应位置
                       await sharp(shadowCanvas)
                           .composite([{ input: roundedFlag, left: x, top: y }])
                           .png()
@@ -111,20 +108,20 @@ jobs:
                           url: `${repoUrlBase}/${name}.png`
                       });
 
-                      console.log(`已赋予 iOS 拟态质感，并将白色调整为灰白色: ${name}.png (${w}x${h})`);
+                      console.log(`已应用 iOS 26 Liquid Glass 风格: ${name}.png`);
                   } catch (e) {
                       console.error(`处理 ${name} 失败:`, e);
                   }
               }
 
               const qxJson = {
-                  name: "wugejuhao Premium Icons",
-                  description: "极致 iOS 质感：原比例保留、超椭圆平滑角、弥散投影、微边框、灰白色兜底",
+                  name: "Liquid Glass Icons",
+                  description: "iOS 26 Liquid Glass 风格：#F2F2F7 苹果灰底色，极细通透边框",
                   icons: iconList
               };
 
               fs.writeFileSync(path.join(outputDir, 'qx-icons.json'), JSON.stringify(qxJson, null, 2));
-              console.log("高级版图标库 JSON 已生成！");
+              console.log("Liquid Glass 版图标库 JSON 已更新！");
           })();
           EOF
           node process.js
@@ -134,5 +131,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add qx-icons/
-          git commit -m "feat: 升级至灰白色兜底的 iOS 拟态质感国旗图标" || echo "No changes to commit"
+          git commit -m "style: 更新为 iOS 26 Liquid Glass 风格 (#F2F2F7 底色 + 官方透明边框)" || echo "No changes to commit"
           git push
