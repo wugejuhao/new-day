@@ -1,273 +1,1090 @@
 {
-  "ad": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ad.png",
-  "ae": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ae.png",
-  "af": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/af.png",
-  "ag": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ag.png",
-  "ai": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ai.png",
-  "al": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/al.png",
-  "am": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/am.png",
-  "ao": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ao.png",
-  "aq": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/aq.png",
-  "ar": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ar.png",
-  "arab": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/arab.png",
-  "as": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/as.png",
-  "asean": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/asean.png",
-  "at": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/at.png",
-  "au": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/au.png",
-  "aw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/aw.png",
-  "ax": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ax.png",
-  "az": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/az.png",
-  "ba": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ba.png",
-  "bb": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bb.png",
-  "bd": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bd.png",
-  "be": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/be.png",
-  "bf": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bf.png",
-  "bg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bg.png",
-  "bh": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bh.png",
-  "bi": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bi.png",
-  "bj": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bj.png",
-  "bl": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bl.png",
-  "bm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bm.png",
-  "bn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bn.png",
-  "bo": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bo.png",
-  "bq": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bq.png",
-  "br": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/br.png",
-  "bs": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bs.png",
-  "bt": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bt.png",
-  "bv": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bv.png",
-  "bw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bw.png",
-  "by": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/by.png",
-  "bz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bz.png",
-  "ca": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ca.png",
-  "cc": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cc.png",
-  "cd": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cd.png",
-  "cefta": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cefta.png",
-  "cf": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cf.png",
-  "cg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cg.png",
-  "ch": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ch.png",
-  "ci": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ci.png",
-  "ck": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ck.png",
-  "cl": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cl.png",
-  "cm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cm.png",
-  "cn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cn.png",
-  "co": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/co.png",
-  "cp": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cp.png",
-  "cr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cr.png",
-  "cu": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cu.png",
-  "cv": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cv.png",
-  "cw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cw.png",
-  "cx": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cx.png",
-  "cy": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cy.png",
-  "cz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cz.png",
-  "de": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/de.png",
-  "dg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dg.png",
-  "dj": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dj.png",
-  "dk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dk.png",
-  "dm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dm.png",
-  "do": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/do.png",
-  "dz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dz.png",
-  "eac": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/eac.png",
-  "ec": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ec.png",
-  "ee": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ee.png",
-  "eg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/eg.png",
-  "eh": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/eh.png",
-  "er": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/er.png",
-  "es-ct": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/es-ct.png",
-  "es-ga": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/es-ga.png",
-  "es-pv": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/es-pv.png",
-  "es": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/es.png",
-  "et": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/et.png",
-  "eu": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/eu.png",
-  "fi": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fi.png",
-  "fj": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fj.png",
-  "fk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fk.png",
-  "fm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fm.png",
-  "fo": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fo.png",
-  "fr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fr.png",
-  "ga": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ga.png",
-  "gb-eng": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb-eng.png",
-  "gb-nir": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb-nir.png",
-  "gb-sct": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb-sct.png",
-  "gb-wls": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb-wls.png",
-  "gb": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb.png",
-  "gd": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gd.png",
-  "ge": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ge.png",
-  "gf": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gf.png",
-  "gg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gg.png",
-  "gh": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gh.png",
-  "gi": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gi.png",
-  "gl": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gl.png",
-  "gm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gm.png",
-  "gn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gn.png",
-  "gp": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gp.png",
-  "gq": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gq.png",
-  "gr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gr.png",
-  "gs": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gs.png",
-  "gt": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gt.png",
-  "gu": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gu.png",
-  "gw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gw.png",
-  "gy": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gy.png",
-  "hk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hk.png",
-  "hm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hm.png",
-  "hn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hn.png",
-  "hr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hr.png",
-  "ht": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ht.png",
-  "hu": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hu.png",
-  "ic": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ic.png",
-  "id": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/id.png",
-  "ie": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ie.png",
-  "il": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/il.png",
-  "im": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/im.png",
-  "in": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/in.png",
-  "io": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/io.png",
-  "iq": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/iq.png",
-  "ir": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ir.png",
-  "is": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/is.png",
-  "it": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/it.png",
-  "je": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/je.png",
-  "jm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/jm.png",
-  "jo": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/jo.png",
-  "jp": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/jp.png",
-  "ke": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ke.png",
-  "kg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kg.png",
-  "kh": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kh.png",
-  "ki": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ki.png",
-  "km": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/km.png",
-  "kn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kn.png",
-  "kp": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kp.png",
-  "kr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kr.png",
-  "kw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kw.png",
-  "ky": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ky.png",
-  "kz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kz.png",
-  "la": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/la.png",
-  "lb": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lb.png",
-  "lc": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lc.png",
-  "li": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/li.png",
-  "lk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lk.png",
-  "lr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lr.png",
-  "ls": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ls.png",
-  "lt": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lt.png",
-  "lu": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lu.png",
-  "lv": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lv.png",
-  "ly": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ly.png",
-  "ma": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ma.png",
-  "mc": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mc.png",
-  "md": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/md.png",
-  "me": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/me.png",
-  "mf": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mf.png",
-  "mg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mg.png",
-  "mh": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mh.png",
-  "mk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mk.png",
-  "ml": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ml.png",
-  "mm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mm.png",
-  "mn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mn.png",
-  "mo": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mo.png",
-  "mp": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mp.png",
-  "mq": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mq.png",
-  "mr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mr.png",
-  "ms": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ms.png",
-  "mt": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mt.png",
-  "mu": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mu.png",
-  "mv": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mv.png",
-  "mw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mw.png",
-  "mx": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mx.png",
-  "my": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/my.png",
-  "mz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mz.png",
-  "na": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/na.png",
-  "nc": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nc.png",
-  "ne": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ne.png",
-  "nf": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nf.png",
-  "ng": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ng.png",
-  "ni": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ni.png",
-  "nl": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nl.png",
-  "no": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/no.png",
-  "np": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/np.png",
-  "nr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nr.png",
-  "nu": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nu.png",
-  "nz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nz.png",
-  "om": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/om.png",
-  "pa": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pa.png",
-  "pc": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pc.png",
-  "pe": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pe.png",
-  "pf": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pf.png",
-  "pg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pg.png",
-  "ph": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ph.png",
-  "pk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pk.png",
-  "pl": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pl.png",
-  "pm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pm.png",
-  "pn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pn.png",
-  "pr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pr.png",
-  "ps": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ps.png",
-  "pt": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pt.png",
-  "pw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pw.png",
-  "py": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/py.png",
-  "qa": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/qa.png",
-  "re": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/re.png",
-  "ro": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ro.png",
-  "rs": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/rs.png",
-  "ru": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ru.png",
-  "rw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/rw.png",
-  "sa": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sa.png",
-  "sb": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sb.png",
-  "sc": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sc.png",
-  "sd": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sd.png",
-  "se": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/se.png",
-  "sg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sg.png",
-  "sh-ac": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sh-ac.png",
-  "sh-hl": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sh-hl.png",
-  "sh-ta": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sh-ta.png",
-  "sh": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sh.png",
-  "si": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/si.png",
-  "sj": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sj.png",
-  "sk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sk.png",
-  "sl": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sl.png",
-  "sm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sm.png",
-  "sn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sn.png",
-  "so": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/so.png",
-  "sr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sr.png",
-  "ss": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ss.png",
-  "st": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/st.png",
-  "sv": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sv.png",
-  "sx": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sx.png",
-  "sy": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sy.png",
-  "sz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sz.png",
-  "tc": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tc.png",
-  "td": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/td.png",
-  "tf": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tf.png",
-  "tg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tg.png",
-  "th": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/th.png",
-  "tj": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tj.png",
-  "tk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tk.png",
-  "tl": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tl.png",
-  "tm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tm.png",
-  "tn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tn.png",
-  "to": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/to.png",
-  "tr": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tr.png",
-  "tt": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tt.png",
-  "tv": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tv.png",
-  "tw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tw.png",
-  "tz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tz.png",
-  "ua": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ua.png",
-  "ug": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ug.png",
-  "um": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/um.png",
-  "un": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/un.png",
-  "us": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/us.png",
-  "uy": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/uy.png",
-  "uz": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/uz.png",
-  "va": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/va.png",
-  "vc": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vc.png",
-  "ve": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ve.png",
-  "vg": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vg.png",
-  "vi": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vi.png",
-  "vn": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vn.png",
-  "vu": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vu.png",
-  "wf": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/wf.png",
-  "ws": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ws.png",
-  "xk": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/xk.png",
-  "xx": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/xx.png",
-  "ye": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ye.png",
-  "yt": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/yt.png",
-  "za": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/za.png",
-  "zm": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/zm.png",
-  "zw": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/zw.png"
+  "name": "wugejuhao Icons",
+  "description": "自动生成的 144x144 原比例留白圆角图标",
+  "icons": [
+    {
+      "name": "ad",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ad.png"
+    },
+    {
+      "name": "ae",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ae.png"
+    },
+    {
+      "name": "af",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/af.png"
+    },
+    {
+      "name": "ag",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ag.png"
+    },
+    {
+      "name": "ai",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ai.png"
+    },
+    {
+      "name": "al",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/al.png"
+    },
+    {
+      "name": "am",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/am.png"
+    },
+    {
+      "name": "ao",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ao.png"
+    },
+    {
+      "name": "aq",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/aq.png"
+    },
+    {
+      "name": "ar",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ar.png"
+    },
+    {
+      "name": "arab",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/arab.png"
+    },
+    {
+      "name": "as",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/as.png"
+    },
+    {
+      "name": "asean",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/asean.png"
+    },
+    {
+      "name": "at",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/at.png"
+    },
+    {
+      "name": "au",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/au.png"
+    },
+    {
+      "name": "aw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/aw.png"
+    },
+    {
+      "name": "ax",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ax.png"
+    },
+    {
+      "name": "az",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/az.png"
+    },
+    {
+      "name": "ba",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ba.png"
+    },
+    {
+      "name": "bb",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bb.png"
+    },
+    {
+      "name": "bd",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bd.png"
+    },
+    {
+      "name": "be",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/be.png"
+    },
+    {
+      "name": "bf",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bf.png"
+    },
+    {
+      "name": "bg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bg.png"
+    },
+    {
+      "name": "bh",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bh.png"
+    },
+    {
+      "name": "bi",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bi.png"
+    },
+    {
+      "name": "bj",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bj.png"
+    },
+    {
+      "name": "bl",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bl.png"
+    },
+    {
+      "name": "bm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bm.png"
+    },
+    {
+      "name": "bn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bn.png"
+    },
+    {
+      "name": "bo",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bo.png"
+    },
+    {
+      "name": "bq",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bq.png"
+    },
+    {
+      "name": "br",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/br.png"
+    },
+    {
+      "name": "bs",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bs.png"
+    },
+    {
+      "name": "bt",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bt.png"
+    },
+    {
+      "name": "bv",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bv.png"
+    },
+    {
+      "name": "bw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bw.png"
+    },
+    {
+      "name": "by",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/by.png"
+    },
+    {
+      "name": "bz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/bz.png"
+    },
+    {
+      "name": "ca",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ca.png"
+    },
+    {
+      "name": "cc",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cc.png"
+    },
+    {
+      "name": "cd",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cd.png"
+    },
+    {
+      "name": "cefta",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cefta.png"
+    },
+    {
+      "name": "cf",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cf.png"
+    },
+    {
+      "name": "cg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cg.png"
+    },
+    {
+      "name": "ch",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ch.png"
+    },
+    {
+      "name": "ci",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ci.png"
+    },
+    {
+      "name": "ck",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ck.png"
+    },
+    {
+      "name": "cl",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cl.png"
+    },
+    {
+      "name": "cm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cm.png"
+    },
+    {
+      "name": "cn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cn.png"
+    },
+    {
+      "name": "co",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/co.png"
+    },
+    {
+      "name": "cp",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cp.png"
+    },
+    {
+      "name": "cr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cr.png"
+    },
+    {
+      "name": "cu",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cu.png"
+    },
+    {
+      "name": "cv",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cv.png"
+    },
+    {
+      "name": "cw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cw.png"
+    },
+    {
+      "name": "cx",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cx.png"
+    },
+    {
+      "name": "cy",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cy.png"
+    },
+    {
+      "name": "cz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/cz.png"
+    },
+    {
+      "name": "de",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/de.png"
+    },
+    {
+      "name": "dg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dg.png"
+    },
+    {
+      "name": "dj",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dj.png"
+    },
+    {
+      "name": "dk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dk.png"
+    },
+    {
+      "name": "dm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dm.png"
+    },
+    {
+      "name": "do",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/do.png"
+    },
+    {
+      "name": "dz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/dz.png"
+    },
+    {
+      "name": "eac",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/eac.png"
+    },
+    {
+      "name": "ec",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ec.png"
+    },
+    {
+      "name": "ee",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ee.png"
+    },
+    {
+      "name": "eg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/eg.png"
+    },
+    {
+      "name": "eh",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/eh.png"
+    },
+    {
+      "name": "er",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/er.png"
+    },
+    {
+      "name": "es-ct",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/es-ct.png"
+    },
+    {
+      "name": "es-ga",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/es-ga.png"
+    },
+    {
+      "name": "es-pv",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/es-pv.png"
+    },
+    {
+      "name": "es",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/es.png"
+    },
+    {
+      "name": "et",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/et.png"
+    },
+    {
+      "name": "eu",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/eu.png"
+    },
+    {
+      "name": "fi",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fi.png"
+    },
+    {
+      "name": "fj",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fj.png"
+    },
+    {
+      "name": "fk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fk.png"
+    },
+    {
+      "name": "fm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fm.png"
+    },
+    {
+      "name": "fo",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fo.png"
+    },
+    {
+      "name": "fr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/fr.png"
+    },
+    {
+      "name": "ga",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ga.png"
+    },
+    {
+      "name": "gb-eng",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb-eng.png"
+    },
+    {
+      "name": "gb-nir",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb-nir.png"
+    },
+    {
+      "name": "gb-sct",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb-sct.png"
+    },
+    {
+      "name": "gb-wls",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb-wls.png"
+    },
+    {
+      "name": "gb",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gb.png"
+    },
+    {
+      "name": "gd",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gd.png"
+    },
+    {
+      "name": "ge",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ge.png"
+    },
+    {
+      "name": "gf",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gf.png"
+    },
+    {
+      "name": "gg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gg.png"
+    },
+    {
+      "name": "gh",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gh.png"
+    },
+    {
+      "name": "gi",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gi.png"
+    },
+    {
+      "name": "gl",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gl.png"
+    },
+    {
+      "name": "gm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gm.png"
+    },
+    {
+      "name": "gn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gn.png"
+    },
+    {
+      "name": "gp",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gp.png"
+    },
+    {
+      "name": "gq",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gq.png"
+    },
+    {
+      "name": "gr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gr.png"
+    },
+    {
+      "name": "gs",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gs.png"
+    },
+    {
+      "name": "gt",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gt.png"
+    },
+    {
+      "name": "gu",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gu.png"
+    },
+    {
+      "name": "gw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gw.png"
+    },
+    {
+      "name": "gy",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/gy.png"
+    },
+    {
+      "name": "hk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hk.png"
+    },
+    {
+      "name": "hm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hm.png"
+    },
+    {
+      "name": "hn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hn.png"
+    },
+    {
+      "name": "hr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hr.png"
+    },
+    {
+      "name": "ht",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ht.png"
+    },
+    {
+      "name": "hu",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/hu.png"
+    },
+    {
+      "name": "ic",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ic.png"
+    },
+    {
+      "name": "id",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/id.png"
+    },
+    {
+      "name": "ie",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ie.png"
+    },
+    {
+      "name": "il",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/il.png"
+    },
+    {
+      "name": "im",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/im.png"
+    },
+    {
+      "name": "in",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/in.png"
+    },
+    {
+      "name": "io",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/io.png"
+    },
+    {
+      "name": "iq",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/iq.png"
+    },
+    {
+      "name": "ir",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ir.png"
+    },
+    {
+      "name": "is",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/is.png"
+    },
+    {
+      "name": "it",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/it.png"
+    },
+    {
+      "name": "je",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/je.png"
+    },
+    {
+      "name": "jm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/jm.png"
+    },
+    {
+      "name": "jo",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/jo.png"
+    },
+    {
+      "name": "jp",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/jp.png"
+    },
+    {
+      "name": "ke",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ke.png"
+    },
+    {
+      "name": "kg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kg.png"
+    },
+    {
+      "name": "kh",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kh.png"
+    },
+    {
+      "name": "ki",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ki.png"
+    },
+    {
+      "name": "km",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/km.png"
+    },
+    {
+      "name": "kn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kn.png"
+    },
+    {
+      "name": "kp",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kp.png"
+    },
+    {
+      "name": "kr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kr.png"
+    },
+    {
+      "name": "kw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kw.png"
+    },
+    {
+      "name": "ky",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ky.png"
+    },
+    {
+      "name": "kz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/kz.png"
+    },
+    {
+      "name": "la",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/la.png"
+    },
+    {
+      "name": "lb",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lb.png"
+    },
+    {
+      "name": "lc",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lc.png"
+    },
+    {
+      "name": "li",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/li.png"
+    },
+    {
+      "name": "lk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lk.png"
+    },
+    {
+      "name": "lr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lr.png"
+    },
+    {
+      "name": "ls",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ls.png"
+    },
+    {
+      "name": "lt",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lt.png"
+    },
+    {
+      "name": "lu",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lu.png"
+    },
+    {
+      "name": "lv",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/lv.png"
+    },
+    {
+      "name": "ly",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ly.png"
+    },
+    {
+      "name": "ma",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ma.png"
+    },
+    {
+      "name": "mc",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mc.png"
+    },
+    {
+      "name": "md",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/md.png"
+    },
+    {
+      "name": "me",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/me.png"
+    },
+    {
+      "name": "mf",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mf.png"
+    },
+    {
+      "name": "mg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mg.png"
+    },
+    {
+      "name": "mh",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mh.png"
+    },
+    {
+      "name": "mk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mk.png"
+    },
+    {
+      "name": "ml",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ml.png"
+    },
+    {
+      "name": "mm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mm.png"
+    },
+    {
+      "name": "mn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mn.png"
+    },
+    {
+      "name": "mo",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mo.png"
+    },
+    {
+      "name": "mp",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mp.png"
+    },
+    {
+      "name": "mq",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mq.png"
+    },
+    {
+      "name": "mr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mr.png"
+    },
+    {
+      "name": "ms",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ms.png"
+    },
+    {
+      "name": "mt",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mt.png"
+    },
+    {
+      "name": "mu",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mu.png"
+    },
+    {
+      "name": "mv",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mv.png"
+    },
+    {
+      "name": "mw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mw.png"
+    },
+    {
+      "name": "mx",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mx.png"
+    },
+    {
+      "name": "my",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/my.png"
+    },
+    {
+      "name": "mz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/mz.png"
+    },
+    {
+      "name": "na",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/na.png"
+    },
+    {
+      "name": "nc",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nc.png"
+    },
+    {
+      "name": "ne",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ne.png"
+    },
+    {
+      "name": "nf",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nf.png"
+    },
+    {
+      "name": "ng",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ng.png"
+    },
+    {
+      "name": "ni",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ni.png"
+    },
+    {
+      "name": "nl",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nl.png"
+    },
+    {
+      "name": "no",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/no.png"
+    },
+    {
+      "name": "np",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/np.png"
+    },
+    {
+      "name": "nr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nr.png"
+    },
+    {
+      "name": "nu",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nu.png"
+    },
+    {
+      "name": "nz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/nz.png"
+    },
+    {
+      "name": "om",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/om.png"
+    },
+    {
+      "name": "pa",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pa.png"
+    },
+    {
+      "name": "pc",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pc.png"
+    },
+    {
+      "name": "pe",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pe.png"
+    },
+    {
+      "name": "pf",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pf.png"
+    },
+    {
+      "name": "pg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pg.png"
+    },
+    {
+      "name": "ph",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ph.png"
+    },
+    {
+      "name": "pk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pk.png"
+    },
+    {
+      "name": "pl",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pl.png"
+    },
+    {
+      "name": "pm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pm.png"
+    },
+    {
+      "name": "pn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pn.png"
+    },
+    {
+      "name": "pr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pr.png"
+    },
+    {
+      "name": "ps",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ps.png"
+    },
+    {
+      "name": "pt",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pt.png"
+    },
+    {
+      "name": "pw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/pw.png"
+    },
+    {
+      "name": "py",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/py.png"
+    },
+    {
+      "name": "qa",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/qa.png"
+    },
+    {
+      "name": "re",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/re.png"
+    },
+    {
+      "name": "ro",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ro.png"
+    },
+    {
+      "name": "rs",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/rs.png"
+    },
+    {
+      "name": "ru",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ru.png"
+    },
+    {
+      "name": "rw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/rw.png"
+    },
+    {
+      "name": "sa",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sa.png"
+    },
+    {
+      "name": "sb",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sb.png"
+    },
+    {
+      "name": "sc",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sc.png"
+    },
+    {
+      "name": "sd",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sd.png"
+    },
+    {
+      "name": "se",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/se.png"
+    },
+    {
+      "name": "sg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sg.png"
+    },
+    {
+      "name": "sh-ac",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sh-ac.png"
+    },
+    {
+      "name": "sh-hl",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sh-hl.png"
+    },
+    {
+      "name": "sh-ta",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sh-ta.png"
+    },
+    {
+      "name": "sh",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sh.png"
+    },
+    {
+      "name": "si",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/si.png"
+    },
+    {
+      "name": "sj",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sj.png"
+    },
+    {
+      "name": "sk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sk.png"
+    },
+    {
+      "name": "sl",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sl.png"
+    },
+    {
+      "name": "sm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sm.png"
+    },
+    {
+      "name": "sn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sn.png"
+    },
+    {
+      "name": "so",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/so.png"
+    },
+    {
+      "name": "sr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sr.png"
+    },
+    {
+      "name": "ss",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ss.png"
+    },
+    {
+      "name": "st",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/st.png"
+    },
+    {
+      "name": "sv",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sv.png"
+    },
+    {
+      "name": "sx",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sx.png"
+    },
+    {
+      "name": "sy",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sy.png"
+    },
+    {
+      "name": "sz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/sz.png"
+    },
+    {
+      "name": "tc",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tc.png"
+    },
+    {
+      "name": "td",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/td.png"
+    },
+    {
+      "name": "tf",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tf.png"
+    },
+    {
+      "name": "tg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tg.png"
+    },
+    {
+      "name": "th",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/th.png"
+    },
+    {
+      "name": "tj",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tj.png"
+    },
+    {
+      "name": "tk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tk.png"
+    },
+    {
+      "name": "tl",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tl.png"
+    },
+    {
+      "name": "tm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tm.png"
+    },
+    {
+      "name": "tn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tn.png"
+    },
+    {
+      "name": "to",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/to.png"
+    },
+    {
+      "name": "tr",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tr.png"
+    },
+    {
+      "name": "tt",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tt.png"
+    },
+    {
+      "name": "tv",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tv.png"
+    },
+    {
+      "name": "tw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tw.png"
+    },
+    {
+      "name": "tz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/tz.png"
+    },
+    {
+      "name": "ua",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ua.png"
+    },
+    {
+      "name": "ug",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ug.png"
+    },
+    {
+      "name": "um",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/um.png"
+    },
+    {
+      "name": "un",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/un.png"
+    },
+    {
+      "name": "us",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/us.png"
+    },
+    {
+      "name": "uy",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/uy.png"
+    },
+    {
+      "name": "uz",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/uz.png"
+    },
+    {
+      "name": "va",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/va.png"
+    },
+    {
+      "name": "vc",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vc.png"
+    },
+    {
+      "name": "ve",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ve.png"
+    },
+    {
+      "name": "vg",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vg.png"
+    },
+    {
+      "name": "vi",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vi.png"
+    },
+    {
+      "name": "vn",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vn.png"
+    },
+    {
+      "name": "vu",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/vu.png"
+    },
+    {
+      "name": "wf",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/wf.png"
+    },
+    {
+      "name": "ws",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ws.png"
+    },
+    {
+      "name": "xk",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/xk.png"
+    },
+    {
+      "name": "xx",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/xx.png"
+    },
+    {
+      "name": "ye",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ye.png"
+    },
+    {
+      "name": "yt",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/yt.png"
+    },
+    {
+      "name": "za",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/za.png"
+    },
+    {
+      "name": "zm",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/zm.png"
+    },
+    {
+      "name": "zw",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/zw.png"
+    }
+  ]
 }
