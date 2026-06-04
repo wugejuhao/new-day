@@ -1,12 +1,12 @@
 name: Generate QX Icons
 on:
-  workflow_dispatch: # 允许在网页端手动触发运行
+  workflow_dispatch:
 
 jobs:
   build-and-commit:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # 赋予写入仓库并创建新文件夹的权限
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -27,24 +27,18 @@ jobs:
           const sharp = require('sharp');
 
           const inputDir = path.join(__dirname, 'flag-icons');
-          const outputDir = path.join(__dirname, 'qx-icons'); // 自动生成的全新文件夹
+          const outputDir = path.join(__dirname, 'qx-icons');
           const repoUrlBase = 'https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons';
 
-          // 如果新文件夹不存在，自动创建
           if (!fs.existsSync(outputDir)) {
               fs.mkdirSync(outputDir, { recursive: true });
           }
 
           const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.svg'));
           const size = 144;
-          const radius = 32; // 圆角半径，类似于 iOS 图标的视觉比例
+          const radius = 18; // 因为留白后图片变小了，圆角稍微调小一点更协调
 
-          let qxJson = {}; // 存放生成的 JSON 字典
-
-          // 利用 SVG 绘制一个用于倒圆角的遮罩
-          const roundedCorners = Buffer.from(
-              `<svg><rect x="0" y="0" width="${size}" height="${size}" rx="${radius}" ry="${radius}"/></svg>`
-          );
+          let iconList = [];
 
           (async () => {
               for (const file of files) {
@@ -53,21 +47,53 @@ jobs:
                   const outputPath = path.join(outputDir, `${name}.png`);
 
                   try {
+                      // 1. 获取缩放后的实际长宽（保持原比例不裁剪，最长边为144）
+                      const resizedBuffer = await sharp(inputPath)
+                          .resize(size, size, { fit: 'inside' })
+                          .png()
+                          .toBuffer();
+                      
+                      const meta = await sharp(resizedBuffer).metadata();
+                      const w = meta.width;
+                      const h = meta.height;
+
+                      // 2. 计算居中放置时的坐标偏移量（留白的尺寸）
+                      const x = Math.floor((size - w) / 2);
+                      const y = Math.floor((size - h) / 2);
+
+                      // 3. 动态生成透明遮罩，确保只在国旗实际存在的区域抠出圆角
+                      const mask = Buffer.from(
+                          `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
+                              <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="black" />
+                           </svg>`
+                      );
+
+                      // 4. 将原图等比缩放并放置在 144x144 的透明画布中心，然后套用圆角遮罩
                       await sharp(inputPath)
-                          .resize(size, size, { fit: 'cover' }) // 'cover' 保证国旗尽可能占满 144x144，自动裁切溢出部分
-                          .composite([{ input: roundedCorners, blend: 'dest-in' }]) // 应用圆角遮罩，外部变透明
+                          .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+                          .composite([{ input: mask, blend: 'dest-in' }])
                           .png()
                           .toFile(outputPath);
 
-                      // 将生成的 Raw 链接写入 JSON 对象
-                      qxJson[name] = `${repoUrlBase}/${name}.png`;
-                      console.log(`成功处理: ${name}.png`);
+                      // 5. 记录到 QX 要求的图标数组标准格式中
+                      iconList.push({
+                          name: name,
+                          url: `${repoUrlBase}/${name}.png`
+                      });
+
+                      console.log(`成功处理: ${name}.png (${w}x${h})`);
                   } catch (e) {
                       console.error(`处理 ${name} 失败:`, e);
                   }
               }
 
-              // 将最终的 JSON 输出到新文件夹中
+              // 按照 Quantumult X 图标库规范输出 JSON
+              const qxJson = {
+                  name: "wugejuhao Icons",
+                  description: "自动生成的 144x144 原比例留白圆角图标",
+                  icons: iconList
+              };
+
               fs.writeFileSync(path.join(outputDir, 'qx-icons.json'), JSON.stringify(qxJson, null, 2));
               console.log("图标库 JSON 已生成！");
           })();
@@ -79,5 +105,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add qx-icons/
-          git commit -m "feat: Auto-generate 144x144 rounded PNG icons for Quantumult X" || echo "No changes to commit"
+          git commit -m "fix: 保持国旗原比例并修复 Quantumult X JSON 格式" || echo "No changes to commit"
           git push
