@@ -1,6 +1,6 @@
 {
   "name": "wugejuhao Premium Icons",
-  "description": "极致 iOS 质感：原比例保留、超椭圆平滑角、弥散投影、微边框",
+  "description": "修复白底国旗边缘隐形问题（强制白底+清晰内描边）",
   "icons": [
     {
       "name": "ad",
