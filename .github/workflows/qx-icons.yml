@@ -19,7 +19,7 @@ jobs:
       - name: Install Image Processing Library
         run: npm install sharp
 
-      - name: Process SVGs to Rounded PNGs
+      - name: Process SVGs to iOS-Style Icons
         run: |
           cat << 'EOF' > process.js
           const fs = require('fs');
@@ -36,7 +36,8 @@ jobs:
 
           const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.svg'));
           const size = 144;
-          const radius = 18; // 因为留白后图片变小了，圆角稍微调小一点更协调
+          // 将最大尺寸缩小到 104，四周留出 20px 充足的纯透明空间，用来完美展示弥散阴影
+          const maxFlagSize = 104; 
 
           let iconList = [];
 
@@ -47,9 +48,9 @@ jobs:
                   const outputPath = path.join(outputDir, `${name}.png`);
 
                   try {
-                      // 1. 获取缩放后的实际长宽（保持原比例不裁剪，最长边为144）
+                      // 1. 等比缩放国旗（绝不破坏原有比例）
                       const resizedBuffer = await sharp(inputPath)
-                          .resize(size, size, { fit: 'inside' })
+                          .resize(maxFlagSize, maxFlagSize, { fit: 'inside' })
                           .png()
                           .toBuffer();
                       
@@ -57,45 +58,73 @@ jobs:
                       const w = meta.width;
                       const h = meta.height;
 
-                      // 2. 计算居中放置时的坐标偏移量（留白的尺寸）
+                      // 2. 动态计算 Apple 级平滑圆角 (最短边的 22.5%)
+                      const minEdge = Math.min(w, h);
+                      const radius = Math.floor(minEdge * 0.225);
+
                       const x = Math.floor((size - w) / 2);
                       const y = Math.floor((size - h) / 2);
 
-                      // 3. 动态生成透明遮罩，确保只在国旗实际存在的区域抠出圆角
-                      const mask = Buffer.from(
-                          `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="black" />
-                           </svg>`
-                      );
+                      // 3. 制作国旗的圆角遮罩
+                      const maskSvg = Buffer.from(`
+                          <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
+                              <rect x="0" y="0" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="#FFFFFF" />
+                          </svg>
+                      `);
 
-                      // 4. 将原图等比缩放并放置在 144x144 的透明画布中心，然后套用圆角遮罩
-                      await sharp(inputPath)
-                          .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-                          .composite([{ input: mask, blend: 'dest-in' }])
+                      // 制作高级微边框 (1px 半透明灰，适配深/浅色模式)
+                      const borderSvg = Buffer.from(`
+                          <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
+                              <rect x="0" y="0" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="none" stroke="rgba(128,128,128,0.3)" stroke-width="2" />
+                          </svg>
+                      `);
+
+                      // 组合出带圆角和边框的国旗本体
+                      const roundedFlag = await sharp(resizedBuffer)
+                          .composite([
+                              { input: maskSvg, blend: 'dest-in' },
+                              { input: borderSvg, blend: 'over' }
+                          ])
+                          .png()
+                          .toBuffer();
+
+                      // 4. 绘制底层阴影画布 (弥散悬浮效果)
+                      const shadowCanvas = Buffer.from(`
+                          <svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
+                              <defs>
+                                  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.25"/>
+                                  </filter>
+                              </defs>
+                              <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="#000000" filter="url(#shadow)" />
+                          </svg>
+                      `);
+
+                      // 5. 将国旗本体精准地叠放在阴影画布的对应位置
+                      await sharp(shadowCanvas)
+                          .composite([{ input: roundedFlag, left: x, top: y }])
                           .png()
                           .toFile(outputPath);
 
-                      // 5. 记录到 QX 要求的图标数组标准格式中
                       iconList.push({
                           name: name,
                           url: `${repoUrlBase}/${name}.png`
                       });
 
-                      console.log(`成功处理: ${name}.png (${w}x${h})`);
+                      console.log(`已赋予 iOS 拟态质感: ${name}.png (${w}x${h})`);
                   } catch (e) {
                       console.error(`处理 ${name} 失败:`, e);
                   }
               }
 
-              // 按照 Quantumult X 图标库规范输出 JSON
               const qxJson = {
-                  name: "wugejuhao Icons",
-                  description: "自动生成的 144x144 原比例留白圆角图标",
+                  name: "wugejuhao Premium Icons",
+                  description: "极致 iOS 质感：原比例保留、超椭圆平滑角、弥散投影、微边框",
                   icons: iconList
               };
 
               fs.writeFileSync(path.join(outputDir, 'qx-icons.json'), JSON.stringify(qxJson, null, 2));
-              console.log("图标库 JSON 已生成！");
+              console.log("高级版图标库 JSON 已生成！");
           })();
           EOF
           node process.js
@@ -105,5 +134,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add qx-icons/
-          git commit -m "fix: 保持国旗原比例并修复 Quantumult X JSON 格式" || echo "No changes to commit"
+          git commit -m "feat: 升级至 iOS 现代拟态质感（弥散投影+超椭圆角+微边框）" || echo "No changes to commit"
           git push
