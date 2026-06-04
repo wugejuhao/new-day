@@ -9,7 +9,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -47,6 +47,7 @@ jobs:
                   const outputPath = path.join(outputDir, `${name}.png`);
 
                   try {
+                      // 1. 等比缩放国旗（绝不破坏原有比例）
                       const resizedBuffer = await sharp(inputPath)
                           .resize(maxFlagSize, maxFlagSize, { fit: 'inside' })
                           .png()
@@ -56,29 +57,31 @@ jobs:
                       const w = meta.width;
                       const h = meta.height;
 
+                      // 2. 动态计算 Apple 级平滑圆角 (最短边的 22.5%)
                       const minEdge = Math.min(w, h);
                       const radius = Math.floor(minEdge * 0.225);
 
                       const x = Math.floor((size - w) / 2);
                       const y = Math.floor((size - h) / 2);
 
-                      // 圆角遮罩
+                      // 3. 制作国旗的圆角遮罩
                       const maskSvg = Buffer.from(`
                           <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
                               <rect x="0" y="0" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="#FFFFFF" />
                           </svg>
                       `);
 
-                      // 优化点 2：真正的内描边。向内收缩 1px 防止被圆角遮罩裁掉，加深透明度到 0.15
+                      // 制作高级微边框 (1px 半透明灰，适配深/浅色模式)
                       const borderSvg = Buffer.from(`
                           <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="1" y="1" width="${w-2}" height="${h-2}" rx="${radius-1}" ry="${radius-1}" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="2" />
+                              <rect x="0" y="0" width="${w}" height="${h}" rx="${radius}" ry="${radius}" fill="none" stroke="rgba(128,128,128,0.3)" stroke-width="2" />
                           </svg>
                       `);
 
-                      // 优化点 1：使用 flatten 强制给所有国旗垫上一层纯白底色，防止 SVG 本身透明
+                      // 组合出带圆角和边框的国旗本体
+                      // 优化点：使用 flatten 强制给所有国旗垫上一层浅白色（银白色 #F0F0F0）底色，防止白色部分隐形
                       const roundedFlag = await sharp(resizedBuffer)
-                          .flatten({ background: '#FFFFFF' }) 
+                          .flatten({ background: '#F0F0F0' }) 
                           .composite([
                               { input: maskSvg, blend: 'dest-in' },
                               { input: borderSvg, blend: 'over' }
@@ -86,6 +89,7 @@ jobs:
                           .png()
                           .toBuffer();
 
+                      // 4. 绘制底层阴影画布 (弥散悬浮效果)
                       const shadowCanvas = Buffer.from(`
                           <svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
                               <defs>
@@ -97,6 +101,7 @@ jobs:
                           </svg>
                       `);
 
+                      // 5. 将国旗本体精准地叠放在阴影画布的对应位置
                       await sharp(shadowCanvas)
                           .composite([{ input: roundedFlag, left: x, top: y }])
                           .png()
@@ -107,7 +112,7 @@ jobs:
                           url: `${repoUrlBase}/${name}.png`
                       });
 
-                      console.log(`成功处理边框与底色: ${name}.png (${w}x${h})`);
+                      console.log(`已赋予 iOS 拟态质感，并将白色调整为灰白色: ${name}.png (${w}x${h})`);
                   } catch (e) {
                       console.error(`处理 ${name} 失败:`, e);
                   }
@@ -115,12 +120,12 @@ jobs:
 
               const qxJson = {
                   name: "wugejuhao Premium Icons",
-                  description: "修复白底国旗边缘隐形问题（强制白底+清晰内描边）",
+                  description: "极致 iOS 质感：原比例保留、超椭圆平滑角、弥散投影、微边框、灰白色兜底",
                   icons: iconList
               };
 
               fs.writeFileSync(path.join(outputDir, 'qx-icons.json'), JSON.stringify(qxJson, null, 2));
-              console.log("高级版图标库 JSON 已更新！");
+              console.log("高级版图标库 JSON 已生成！");
           })();
           EOF
           node process.js
@@ -130,5 +135,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add qx-icons/
-          git commit -m "fix: 修复日本等白底国旗融入背景问题（强制白底+内收缩描边）" || echo "No changes to commit"
+          git commit -m "feat: 升级至灰白色兜底的 iOS 拟态质感国旗图标" || echo "No changes to commit"
           git push
