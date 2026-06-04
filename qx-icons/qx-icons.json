@@ -1,6 +1,6 @@
 {
-  "name": "Liquid Glass Icons",
-  "description": "iOS 26 Liquid Glass 风格：#F2F2F7 苹果灰底色，极细通透边框",
+  "name": "iOS 26 Liquid Glass Flags",
+  "description": "适配 #feffff 背景的液态玻璃国旗图标库",
   "icons": [
     {
       "name": "ad",
