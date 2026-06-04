@@ -76,9 +76,9 @@ jobs:
                           </svg>
                       `);
 
-                      // 采用 ChatGPT 建议的苹果系统灰底色：#F2F2F7
+                      // 将底色更改为超浅灰：#F5F5F5
                       const roundedFlag = await sharp(resizedBuffer)
-                          .flatten({ background: '#F2F2F7' }) 
+                          .flatten({ background: '#F5F5F5' }) 
                           .composite([
                               { input: maskSvg, blend: 'dest-in' },
                               { input: borderSvg, blend: 'over' }
@@ -108,7 +108,7 @@ jobs:
                           url: `${repoUrlBase}/${name}.png`
                       });
 
-                      console.log(`已应用 iOS 26 Liquid Glass 风格: ${name}.png`);
+                      console.log(`已应用超浅灰底色: ${name}.png`);
                   } catch (e) {
                       console.error(`处理 ${name} 失败:`, e);
                   }
@@ -116,7 +116,7 @@ jobs:
 
               const qxJson = {
                   name: "Liquid Glass Icons",
-                  description: "iOS 26 Liquid Glass 风格：#F2F2F7 苹果灰底色，极细通透边框",
+                  description: "iOS 26 Liquid Glass 风格：#F5F5F5 超浅灰底色，极细通透边框",
                   icons: iconList
               };
 
@@ -131,5 +131,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add qx-icons/
-          git commit -m "style: 更新为 iOS 26 Liquid Glass 风格 (#F2F2F7 底色 + 官方透明边框)" || echo "No changes to commit"
+          git commit -m "style: 更新底色为 #F5F5F5 超浅灰" || echo "No changes to commit"
           git push
