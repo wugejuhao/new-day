@@ -1,0 +1,490 @@
+# Clash Verge Configuration - mihomo Latest Syntax
+# Updated: 2026-06-06
+# 快速稳定优化版本 - 已修复节点连接问题
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+allow-lan: false
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+keep-alive-interval: 30
+external-controller: 127.0.0.1:9090
+external-ui: ui
+
+# ========== 代理订阅 ==========
+proxy-providers:
+  JMS:
+    type: http
+    url: https://jjsubmarines.com/members/getsub.php?service=1323149&id=9d42fe99-4719-4a7d-97c2-e52ed494e5b2&usedomains=1
+    interval: 300
+    path: ./providers/jms.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: http://cp.cloudflare.com/
+      timeout: 5000
+
+  自建US:
+    type: http
+    url: https://door.onijia.net:2096/subb/hkmysa83889kbhi5
+    interval: 300
+    path: ./providers/zijian-us.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: http://cp.cloudflare.com/
+      timeout: 5000
+
+# ========== 代理组 ==========
+proxy-groups:
+  # 基础选择组
+  - name: 🚀 手动选择
+    type: select
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Rocket.png
+
+  - name: 🌍 全球优选
+    type: url-test
+    use:
+      - JMS
+      - 自建US
+    url: http://cp.cloudflare.com/
+    interval: 300
+    tolerance: 100
+    timeout: 5000
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Global.png
+
+  - name: 🎯 自动选择
+    type: fallback
+    use:
+      - JMS
+      - 自建US
+    url: http://cp.cloudflare.com/
+    interval: 300
+    timeout: 5000
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
+
+  # 流媒体和服务
+  - name: 🎬 Netflix
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png
+
+  - name: 🎥 Disney+
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Disney.png
+
+  - name: 📺 HBO
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/HBO.png
+
+  - name: 🍎 Apple TV+
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/AppleTV.png
+
+  - name: 🎬 Prime Video
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PrimeVideo.png
+
+  - name: 📹 Hulu
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Hulu.png
+
+  - name: 🌸 动画疯
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Bahamut.png
+
+  - name: 🛒 Etsy
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Shopping.png
+
+  - name: 🎵 TikTok
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png
+
+  - name: 🛍️ TikTok Shop
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Shopping.png
+
+  - name: 🛒 Amazon
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Amazon.png
+
+  - name: 🤖 ChatGPT
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/ChatGPT.png
+
+  - name: ✨ Gemini
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Gemini.png
+
+  - name: 🧠 其他AI
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Bot.png
+
+  - name: 🪟 Microsoft
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
+
+  - name: ☁️ OneDrive
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/OneDrive.png
+
+  - name: 🍎 Apple
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
+
+  - name: 📺 YouTube
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png
+
+  - name: 🔍 Google
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
+
+  - name: 👤 Facebook
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Facebook.png
+
+  - name: 🐦 Twitter/X
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Twitter.png
+
+  - name: 💬 Telegram
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png
+
+  - name: ✂️ CapCut
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/CapCut.png
+
+  - name: 🌐 国际域名
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Global.png
+
+  - name: 🇨🇳 中国直连
+    type: select
+    proxies:
+      - DIRECT
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/China.png
+
+  - name: 🛡️ 漏网之鱼
+    type: select
+    proxies:
+      - 🌍 全球优选
+      - 🎯 自动选择
+      - 🚀 手动选择
+    use:
+      - JMS
+      - 自建US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+
+# ========== DNS配置 ==========
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+    - 8.8.4.4
+  fallback:
+    - tcp://1.1.1.1:53
+    - tcp://8.8.8.8:53
+  fallback-filter:
+    geoip: true
+    geoipcode: CN
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+    domain:
+      - +.google.com
+      - +.facebook.com
+
+# ========== 规则 ==========
+rules:
+  # 特定IP直连
+  - IP-CIDR,65.181.176.232/32,DIRECT
+
+  # Netflix
+  - DOMAIN-SUFFIX,netflix.com,🎬 Netflix
+  - DOMAIN-SUFFIX,nflximg.net,🎬 Netflix
+  - DOMAIN-SUFFIX,nflxvideo.net,🎬 Netflix
+  - DOMAIN-SUFFIX,nflxext.com,🎬 Netflix
+
+  # Disney+
+  - DOMAIN-SUFFIX,disneyplus.com,🎥 Disney+
+  - DOMAIN-SUFFIX,disney.com,🎥 Disney+
+  - DOMAIN-SUFFIX,dssott.com,🎥 Disney+
+
+  # HBO Max
+  - DOMAIN-SUFFIX,hbo.com,📺 HBO
+  - DOMAIN-SUFFIX,hbogo.com,📺 HBO
+  - DOMAIN-SUFFIX,hbonow.com,📺 HBO
+  - DOMAIN-SUFFIX,max.com,📺 HBO
+  - DOMAIN-SUFFIX,warnermediaservices.com,📺 HBO
+
+  # Apple TV+
+  - DOMAIN-SUFFIX,tv.apple.com,🍎 Apple TV+
+  - DOMAIN-KEYWORD,apple-tv,🍎 Apple TV+
+
+  # Prime Video
+  - DOMAIN-SUFFIX,primevideo.com,🎬 Prime Video
+  - DOMAIN-SUFFIX,pv-cdn.net,🎬 Prime Video
+
+  # Hulu
+  - DOMAIN-SUFFIX,hulu.com,📹 Hulu
+  - DOMAIN-SUFFIX,huluim.com,📹 Hulu
+
+  # Bahamut 动画疯
+  - DOMAIN-SUFFIX,bahamut.akamaized.net,🌸 动画疯
+  - DOMAIN-SUFFIX,gamer.com.tw,🌸 动画疯
+
+  # Etsy
+  - DOMAIN-SUFFIX,etsy.com,🛒 Etsy
+
+  # TikTok
+  - DOMAIN-SUFFIX,tiktok.com,🎵 TikTok
+  - DOMAIN-SUFFIX,tiktokv.com,🎵 TikTok
+  - DOMAIN-SUFFIX,tiktokcdn.com,🎵 TikTok
+
+  # TikTok Shop
+  - DOMAIN-SUFFIX,tiktokshop.com,🛍️ TikTok Shop
+
+  # Amazon
+  - DOMAIN-SUFFIX,amazon.com,🛒 Amazon
+  - DOMAIN-SUFFIX,amazon.co.uk,🛒 Amazon
+  - DOMAIN-SUFFIX,amazon.de,🛒 Amazon
+
+  # ChatGPT
+  - DOMAIN-SUFFIX,openai.com,🤖 ChatGPT
+  - DOMAIN-SUFFIX,chatgpt.com,🤖 ChatGPT
+
+  # Gemini
+  - DOMAIN-SUFFIX,gemini.google.com,✨ Gemini
+
+  # 其他AI
+  - DOMAIN-SUFFIX,claude.ai,🧠 其他AI
+  - DOMAIN-SUFFIX,copilot.microsoft.com,🧠 其他AI
+  - DOMAIN-SUFFIX,huggingface.co,🧠 其他AI
+
+  # Microsoft
+  - DOMAIN-SUFFIX,microsoft.com,🪟 Microsoft
+  - DOMAIN-SUFFIX,bing.com,🪟 Microsoft
+
+  # OneDrive
+  - DOMAIN-SUFFIX,onedrive.com,☁️ OneDrive
+
+  # Apple (不包括tv.apple.com 避免冲突)
+  - DOMAIN-SUFFIX,icloud.com,🍎 Apple
+  - DOMAIN-SUFFIX,mzstatic.com,🍎 Apple
+
+  # YouTube
+  - DOMAIN-SUFFIX,youtube.com,📺 YouTube
+  - DOMAIN-SUFFIX,youtu.be,📺 YouTube
+
+  # Google
+  - DOMAIN-SUFFIX,google.com,🔍 Google
+  - DOMAIN-SUFFIX,gstatic.com,🔍 Google
+
+  # Facebook
+  - DOMAIN-SUFFIX,facebook.com,👤 Facebook
+  - DOMAIN-SUFFIX,fb.com,👤 Facebook
+
+  # Twitter/X
+  - DOMAIN-SUFFIX,twitter.com,🐦 Twitter/X
+  - DOMAIN-SUFFIX,x.com,🐦 Twitter/X
+
+  # Telegram
+  - DOMAIN-SUFFIX,telegram.org,💬 Telegram
+  - DOMAIN-SUFFIX,telegram.me,💬 Telegram
+
+  # CapCut
+  - DOMAIN-SUFFIX,capcut.com,✂️ CapCut
+
+  # 中国IP和域名 (必须在最后其他规则之前)
+  - GEOIP,CN,🇨🇳 中国直连
+
+  # 最后一条 - 漏网之鱼
+  - MATCH,🛡️ 漏网之鱼
+
+# ========== 更新配置 ==========
+auto-update-interval: 300
