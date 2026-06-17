@@ -1,0 +1,26 @@
+# > Honor of Kings (王者荣耀国际服) 分流规则
+# > Created based on Quantumult X packet capture
+# > 策略名称请根据个人配置自行替换，如 PROXY / DIRECT
+
+# --- 核心游戏/活动/社区 API ---
+HOST-SUFFIX, honorofkings.com, PROXY
+HOST-SUFFIX, intlgame.com, PROXY
+HOST-SUFFIX, hok5v5.com, PROXY
+
+# --- 腾讯国际业务与游戏服务 (Level Infinite) ---
+HOST-SUFFIX, playerinfinite.com, PROXY
+
+# --- 游戏资源更新与静态文件分发 ---
+HOST-SUFFIX, sgameglobal.com, PROXY
+HOST-SUFFIX, tdos.vip, PROXY
+HOST-SUFFIX, wetest.net, PROXY
+
+# --- 游戏日志、遥测与数据统计 ---
+# 如果不需要给此类请求走代理，也可以将下面的 PROXY 改为 REJECT 以屏蔽追踪
+HOST-SUFFIX, byteoversea.com, PROXY
+HOST, sg.galileotelemetry.tencent.com, PROXY
+HOST, oalstv-inapps.appsflyersdk.com, PROXY
+
+# --- 相关通信 IP (对局/服务节点) ---
+IP-CIDR, 43.132.55.55/32, PROXY, no-resolve
+IP-CIDR, 30.25.66.34/32, PROXY, no-resolve
