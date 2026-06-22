@@ -1,5 +1,9 @@
 # ===== 王者荣耀国际服 HOK Global 低延迟直连 =====
 
+# > 王者荣耀/腾讯游戏 HTTPDNS 直连规则
+ip-cidr, 43.132.55.55/32, direct
+ip-cidr, 43.132.55.0/24, direct
+
 # 游戏实时服务器（最关键）
 HOST-SUFFIX,sgameglobal.com,DIRECT
 HOST-SUFFIX,sgameglobal.com.acc.edgekey.net,DIRECT
