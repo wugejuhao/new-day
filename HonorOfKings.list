@@ -1,23 +1,4 @@
 # ===== 王者荣耀国际服 HOK Global 低延迟直连 =====
-# > 腾讯云 / Level Infinite 国际服核心战斗 IP 段 (全球 ASN 直连兜底)
-
-# 核心出海/国际云 (绝对主力，覆盖港澳台新日欧美)
-ip-asn, 132203, direct
-
-# 深圳腾讯总部/主干网 (含大量调度节点)
-ip-asn, 45090, direct
-
-# 北京腾讯云/边缘云加速节点
-ip-asn, 133478, direct
-
-# 腾讯云其他全球区域备用 ASN (防绕路兜底)
-ip-asn, 132525, direct
-ip-asn, 132524, direct
-ip-asn, 136594, direct
-ip-asn, 55990, direct
-ip-asn, 131336, direct
-ip-asn, 140348, direct
-ip-asn, 132201, direct
 
 # > 王者荣耀/腾讯游戏 HTTPDNS 直连规则
 ip-cidr, 43.132.55.55/32, direct
