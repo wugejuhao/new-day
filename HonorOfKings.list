@@ -1,26 +1,39 @@
-# > Honor of Kings (王者荣耀国际服) 分流规则
-# > Created based on Quantumult X packet capture
-# > 策略名称请根据个人配置自行替换，如 PROXY / DIRECT
+# ===== 王者荣耀国际服 HOK Global 低延迟直连 =====
 
-# --- 核心游戏/活动/社区 API ---
-HOST-SUFFIX, honorofkings.com, PROXY
-HOST-SUFFIX, intlgame.com, PROXY
-HOST-SUFFIX, hok5v5.com, PROXY
+# 游戏实时服务器（最关键）
+HOST-SUFFIX,sgameglobal.com,DIRECT
+HOST-SUFFIX,sgameglobal.com.acc.edgekey.net,DIRECT
 
-# --- 腾讯国际业务与游戏服务 (Level Infinite) ---
-HOST-SUFFIX, playerinfinite.com, PROXY
+# 各地区战斗服务器（保险覆盖）
+HOST,srgprod.na.sgameglobal.com,DIRECT
+HOST,srgprod.ap.sgameglobal.com,DIRECT
+HOST,srgprod.sg.sgameglobal.com,DIRECT
+HOST,srgprod.jp.sgameglobal.com,DIRECT
+HOST,srgprod.kr.sgameglobal.com,DIRECT
+HOST,srgprod.eu.sgameglobal.com,DIRECT
+HOST,srgprod.me.sgameglobal.com,DIRECT
 
-# --- 游戏资源更新与静态文件分发 ---
-HOST-SUFFIX, sgameglobal.com, PROXY
-HOST-SUFFIX, tdos.vip, PROXY
-HOST-SUFFIX, wetest.net, PROXY
+# 腾讯海外游戏服务
+HOST-SUFFIX,tencentgames.com,DIRECT
+HOST-SUFFIX,proximabeta.com,DIRECT
+HOST-SUFFIX,levelinfinite.com,DIRECT
 
-# --- 游戏日志、遥测与数据统计 ---
-# 如果不需要给此类请求走代理，也可以将下面的 PROXY 改为 REJECT 以屏蔽追踪
-HOST-SUFFIX, byteoversea.com, PROXY
-HOST, sg.galileotelemetry.tencent.com, PROXY
-HOST, oalstv-inapps.appsflyersdk.com, PROXY
+# 腾讯游戏云/调度
+HOST-SUFFIX,qcloud.com,DIRECT
+HOST-SUFFIX,myqcloud.com,DIRECT
+HOST-SUFFIX,qcloudcdn.com,DIRECT
 
-# --- 相关通信 IP (对局/服务节点) ---
-IP-CIDR, 43.132.55.55/32, PROXY, no-resolve
-IP-CIDR, 30.25.66.34/32, PROXY, no-resolve
+# 游戏更新、资源、CDN
+HOST-SUFFIX,akamaized.net,DIRECT
+HOST-SUFFIX,edgekey.net,DIRECT
+
+# 腾讯游戏网络检测
+HOST-SUFFIX,qq.com,DIRECT
+HOST-SUFFIX,wegame.com,DIRECT
+
+# HOK 国际服相关
+HOST-SUFFIX,honorofkings.com,DIRECT
+HOST-SUFFIX,hokglobal.com,DIRECT
+
+# UDP 游戏数据端口（如果你的 Quantumult X 支持）
+# 例如 5100/6657 端口的流量会命中上面的 sgameglobal 域名规则
