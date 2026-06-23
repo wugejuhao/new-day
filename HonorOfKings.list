@@ -5,7 +5,7 @@ ip-cidr, 43.132.55.55/32, direct
 ip-cidr, 43.132.55.0/24, direct
 
 # 游戏实时服务器（最关键）
-HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
+# HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-SUFFIX, sgameglobal.com, DIRECT
 
 # Zenlayer (ZGA) 动态战斗节点直连覆盖
