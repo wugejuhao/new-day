@@ -6,11 +6,9 @@ ip-cidr, 43.132.55.0/24, direct
 
 # 游戏实时服务器（最关键）
 HOST-SUFFIX,sgameglobal.com,DIRECT
-HOST-SUFFIX,sgameglobal.com.acc.edgekey.net,DIRECT
 
 # 各地区战斗服务器（保险覆盖）
-HOST-SUFFIX,sgameglobal.com,DIRECT
-HOST-SUFFIX,sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-KEYWORD, sgameglobal.com, DIRECT
 
 # 腾讯海外游戏服务
 HOST-SUFFIX,tencentgames.com,DIRECT
