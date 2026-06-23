@@ -9,8 +9,8 @@ ip-cidr, 43.132.55.0/24, direct
 HOST-SUFFIX, sgameglobal.com, DIRECT
 
 # Zenlayer (ZGA) 动态战斗节点直连覆盖
-HOST-SUFFIX, globalconnetct.com, DIRECT
-HOST-KEYWORD, globalconnetct, DIRECT
+#HOST-SUFFIX, globalconnetct.com, DIRECT
+#HOST-KEYWORD, globalconnetct, DIRECT
 
 
 
