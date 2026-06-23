@@ -8,7 +8,7 @@ ip-cidr, 43.132.55.0/24, direct
 HOST-SUFFIX,sgameglobal.com,DIRECT
 
 # 各地区战斗服务器（保险覆盖）
-HOST-KEYWORD, sgameglobal.com, DIRECT
+HOST-KEYWORD,sgameglobal.com,DIRECT
 
 # 腾讯海外游戏服务
 HOST-SUFFIX,tencentgames.com,DIRECT
