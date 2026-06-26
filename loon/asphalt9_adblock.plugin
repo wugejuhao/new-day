@@ -1,0 +1,27 @@
+#!name=狂野飙车 9 去广告 (Asphalt 9)
+#!desc=狂野飙车 9 纯净去广告规则，包含广告 API 欺骗与防断网。
+#!author=wugejuhao
+#!homepage=https://github.com/你的GitHub用户名/你的仓库名
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+#!date=2026-06
+
+[Rule]
+# > 强制放行 Gameloft 核心鉴权与数据湖 (防断网)
+# DOMAIN,gdid.datalake.gameloft.com,DIRECT
+# DOMAIN,etsv2.datalake.gameloft.com,DIRECT
+
+# > 第三方 App 广告服务 (底层直接丢弃，最省电)
+DOMAIN,odm.app-ads-services.com,REJECT
+
+[Rewrite]
+# > 游戏内广告 API 欺骗 (假装请求成功，防无限重试耗电)
+# Loon 中去掉了 "url " 关键字，直接在正则后跟 mock 动作即可
+^https?:\/\/a314\.gameloft\.com\/ reject-200
+^https?:\/\/201205igp\.gameloft\.com\/ reject-200
+^https?:\/\/l1-1\.anzu\.io\/ reject-dict
+^https?:\/\/logic\.anzuinfra\.com\/ reject-200
+^https?:\/\/events\.prod\.anzu-us\.com\/ reject-200
+
+[MITM]
+# > 对应重写的解密域名
+hostname = a314.gameloft.com, 201205igp.gameloft.com, l1-1.anzu.io, logic.anzuinfra.com, events.prod.anzu-us.com
