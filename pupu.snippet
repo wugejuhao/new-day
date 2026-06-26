@@ -1,0 +1,10 @@
+#!name=朴朴超市去广告
+#!desc=去除朴朴开屏及部分横幅广告
+#!author=wugejuhao
+
+[rewrite_local]
+# 匹配朴朴的广告或启动页 API，并重定向至你仓库中的远程修正脚本
+^https?:\/\/.*(pupuapi|pupumall)\.com\/.*(splash|ad|banner).* url script-response-body https://raw.githubusercontent.com/wugejuhao/new-day/main/pupu_ad.js
+
+[mitm]
+hostname = *.pupuapi.com, *.pupumall.com
