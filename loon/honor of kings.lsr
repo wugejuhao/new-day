@@ -1,0 +1,40 @@
+# ===== 王者荣耀国际服 HOK Global 低延迟直连 (Loon) =====
+
+# > 王者荣耀/腾讯游戏 HTTPDNS 直连规则 (建议加上 no-resolve 避免走代理的 DNS 解析)
+IP-CIDR,43.132.55.55/32,DIRECT,no-resolve
+IP-CIDR,43.132.55.0/24,DIRECT,no-resolve
+
+# > 游戏实时服务器（最关键）
+DOMAIN-SUFFIX,sgameglobal.com.cdn.cloudflare.net,DIRECT
+DOMAIN-SUFFIX,sgameglobal.com,DIRECT
+
+# > Zenlayer (ZGA) 动态战斗节点直连覆盖
+DOMAIN-SUFFIX,globalconnect.com,DIRECT
+DOMAIN-KEYWORD,globalconnect,DIRECT
+# 兼容可能的官方域名拼写错误
+DOMAIN-SUFFIX,globalconnetct.com,DIRECT
+DOMAIN-KEYWORD,globalconnetct,DIRECT
+
+# > 腾讯海外游戏服务
+DOMAIN-SUFFIX,tencentgames.com,DIRECT
+DOMAIN-SUFFIX,proximabeta.com,DIRECT
+DOMAIN-SUFFIX,levelinfinite.com,DIRECT
+
+# > 腾讯游戏云/调度
+DOMAIN-SUFFIX,qcloud.com,DIRECT
+DOMAIN-SUFFIX,myqcloud.com,DIRECT
+DOMAIN-SUFFIX,qcloudcdn.com,DIRECT
+
+# > 游戏更新、资源、CDN (如果有更新困难可以考虑把这两个改为 PROXY)
+DOMAIN-SUFFIX,akamaized.net,DIRECT
+DOMAIN-SUFFIX,edgekey.net,DIRECT
+
+# > 腾讯游戏网络检测
+DOMAIN-SUFFIX,qq.com,DIRECT
+DOMAIN-SUFFIX,wegame.com,DIRECT
+
+# > HOK 国际服相关
+DOMAIN-SUFFIX,honorofkings.com,DIRECT
+DOMAIN-SUFFIX,hokglobal.com,DIRECT
+
+
