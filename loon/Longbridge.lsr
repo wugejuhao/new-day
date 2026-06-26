@@ -1,0 +1,17 @@
+# ===== Longbridge 长桥证券 (Loon) =====
+
+# > 关键字匹配
+DOMAIN-KEYWORD,longbridge,PROXY
+DOMAIN-KEYWORD,long-bridge,PROXY
+
+# > 域名后缀匹配
+DOMAIN-SUFFIX,longbridge.hk,PROXY
+DOMAIN-SUFFIX,longbridge.app,PROXY
+DOMAIN-SUFFIX,longbridge.com,PROXY
+DOMAIN-SUFFIX,longbridge.finance,PROXY
+DOMAIN-SUFFIX,longbridgeapp.com,PROXY
+DOMAIN-SUFFIX,longbridge-ny.com,PROXY
+DOMAIN-SUFFIX,longbridges.com,PROXY
+DOMAIN-SUFFIX,lbkrs.com,PROXY
+DOMAIN-SUFFIX,lbctrl.com,PROXY
+DOMAIN-SUFFIX,pbkrs.com,PROXY
