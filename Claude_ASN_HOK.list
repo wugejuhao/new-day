@@ -1,0 +1,46 @@
+# ============================================================
+# Honor of Kings Global - Quantumult X 规则 [含ASN版]
+# ⚠️ 上次用这个方向触发过一次地区检测失败，原因未100%排除
+# 使用前提：①②两条排除规则必须存在且在最前面
+#          ②你的"分流匹配优化"开关必须是开启状态
+#          （这个我还没收到你的确认）
+# ============================================================
+
+# ---------- ① 风险域名排除：必须放最前面 ----------
+HOST-SUFFIX, gate-prod.cloud-control.sgameglobal.com, PROXY
+HOST-SUFFIX, lbsserver.sgameglobal.com, PROXY
+
+# ---------- ② 核心游戏域名 ----------
+HOST-SUFFIX, honorofkings.com, DIRECT
+HOST-SUFFIX, hokglobal.com, DIRECT
+HOST-SUFFIX, hok5v5.com, DIRECT
+HOST-SUFFIX, sgameglobal.com, DIRECT
+HOST-SUFFIX, intlgame.cn, DIRECT
+HOST-SUFFIX, playerinfinite.com, DIRECT
+HOST-SUFFIX, globalconnetct.com, DIRECT
+
+# ---------- ③ GroMe 调度 / CDN 漂移节点 ----------
+HOST-WILDCARD, gromelink-link-*.eo.dnse3.com, DIRECT
+HOST-WILDCARD, gromelink-link-*.sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
+
+# ---------- ④ 语音 / SDK / 反作弊 / 下载 / 遥测 ----------
+HOST-SUFFIX, gcloudcs.com, DIRECT
+HOST-SUFFIX, gcloudsdk.com, DIRECT
+HOST-SUFFIX, anticheatexpert.com, DIRECT
+HOST-SUFFIX, wetest.net, DIRECT
+HOST-SUFFIX, vasdgame.com, DIRECT
+HOST-SUFFIX, tdos.vip, DIRECT
+HOST-SUFFIX, gamelet.games, DIRECT
+HOST-SUFFIX, listdl.com, DIRECT
+HOST-SUFFIX, singaporepaya.com, DIRECT
+HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
+HOST-SUFFIX, galileotelemetry.tencent.com, DIRECT
+
+# ---------- ⑤ 腾讯云全段直连：兜住所有轮换的对战服务器IP ----------
+# 代价：同手机上其他用腾讯云国际节点的App也会被强制直连
+IP-ASN, 132203, DIRECT
+
+# ---------- ⑥ 非腾讯云稳定IP，ASN兜不住，单独列 ----------
+IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
+IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
