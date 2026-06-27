@@ -25,9 +25,12 @@ HOST-SUFFIX, singaporepaya.com, DIRECT
 HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
 HOST-SUFFIX, galileotelemetry.tencent.com, DIRECT
 
-# ---------- ⑤ 稳定IP（5个，跨多份log反复出现，可放心直连）----------
-IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
-IP-CIDR, 162.62.125.251/32, DIRECT, no-resolve
-IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
+# ---------- ⑤ 稳定IP（7个，跨5份log反复出现，可放心直连）----------
+IP-CIDR, 43.132.55.55/32, DIRECT, no-resolve     # 135次/5份log，edgeonedy1.com相关
+IP-CIDR, 43.132.138.111/32, DIRECT, no-resolve   # 14次/4份log
 IP-CIDR, 43.153.233.59/32, DIRECT, no-resolve
 IP-CIDR, 43.175.103.172/32, DIRECT, no-resolve
+IP-CIDR, 162.62.125.251/32, DIRECT, no-resolve
+IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
+IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
+
