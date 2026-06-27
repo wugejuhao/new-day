@@ -1,42 +1,34 @@
-# ===== 王者荣耀国际服 HOK Global 低延迟直连 =====
+###############
+# Honor of Kings Global
+###############
 
-# > 王者荣耀/腾讯游戏 HTTPDNS 直连规则
-ip-cidr, 43.132.55.55/32, direct
-ip-cidr, 43.132.55.0/24, direct
+# Battle Server
+HOST-SUFFIX,sgameglobal.com,DIRECT
+HOST-KEYWORD,sgame,DIRECT
 
-# 游戏实时服务器（最关键）
-HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-SUFFIX, sgameglobal.com, DIRECT
+# Honor of Kings
+HOST-SUFFIX,honorofkings.com,DIRECT
+HOST-SUFFIX,hokglobal.com,DIRECT
 
-# Zenlayer (ZGA) 动态战斗节点直连覆盖
-HOST-SUFFIX, globalconnetct.com, DIRECT
-HOST-KEYWORD, globalconnetct, DIRECT
-
-
-
-
-
-# 腾讯海外游戏服务
-HOST-SUFFIX,tencentgames.com,DIRECT
-HOST-SUFFIX,proximabeta.com,DIRECT
+# Level Infinite
 HOST-SUFFIX,levelinfinite.com,DIRECT
+HOST-SUFFIX,proximabeta.com,DIRECT
 
-# 腾讯游戏云/调度
+# Tencent Games
+HOST-SUFFIX,tencentgames.com,DIRECT
+HOST-SUFFIX,igamecj.com,DIRECT
+
+# Tencent Cloud
 HOST-SUFFIX,qcloud.com,DIRECT
 HOST-SUFFIX,myqcloud.com,DIRECT
 HOST-SUFFIX,qcloudcdn.com,DIRECT
 
-# 游戏更新、资源、CDN
-HOST-SUFFIX,akamaized.net,DIRECT
-HOST-SUFFIX,edgekey.net,DIRECT
+# Global Scheduler（兼容旧节点）
+HOST-SUFFIX,globalconnect.com,DIRECT
+HOST-KEYWORD,globalconnect,DIRECT
 
-# 腾讯游戏网络检测
-HOST-SUFFIX,qq.com,DIRECT
-HOST-SUFFIX,wegame.com,DIRECT
+# Tencent DNS
+HOST-SUFFIX,dnspod.com,DIRECT
 
-# HOK 国际服相关
-HOST-SUFFIX,honorofkings.com,DIRECT
-HOST-SUFFIX,hokglobal.com,DIRECT
-
-# UDP 游戏数据端口（如果你的 Quantumult X 支持）
-# 例如 5100/6657 端口的流量会命中上面的 sgameglobal 域名规则
+# Battle IP（已知）
+IP-CIDR,43.132.55.0/24,DIRECT,no-resolve
