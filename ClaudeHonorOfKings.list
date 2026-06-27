@@ -1,4 +1,4 @@
-# ---------- 核心游戏域名 ----------
+# ---------- ② 核心游戏域名 ----------
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, hokglobal.com, DIRECT
 HOST-SUFFIX, hok5v5.com, DIRECT
@@ -7,12 +7,12 @@ HOST-SUFFIX, intlgame.cn, DIRECT
 HOST-SUFFIX, playerinfinite.com, DIRECT
 HOST-SUFFIX, globalconnetct.com, DIRECT
 
-# ---------- GroMe 调度 / CDN 漂移节点（窄匹配，不影响其他App）----------
+# ---------- ③ GroMe 调度 / CDN 漂移节点（窄匹配）----------
 HOST-WILDCARD, gromelink-link-*.eo.dnse3.com, DIRECT
 HOST-WILDCARD, gromelink-link-*.sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
 
-# ---------- 语音 / SDK / 反作弊 / 下载 ----------
+# ---------- ④ 语音 / SDK / 反作弊 / 下载 / 遥测 ----------
 HOST-SUFFIX, gcloudcs.com, DIRECT
 HOST-SUFFIX, gcloudsdk.com, DIRECT
 HOST-SUFFIX, anticheatexpert.com, DIRECT
@@ -23,18 +23,11 @@ HOST-SUFFIX, gamelet.games, DIRECT
 HOST-SUFFIX, listdl.com, DIRECT
 HOST-SUFFIX, singaporepaya.com, DIRECT
 HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
-# ↑ 注意只写了这个具体子域，没写整个 iegcom.com——
-#   那个域下面还挂着 hok-gcloudctrl.iegcom.com（疑似区域控制），
-#   写整段会把它也误放直连
+HOST-SUFFIX, galileotelemetry.tencent.com, DIRECT
 
-# ---------- 对战服务器 UDP 直连：log 实测高频 IP（/32精确匹配）----------
-IP-CIDR, 150.109.23.39/32, DIRECT, no-resolve
-IP-CIDR, 160.32.126.110/32, DIRECT, no-resolve
+# ---------- ⑤ 稳定IP（5个，跨多份log反复出现，可放心直连）----------
 IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
 IP-CIDR, 162.62.125.251/32, DIRECT, no-resolve
 IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
-IP-CIDR, 112.148.89.71/32, DIRECT, no-resolve
-IP-CIDR, 208.173.89.71/32, DIRECT, no-resolve
-IP-CIDR, 124.156.197.182/32, DIRECT, no-resolve
-IP-CIDR, 162.62.221.120/32, DIRECT, no-resolve
+IP-CIDR, 43.153.233.59/32, DIRECT, no-resolve
 IP-CIDR, 43.175.103.172/32, DIRECT, no-resolve
