@@ -7,8 +7,8 @@
 # ============================================================
 
 # ---------- ① 风险域名排除：必须放最前面 ----------
-HOST-SUFFIX, gate-prod.cloud-control.sgameglobal.com, PROXY
-HOST-SUFFIX, lbsserver.sgameglobal.com, PROXY
+HOST-SUFFIX, gate-prod.cloud-control.sgameglobal.com, FINAL
+HOST-SUFFIX, lbsserver.sgameglobal.com, FINAL
 
 # ---------- ② 核心游戏域名 ----------
 HOST-SUFFIX, honorofkings.com, DIRECT
