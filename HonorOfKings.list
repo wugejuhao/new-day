@@ -3,8 +3,10 @@
 ###############
 
 # Battle Server
-HOST-SUFFIX,sgameglobal.com,DIRECT
-HOST-KEYWORD,sgame,DIRECT
+HOST-SUFFIX, sgameglobal.com, DIRECT
+HOST-KEYWORD, sgame, DIRECT
+HOST-SUFFIX, hokglobal.com, DIRECT
+HOST-SUFFIX, honorofkings.com, DIRECT
 
 # Honor of Kings
 HOST-SUFFIX,honorofkings.com,DIRECT
@@ -14,14 +16,24 @@ HOST-SUFFIX,hokglobal.com,DIRECT
 HOST-SUFFIX,levelinfinite.com,DIRECT
 HOST-SUFFIX,proximabeta.com,DIRECT
 
+# 游戏动态系统
+HOST-KEYWORD, gromelink, DIRECT
+HOST-SUFFIX, singaporepaya.com, DIRECT
+HOST-SUFFIX, tdos.vip, DIRECT
+HOST-SUFFIX, gamelet, DIRECT
+HOST-SUFFIX, broker.sgameglobal.com, DIRECT
+
 # Tencent Games
-HOST-SUFFIX,tencentgames.com,DIRECT
-HOST-SUFFIX,igamecj.com,DIRECT
+HOST-SUFFIX, levelinfinite.com, DIRECT
+HOST-SUFFIX, proximabeta.com, DIRECT
+HOST-SUFFIX, tencentgames.com, DIRECT
+HOST-SUFFIX, igamecj.com, DIRECT
 
 # Tencent Cloud
-HOST-SUFFIX,qcloud.com,DIRECT
-HOST-SUFFIX,myqcloud.com,DIRECT
-HOST-SUFFIX,qcloudcdn.com,DIRECT
+HOST-SUFFIX, qcloud.com, DIRECT
+HOST-SUFFIX, myqcloud.com, DIRECT
+HOST-SUFFIX, qcloudcdn.com, DIRECT
+HOST-SUFFIX, dnspod.com, DIRECT
 
 # Global Scheduler（兼容旧节点）
 HOST-SUFFIX,globalconnect.com,DIRECT
@@ -31,4 +43,5 @@ HOST-KEYWORD,globalconnect,DIRECT
 HOST-SUFFIX,dnspod.com,DIRECT
 
 # Battle IP（已知）
-IP-CIDR,43.132.55.0/24,DIRECT,no-resolve
+IP-CIDR, 43.132.55.0/24, DIRECT,no-resolve
+IP-CIDR, 43.132.55.55/32, DIRECT,no-resolve
