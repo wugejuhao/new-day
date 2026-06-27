@@ -1,9 +1,4 @@
-# ============================================================
-# Honor of Kings Global - Quantumult X 完整分流规则（终版）
-# 基于两份真实 log 交叉验证（18:42 场 + 20:41 场，对战IP完全不同）
-# ============================================================
-
-# ---------- ② 核心游戏域名 ----------
+# ---------- 核心游戏域名 ----------
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, hokglobal.com, DIRECT
 HOST-SUFFIX, hok5v5.com, DIRECT
@@ -12,12 +7,12 @@ HOST-SUFFIX, intlgame.cn, DIRECT
 HOST-SUFFIX, playerinfinite.com, DIRECT
 HOST-SUFFIX, globalconnetct.com, DIRECT
 
-# ---------- ③ GroMe 调度 / CDN 漂移节点（窄匹配）----------
+# ---------- GroMe 调度 / CDN 漂移节点（窄匹配，不影响其他App）----------
 HOST-WILDCARD, gromelink-link-*.eo.dnse3.com, DIRECT
 HOST-WILDCARD, gromelink-link-*.sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
 
-# ---------- ④ 语音 / SDK / 反作弊 / 下载 ----------
+# ---------- 语音 / SDK / 反作弊 / 下载 ----------
 HOST-SUFFIX, gcloudcs.com, DIRECT
 HOST-SUFFIX, gcloudsdk.com, DIRECT
 HOST-SUFFIX, anticheatexpert.com, DIRECT
@@ -28,28 +23,18 @@ HOST-SUFFIX, gamelet.games, DIRECT
 HOST-SUFFIX, listdl.com, DIRECT
 HOST-SUFFIX, singaporepaya.com, DIRECT
 HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
+# ↑ 注意只写了这个具体子域，没写整个 iegcom.com——
+#   那个域下面还挂着 hok-gcloudctrl.iegcom.com（疑似区域控制），
+#   写整段会把它也误放直连
 
-# ---------- ⑤ 非腾讯云的稳定测速 IP（两次log都出现，固定不变）----------
-# 这几个是 AWS / Google Cloud 的探测点，不在腾讯云 ASN 范围内，
-# 必须单独列出来，IP-ASN 那条不会覆盖它们：
-IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve    # Google Cloud
-IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve   # AWS
-IP-CIDR, 162.62.125.251/32, DIRECT, no-resolve  # 两次log均出现8次，稳定
-
-# ---------- ⑥ 腾讯云全段直连：解决对战服务器IP轮换问题 ----------
-# 核心结论：每场对局分配的battle relay IP都不一样
-# （log1: 150.109.23.39/160.32.126.110，log2: 43.134.94.237/160.32.50.110/43.153.233.59），
-# 但这些IP全部落在腾讯云国际段 ASN 132203 范围内。
-# 用 ASN 直连一次性覆盖，不管以后匹配到哪个新IP都不需要再改规则。
-#
-# 代价：同一台手机上如果有其他App也用腾讯云国际节点
-# （比如某些跨境电商、海外部署的腾讯云客户服务），
-# 那部分流量也会被强制直连，不会再走你的代理。
-# 大多数情况下这只是"少绕了一层代理"，不会导致功能损坏，
-# 除非那个App依赖代理伪装成某个特定地区的IP。
-IP-ASN, 132203, DIRECT
-# ↑ 如果之后还是偶尔出现新IP没被直连（比如换到了AWS/Google等
-#   非腾讯云节点），属于正常情况，60ms内可接受，无需找我改规则
-
-# ---------- ⑦ 低精度兜底，必须放最后 ----------
-HOST-KEYWORD, gromelink, DIRECT
+# ---------- 对战服务器 UDP 直连：log 实测高频 IP（/32精确匹配）----------
+IP-CIDR, 150.109.23.39/32, DIRECT, no-resolve
+IP-CIDR, 160.32.126.110/32, DIRECT, no-resolve
+IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
+IP-CIDR, 162.62.125.251/32, DIRECT, no-resolve
+IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
+IP-CIDR, 112.148.89.71/32, DIRECT, no-resolve
+IP-CIDR, 208.173.89.71/32, DIRECT, no-resolve
+IP-CIDR, 124.156.197.182/32, DIRECT, no-resolve
+IP-CIDR, 162.62.221.120/32, DIRECT, no-resolve
+IP-CIDR, 43.175.103.172/32, DIRECT, no-resolve
