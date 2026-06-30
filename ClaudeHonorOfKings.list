@@ -9,7 +9,7 @@ HOST-SUFFIX, globalconnetct.com, DIRECT
 
 # ---------- ③ GroMe 调度 / CDN 漂移节点（窄匹配）----------
 HOST-WILDCARD, gromelink-link-*.eo.dnse3.com, DIRECT
-HOST-WILDCARD, gromelink-link-*.sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
 
 # ---------- ④ 语音 / SDK / 反作弊 / 下载 / 遥测 ----------
