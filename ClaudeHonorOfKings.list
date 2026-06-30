@@ -33,4 +33,6 @@ IP-CIDR, 43.175.103.172/32, DIRECT, no-resolve
 IP-CIDR, 162.62.125.251/32, DIRECT, no-resolve
 IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
 IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
+IP-CIDR, 183.192.65.101/16, DIRECT, no-resolve
+IP-CIDR, 43.132.55.55/16, DIRECT, no-resolve
 
