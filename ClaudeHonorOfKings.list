@@ -1,5 +1,4 @@
 
-
 # ---------- ② 核心游戏域名 ----------
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, hokglobal.com, DIRECT
@@ -26,9 +25,14 @@ HOST-SUFFIX, singaporepaya.com, DIRECT
 HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
 HOST-SUFFIX, galileotelemetry.tencent.com, DIRECT
 
-# ---------- ⑤ 对战服务器 IP（6份log实证）----------
+# ---------- ⑤ 对战服务器 IP（全部6份log实证）----------
+IP-CIDR, 43.134.95.59/32, DIRECT, no-resolve
+IP-CIDR, 43.134.2.136/32, DIRECT, no-resolve
 IP-CIDR, 43.160.146.39/32, DIRECT, no-resolve
+IP-CIDR, 43.160.146.70/32, DIRECT, no-resolve
+IP-CIDR, 160.96.63.122/32, DIRECT, no-resolve
 IP-CIDR, 160.224.101.108/32, DIRECT, no-resolve
+IP-CIDR, 160.224.224.107/32, DIRECT, no-resolve
 IP-CIDR, 43.132.55.55/32, DIRECT, no-resolve
 IP-CIDR, 43.132.138.111/32, DIRECT, no-resolve
 IP-CIDR, 43.153.233.59/32, DIRECT, no-resolve
