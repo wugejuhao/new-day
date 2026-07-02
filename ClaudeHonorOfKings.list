@@ -1,6 +1,9 @@
 
-# ---------- ② 核心游戏域名 ----------
 HOST-SUFFIX, download.sgameglobal.com, FINAL
+HOST-SUFFIX, V2-down-gamelet.sgameglobal.com, FINAL
+
+# ---------- ② 核心游戏域名 ----------
+
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, hokglobal.com, DIRECT
 HOST-SUFFIX, hok5v5.com, DIRECT
