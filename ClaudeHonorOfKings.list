@@ -1,27 +1,76 @@
-# ---------- ① 阻断定位与上报 (致盲系统，强迫它按直连延迟匹配) ----------
-# 拒绝 LBS 定位，防止系统发现你在用荷兰代理
+# ==========================================
+# 👑 王者荣耀国际服 (HoK Global) 终极优化规则
+# ==========================================
+
+# ---------- ① 阻断追踪与非亚洲区测速 (锁死亚太区) ----------
+
+# > ⛔ 阻断定位与隐私遥测 (防锁区必须)
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
-# 数据下载
+
+# > ⛔ 屏蔽印度区 (India) 调度接口
+HOST, gromelink-link-in-ccu.sgameglobal.com, REJECT
+HOST, gromelink-link-in.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST, gromelink-link-in.2c450f6kyrw9.eo.dnse3.com, REJECT
+HOST, indspeed.ino.sgameglobal-err.com, REJECT
+
+# > ⛔ 屏蔽土耳其/中东区 (Turkey/Middle East)
+HOST, gromelink-pingtr.sgameglobal.com, REJECT
+HOST, gromelink-link-tr.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST, gromelink-link-tr.2c450f6kyrw9.eo.dnse3.com, REJECT
+
+# > ⛔ 屏蔽欧洲区 (Italy / Finland)
+HOST, gromelink-pingit.sgameglobal.com, REJECT
+HOST, gromelink-link-it.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST, gromelink-link-it.2c450f6kyrw9.eo.dnse3.com, REJECT
+HOST, gromelink-pingfi.sgameglobal.com, REJECT
+HOST, gromelink-link-fi.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST, gromelink-link-fi.2c450f6kyrw9.eo.dnse3.com, REJECT
+
+# > ⛔ 屏蔽北美/南美区 (US Miami / Brazil / South America)
+HOST, gromelink-ping-us-mia.sgameglobal.com, REJECT
+HOST, gromelink-link-us-mia.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST, gromelink-link-us-mia.2c450f6kyrw9.eo.dnse3.com, REJECT
+HOST, gromelink-pingbr.sgameglobal.com, REJECT
+HOST, gromelink-br.cf.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST, brspeed.ino.sgameglobal.com, REJECT
+HOST, gromelink-pingsa.sgameglobal.com, REJECT
+HOST, gromelink-link-sa.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST, gromelink-link-sa.2c450f6kyrw9.eo.dnse3.com, REJECT
+
+
+# ---------- ② 数据下载强制代理 (解决卡进度条) ----------
+# 强制让这两个域名走你的 FINAL（荷兰）节点，保证资源能顺利拉取
 HOST-SUFFIX, download.sgameglobal.com, FINAL
-HOST-SUFFIX, V2-down-gamelet.sgameglobal.com, FINAL
+HOST-SUFFIX, v2-down-gamelet.sgameglobal.com, FINAL
 
-# ---------- ② 核心游戏域名 ----------
 
+# ---------- ③ 强制锁定东南亚直连测速 (保底 20ms) ----------
+# 明确放行新加坡(SG)等亚太测速节点，告诉系统我们在这连得最快
+HOST, gromelink-pingsg.sgameglobal.com, DIRECT
+HOST, sgspeed.ino.sgameglobal.com, DIRECT
+HOST-KEYWORD, gromelink-link-sg, DIRECT
+
+
+# ---------- ④ 核心游戏域名 (大厅与调度) ----------
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, hokglobal.com, DIRECT
 HOST-SUFFIX, hok5v5.com, DIRECT
 HOST-SUFFIX, sgameglobal.com, DIRECT
+HOST-SUFFIX, intlgame.com, DIRECT
 HOST-SUFFIX, intlgame.cn, DIRECT
 HOST-SUFFIX, playerinfinite.com, DIRECT
 HOST-SUFFIX, globalconnetct.com, DIRECT
+HOST-KEYWORD, globalconnect, DIRECT
 
-# ---------- ③ CDN 漂移节点 ----------
+
+# ---------- ⑤ CDN 漂移节点 ----------
 HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
 HOST-SUFFIX, sgameglobal-err.com, DIRECT
 
-# ---------- ④ 语音 / SDK / 反作弊 ----------
+
+# ---------- ⑥ 语音 / SDK / 反作弊 ----------
 HOST-SUFFIX, gcloudcs.com, DIRECT
 HOST-SUFFIX, gcloudsdk.com, DIRECT
 HOST-SUFFIX, anticheatexpert.com, DIRECT
@@ -32,46 +81,31 @@ HOST-SUFFIX, gamelet.games, DIRECT
 HOST-SUFFIX, listdl.com, DIRECT
 HOST-SUFFIX, singaporepaya.com, DIRECT
 HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
-HOST-SUFFIX, galileotelemetry.tencent.com, DIRECT
+HOST-SUFFIX, appsflyersdk.com, DIRECT
 
-IP-CIDR,43.132.55.55/32,DIRECT,no-resolve
 
-IP-CIDR,43.132.138.111/32,DIRECT,no-resolve
+# ---------- ⑦ HTTPDNS防劫持 & 纯 IP 战斗服直连 ----------
 
-IP-CIDR,43.134.2.136/32,DIRECT,no-resolve
+# 防劫持调度 IP
+IP-CIDR, 43.132.55.55/32, DIRECT, no-resolve
+IP-CIDR, 43.132.138.111/32, DIRECT, no-resolve
 
-IP-CIDR,43.134.95.59/32,DIRECT,no-resolve
+# 腾讯云常规战斗 IP 段
+IP-CIDR, 43.134.2.136/32, DIRECT, no-resolve
+IP-CIDR, 43.134.95.59/32, DIRECT, no-resolve
+IP-CIDR, 43.153.233.59/32, DIRECT, no-resolve
+IP-CIDR, 43.160.146.39/32, DIRECT, no-resolve
+IP-CIDR, 43.160.146.70/32, DIRECT, no-resolve
+IP-CIDR, 160.96.63.122/32, DIRECT, no-resolve
+IP-CIDR, 160.224.101.108/32, DIRECT, no-resolve
+IP-CIDR, 160.224.224.107/32, DIRECT, no-resolve
+IP-CIDR, 43.174.250.98/32, DIRECT, no-resolve
+IP-CIDR, 43.174.128.15/32, DIRECT, no-resolve
+IP-CIDR, 43.174.196.201/32, DIRECT, no-resolve
+IP-CIDR, 43.168.146.129/32, DIRECT, no-resolve
+IP-CIDR, 43.159.234.10/32, DIRECT, no-resolve
+IP-CIDR, 43.129.153.120/32, DIRECT, no-resolve
 
-IP-CIDR,43.153.233.59/32,DIRECT,no-resolve
-
-IP-CIDR,43.160.146.39/32,DIRECT,no-resolve
-
-IP-CIDR,43.160.146.70/32,DIRECT,no-resolve
-
-IP-CIDR,160.96.63.122/32,DIRECT,no-resolve
-
-IP-CIDR,160.224.101.108/32,DIRECT,no-resolve
-
-IP-CIDR,160.224.224.107/32,DIRECT,no-resolve
-
-IP-CIDR,43.174.250.98/32,DIRECT,no-resolve
-
-IP-CIDR,43.174.128.15/32,DIRECT,no-resolve
-
-IP-CIDR,43.174.196.201/32,DIRECT,no-resolve
-
-IP-CIDR,43.168.146.129/32,DIRECT,no-resolve
-
-IP-CIDR,43.159.234.10/32,DIRECT,no-resolve
-
-IP-CIDR,43.129.153.120/32,DIRECT,no-resolve
-
-###############
-
-# ⑨ AWS（官方服务器）
-
-###############
-
-IP-CIDR,18.199.59.216/32,DIRECT,no-resolve
-
-IP-CIDR,34.89.234.43/32,DIRECT,no-resolve
+# AWS 官方服务器
+IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
+IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
