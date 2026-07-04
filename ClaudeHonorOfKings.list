@@ -7,12 +7,17 @@ HOST-SUFFIX, download.sgameglobal.com, FINAL
 HOST-SUFFIX, v2-down-gamelet.sgameglobal.com, FINAL
 HOST-SUFFIX, down.gamelet.games, FINAL
 
+# ==========================================
+# 王者荣耀国际服 - Quantumult X 终版规则
+# 核心改动：去掉 sgameglobal.com 宽泛直连，改为精确枚举
+# 这样 HOST-KEYWORD REJECT 才能正常生效
+# ==========================================
 
-# ---------- ① REJECT欧洲调度节点 ----------
+# ---------- ① REJECT 欧洲调度节点 ----------
 HOST, gromelink-mgr-de.sgameglobal.com, REJECT
 HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
 
-# ---------- ② REJECT非亚洲ping测速节点 ----------
+# ---------- ② REJECT 非亚洲 ping 测速节点 ----------
 HOST, gromelink-pingin.sgameglobal.com, REJECT
 HOST, gromelink-pingbr.sgameglobal.com, REJECT
 HOST, gromelink-pingsa.sgameglobal.com, REJECT
@@ -26,9 +31,8 @@ HOST, naspeed.ino.sgameglobal.com, REJECT
 HOST, trspeed.ino.sgameglobal.com, REJECT
 HOST, euspeed.ino.sgameglobal.com, REJECT
 
-# ---------- ③ REJECT非亚洲CDN link节点（HOST-KEYWORD子串匹配）----------
-# ⚠️ 必须用KEYWORD，因为印度节点有 in-ccu/in-bom/in-del 等子域变体
-# HOST-SUFFIX从右往左匹配，无法覆盖这些变体，之前这里写法是错的
+# ---------- ③ REJECT 非亚洲 CDN link 节点 ----------
+# 现在没有宽泛的 sgameglobal.com DIRECT 截胡，KEYWORD 可以正常生效
 HOST-KEYWORD, gromelink-link-in, REJECT
 HOST-KEYWORD, gromelink-link-br, REJECT
 HOST-KEYWORD, gromelink-link-sa, REJECT
@@ -36,37 +40,62 @@ HOST-KEYWORD, gromelink-link-us, REJECT
 HOST-KEYWORD, gromelink-link-tr, REJECT
 HOST-KEYWORD, gromelink-link-it, REJECT
 HOST-KEYWORD, gromelink-link-fi, REJECT
+# gromelink-linkbr（无横线变体，log里也出现过）
+HOST, gromelink-linkbr.sgameglobal.com, REJECT
+# gromelink-br.cf（巴西cf节点）
+HOST, gromelink-br.cf.sgameglobal.com, REJECT
+# 印度relay节点（不是link但也是印度路径）
+HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
 
-# ---------- ④ 东南亚节点直连（必须在③之后，优先级低于KEYWORD无所谓
-#              因为sg/hk不会被上面任何一条KEYWORD命中）----------
-HOST, gromelink-pingsg.sgameglobal.com, DIRECT
-HOST, gromelink-pinghk.sgameglobal.com, DIRECT
-HOST-KEYWORD, gromelink-link-sg, DIRECT
-HOST-KEYWORD, gromelink-link-hk, DIRECT
-
-# ---------- ⑤ 地区检测域名 REJECT ----------
+# ---------- ④ 地区检测域名 REJECT ----------
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, lbsserver.sgameglobal.com, REJECT
 HOST, gate-prod.cloud-control.sgameglobal.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 
-# ---------- ⑥ 核心游戏域名直连 ----------
-HOST-SUFFIX, honorofkings.com, DIRECT
-HOST-SUFFIX, hokglobal.com, DIRECT
-HOST-SUFFIX, hok5v5.com, DIRECT
-HOST-SUFFIX, sgameglobal.com, DIRECT
-HOST-SUFFIX, intlgame.cn, DIRECT
-HOST-SUFFIX, playerinfinite.com, DIRECT
-HOST-SUFFIX, globalconnetct.com, DIRECT
+# ---------- ⑤ 调度节点直连 ----------
+HOST, gromelink-mgr.sgameglobal.com, DIRECT
+HOST, gromelink-mgr-sg-rs.sgameglobal.com, DIRECT
 
-# ---------- ⑦ 游戏专属CDN直连 ----------
-HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
+# ---------- ⑥ 东南亚 ping / link 直连 ----------
+HOST, gromelink-pingsg.sgameglobal.com, DIRECT
+HOST, gromelink-pingsg-clb-good-bgp-ip.sgameglobal.com, DIRECT
+HOST, gromelink-pinghk.sgameglobal.com, DIRECT
+HOST-KEYWORD, gromelink-link-sg, DIRECT
+HOST-KEYWORD, gromelink-link-hk, DIRECT
+HOST, gromelink-rs-sg.sgameglobal.com, DIRECT
+
+# ---------- ⑦ 游戏核心服务域名直连（精确枚举，不再用宽泛后缀）----------
+HOST, res.sgameglobal.com, DIRECT
+HOST, mna.sgameglobal.com, DIRECT
+HOST, prod-broker.sgameglobal.com, DIRECT
+HOST, act.sgameglobal.com, DIRECT
+HOST, hok-op-sg.sgameglobal.com, DIRECT
+HOST, download.sgameglobal.com, DIRECT
+HOST, v2-down-gamelet.sgameglobal.com, DIRECT
+HOST, sgspeed.ino.sgameglobal.com, DIRECT
+HOST, speedsvr.ino.sgameglobal.com, DIRECT
+HOST, speedsvrnew.ino.sgameglobal.com, DIRECT
+HOST, 2speedsvrnew.ino.sgameglobal.com, DIRECT
+
+# ---------- ⑧ EdgeOne CDN 直连（hash子域走后缀兜底）----------
 HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
+
+# ---------- ⑨ 游戏专属 CDN 直连 ----------
+HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-SUFFIX, 2c450f6kyrw9.eo.dnse3.com, DIRECT
 HOST-SUFFIX, zga.net, DIRECT
 HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
 
-# ---------- ⑧ 语音 / SDK / 反作弊 ----------
+# ---------- ⑩ 其他游戏域名直连 ----------
+HOST-SUFFIX, honorofkings.com, DIRECT
+HOST-SUFFIX, hokglobal.com, DIRECT
+HOST-SUFFIX, hok5v5.com, DIRECT
+HOST-SUFFIX, intlgame.cn, DIRECT
+HOST-SUFFIX, playerinfinite.com, DIRECT
+HOST-SUFFIX, globalconnetct.com, DIRECT
+
+# ---------- ⑪ 语音 / SDK / 反作弊 ----------
 HOST-SUFFIX, gcloudcs.com, DIRECT
 HOST-SUFFIX, gcloudsdk.com, DIRECT
 HOST-SUFFIX, anticheatexpert.com, DIRECT
@@ -77,3 +106,4 @@ HOST-SUFFIX, gamelet.games, DIRECT
 HOST-SUFFIX, listdl.com, DIRECT
 HOST-SUFFIX, singaporepaya.com, DIRECT
 HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
+
