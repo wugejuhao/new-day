@@ -7,7 +7,8 @@ HOST-SUFFIX, download.sgameglobal.com, FINAL
 HOST-SUFFIX, v2-down-gamelet.sgameglobal.com, FINAL
 HOST-SUFFIX, down.gamelet.games, FINAL
 
-# ---------- ① REJECT欧洲/德国调度节点（根本原因）----------
+
+# ---------- ① REJECT欧洲调度节点 ----------
 HOST, gromelink-mgr-de.sgameglobal.com, REJECT
 HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
 
@@ -25,40 +26,25 @@ HOST, naspeed.ino.sgameglobal.com, REJECT
 HOST, trspeed.ino.sgameglobal.com, REJECT
 HOST, euspeed.ino.sgameglobal.com, REJECT
 
-# ---------- ③ REJECT非亚洲CDN link节点（HOST-SUFFIX覆盖所有子域变体）----------
-HOST-SUFFIX, gromelink-link-in.sgameglobal.com, REJECT
-HOST-SUFFIX, gromelink-link-in.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-in.sgameglobal.com.cdn.cloudflare.net, REJECT
-HOST-SUFFIX, gromelink-link-br.sgameglobal.com, REJECT
-HOST-SUFFIX, gromelink-link-br.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-br.sgameglobal.com.cdn.cloudflare.net, REJECT
-HOST-SUFFIX, gromelink-link-sa.sgameglobal.com, REJECT
-HOST-SUFFIX, gromelink-link-sa.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-sa.sgameglobal.com.cdn.cloudflare.net, REJECT
-HOST-SUFFIX, gromelink-link-us-mia.sgameglobal.com, REJECT
-HOST-SUFFIX, gromelink-link-us-mia.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-us-mia.sgameglobal.com.cdn.cloudflare.net, REJECT
-HOST-SUFFIX, gromelink-link-tr.sgameglobal.com, REJECT
-HOST-SUFFIX, gromelink-link-tr.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-tr.sgameglobal.com.cdn.cloudflare.net, REJECT
-HOST-SUFFIX, gromelink-link-it.sgameglobal.com, REJECT
-HOST-SUFFIX, gromelink-link-it.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-it.sgameglobal.com.cdn.cloudflare.net, REJECT
-HOST-SUFFIX, gromelink-link-fi.sgameglobal.com, REJECT
-HOST-SUFFIX, gromelink-link-fi.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-fi.sgameglobal.com.cdn.cloudflare.net, REJECT
+# ---------- ③ REJECT非亚洲CDN link节点（HOST-KEYWORD子串匹配）----------
+# ⚠️ 必须用KEYWORD，因为印度节点有 in-ccu/in-bom/in-del 等子域变体
+# HOST-SUFFIX从右往左匹配，无法覆盖这些变体，之前这里写法是错的
+HOST-KEYWORD, gromelink-link-in, REJECT
+HOST-KEYWORD, gromelink-link-br, REJECT
+HOST-KEYWORD, gromelink-link-sa, REJECT
+HOST-KEYWORD, gromelink-link-us, REJECT
+HOST-KEYWORD, gromelink-link-tr, REJECT
+HOST-KEYWORD, gromelink-link-it, REJECT
+HOST-KEYWORD, gromelink-link-fi, REJECT
 
-# ---------- ④ 东南亚节点直连 ----------
+# ---------- ④ 东南亚节点直连（必须在③之后，优先级低于KEYWORD无所谓
+#              因为sg/hk不会被上面任何一条KEYWORD命中）----------
 HOST, gromelink-pingsg.sgameglobal.com, DIRECT
-HOST-SUFFIX, gromelink-link-sg.sgameglobal.com, DIRECT
-HOST-SUFFIX, gromelink-link-sg.2c450f6kyrw9.eo.dnse3.com, DIRECT
-HOST-SUFFIX, gromelink-link-sg.sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST, gromelink-pinghk.sgameglobal.com, DIRECT
-HOST-SUFFIX, gromelink-link-hk.sgameglobal.com, DIRECT
-HOST-SUFFIX, gromelink-link-hk.2c450f6kyrw9.eo.dnse3.com, DIRECT
-HOST-SUFFIX, gromelink-link-hk.sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-KEYWORD, gromelink-link-sg, DIRECT
+HOST-KEYWORD, gromelink-link-hk, DIRECT
 
-# ---------- ⑤ 地区检测/控制域名 REJECT ----------
+# ---------- ⑤ 地区检测域名 REJECT ----------
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, lbsserver.sgameglobal.com, REJECT
 HOST, gate-prod.cloud-control.sgameglobal.com, REJECT
