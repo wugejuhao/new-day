@@ -19,6 +19,7 @@ HOST-SUFFIX, globalconnetct.com, DIRECT
 # ---------- ③ CDN 漂移节点 ----------
 HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
+HOST-SUFFIX, sgameglobal-err.com, DIRECT
 
 # ---------- ④ 语音 / SDK / 反作弊 ----------
 HOST-SUFFIX, gcloudcs.com, DIRECT
