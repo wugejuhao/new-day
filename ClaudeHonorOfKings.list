@@ -78,12 +78,14 @@ HOST, speedsvr.ino.sgameglobal.com, DIRECT
 HOST, speedsvrnew.ino.sgameglobal.com, DIRECT
 HOST, 2speedsvrnew.ino.sgameglobal.com, DIRECT
 
-# ---------- ⑧ EdgeOne CDN 直连（hash子域走后缀兜底）----------
+# ---------- ⑧ EdgeOne CDN 直连（精确，不用宽泛后缀）----------
+HOST-SUFFIX, gromelink-link-sg.2c450f6kyrw9.eo.dnse3.com, DIRECT
+HOST-SUFFIX, gromelink-link-hk.2c450f6kyrw9.eo.dnse3.com, DIRECT
 HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
 
-# ---------- ⑨ 游戏专属 CDN 直连 ----------
-HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-SUFFIX, 2c450f6kyrw9.eo.dnse3.com, DIRECT
+# ---------- ⑨ Cloudflare CDN 直连（精确，不用宽泛后缀）----------
+HOST-SUFFIX, gromelink-link-sg.sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-SUFFIX, gromelink-link-hk.sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-SUFFIX, zga.net, DIRECT
 HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
 
