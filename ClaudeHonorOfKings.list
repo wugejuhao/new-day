@@ -1,8 +1,17 @@
 # ==========================================
-# 王者荣耀国际服 - Quantumult X 精确规则（无IP版）
+# 王者荣耀国际服 - Quantumult X 精确规则
 # ==========================================
 
-# ---------- ① REJECT非亚洲ping节点（精确HOST，不用KEYWORD）----------
+# ---------- ⑥ 游戏热更新下载 (按你要求走 FINAL) ----------
+HOST-SUFFIX, download.sgameglobal.com, FINAL
+HOST-SUFFIX, v2-down-gamelet.sgameglobal.com, FINAL
+HOST-SUFFIX, down.gamelet.games, FINAL
+
+# ---------- ① REJECT欧洲/德国调度节点（根本原因）----------
+HOST, gromelink-mgr-de.sgameglobal.com, REJECT
+HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
+
+# ---------- ② REJECT非亚洲ping测速节点 ----------
 HOST, gromelink-pingin.sgameglobal.com, REJECT
 HOST, gromelink-pingbr.sgameglobal.com, REJECT
 HOST, gromelink-pingsa.sgameglobal.com, REJECT
@@ -16,40 +25,46 @@ HOST, naspeed.ino.sgameglobal.com, REJECT
 HOST, trspeed.ino.sgameglobal.com, REJECT
 HOST, euspeed.ino.sgameglobal.com, REJECT
 
-# ---------- ② REJECT非亚洲CDN link节点（精确后缀，不用KEYWORD）----------
+# ---------- ③ REJECT非亚洲CDN link节点（HOST-SUFFIX覆盖所有子域变体）----------
+HOST-SUFFIX, gromelink-link-in.sgameglobal.com, REJECT
 HOST-SUFFIX, gromelink-link-in.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-br.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-sa.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-us-mia.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-tr.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-it.2c450f6kyrw9.eo.dnse3.com, REJECT
-HOST-SUFFIX, gromelink-link-fi.2c450f6kyrw9.eo.dnse3.com, REJECT
 HOST-SUFFIX, gromelink-link-in.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST-SUFFIX, gromelink-link-br.sgameglobal.com, REJECT
+HOST-SUFFIX, gromelink-link-br.2c450f6kyrw9.eo.dnse3.com, REJECT
 HOST-SUFFIX, gromelink-link-br.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST-SUFFIX, gromelink-link-sa.sgameglobal.com, REJECT
+HOST-SUFFIX, gromelink-link-sa.2c450f6kyrw9.eo.dnse3.com, REJECT
 HOST-SUFFIX, gromelink-link-sa.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST-SUFFIX, gromelink-link-us-mia.sgameglobal.com, REJECT
+HOST-SUFFIX, gromelink-link-us-mia.2c450f6kyrw9.eo.dnse3.com, REJECT
 HOST-SUFFIX, gromelink-link-us-mia.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST-SUFFIX, gromelink-link-tr.sgameglobal.com, REJECT
+HOST-SUFFIX, gromelink-link-tr.2c450f6kyrw9.eo.dnse3.com, REJECT
 HOST-SUFFIX, gromelink-link-tr.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST-SUFFIX, gromelink-link-it.sgameglobal.com, REJECT
+HOST-SUFFIX, gromelink-link-it.2c450f6kyrw9.eo.dnse3.com, REJECT
 HOST-SUFFIX, gromelink-link-it.sgameglobal.com.cdn.cloudflare.net, REJECT
+HOST-SUFFIX, gromelink-link-fi.sgameglobal.com, REJECT
+HOST-SUFFIX, gromelink-link-fi.2c450f6kyrw9.eo.dnse3.com, REJECT
 HOST-SUFFIX, gromelink-link-fi.sgameglobal.com.cdn.cloudflare.net, REJECT
-HOST, gromelink-link-in.sgameglobal.com, REJECT
-HOST, gromelink-link-br.sgameglobal.com, REJECT
-HOST, gromelink-link-sa.sgameglobal.com, REJECT
-HOST, gromelink-link-tr.sgameglobal.com, REJECT
 
-# ---------- ③ 东南亚节点保留直连 ----------
+# ---------- ④ 东南亚节点直连 ----------
 HOST, gromelink-pingsg.sgameglobal.com, DIRECT
+HOST-SUFFIX, gromelink-link-sg.sgameglobal.com, DIRECT
 HOST-SUFFIX, gromelink-link-sg.2c450f6kyrw9.eo.dnse3.com, DIRECT
 HOST-SUFFIX, gromelink-link-sg.sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST, gromelink-link-sg.sgameglobal.com, DIRECT
+HOST, gromelink-pinghk.sgameglobal.com, DIRECT
+HOST-SUFFIX, gromelink-link-hk.sgameglobal.com, DIRECT
+HOST-SUFFIX, gromelink-link-hk.2c450f6kyrw9.eo.dnse3.com, DIRECT
+HOST-SUFFIX, gromelink-link-hk.sgameglobal.com.cdn.cloudflare.net, DIRECT
 
-# ---------- ④ 地区检测/控制域名 ----------
+# ---------- ⑤ 地区检测/控制域名 REJECT ----------
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, lbsserver.sgameglobal.com, REJECT
 HOST, gate-prod.cloud-control.sgameglobal.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 
-
-# ---------- ⑤ 核心游戏域名直连 ----------
+# ---------- ⑥ 核心游戏域名直连 ----------
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, hokglobal.com, DIRECT
 HOST-SUFFIX, hok5v5.com, DIRECT
@@ -58,14 +73,14 @@ HOST-SUFFIX, intlgame.cn, DIRECT
 HOST-SUFFIX, playerinfinite.com, DIRECT
 HOST-SUFFIX, globalconnetct.com, DIRECT
 
-# ---------- ⑥ 游戏专属CDN直连（精确后缀，不影响其他App）----------
+# ---------- ⑦ 游戏专属CDN直连 ----------
 HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
 HOST-SUFFIX, 2c450f6kyrw9.eo.dnse3.com, DIRECT
 HOST-SUFFIX, zga.net, DIRECT
 HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
 
-# ---------- ⑦ 语音 / SDK / 反作弊 ----------
+# ---------- ⑧ 语音 / SDK / 反作弊 ----------
 HOST-SUFFIX, gcloudcs.com, DIRECT
 HOST-SUFFIX, gcloudsdk.com, DIRECT
 HOST-SUFFIX, anticheatexpert.com, DIRECT
