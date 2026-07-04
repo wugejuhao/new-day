@@ -1,4 +1,8 @@
-
+# ---------- ① 阻断定位与上报 (致盲系统，强迫它按直连延迟匹配) ----------
+# 拒绝 LBS 定位，防止系统发现你在用荷兰代理
+HOST, hok-lbs.intlgame.com, REJECT
+HOST, galileotelemetry.tencent.com, REJECT
+# 数据下载
 HOST-SUFFIX, download.sgameglobal.com, FINAL
 HOST-SUFFIX, V2-down-gamelet.sgameglobal.com, FINAL
 
