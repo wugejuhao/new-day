@@ -1,16 +1,16 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 极窄CDN+测试版
-# 变动：intlgame.com 恢复直连 / 移除 GEOIP
+# 👑 王者荣耀国际服 (HoK Global) 极致稳定版
+# 修复：补齐 96.159.x.x / 144.166.x.x 等全新战斗IP
 # ==========================================
 
-# ---------- ① 防定位与隐私拦截 (最高优先级 HOST) ----------
+# ---------- ① 防定位、遥测与隐私拦截 (最高优先级 HOST) ----------
 HOST, hok-lbs.intlgame.com, REJECT
+HOST, hok-gcloudctrl.iegcom.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
 HOST, sg.galileotelemetry.tencent.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 
 # ---------- ② 身份伪装 ----------
-# playerinfinite.com 仍保留走代理，若确需直连也可移走
 HOST-SUFFIX, playerinfinite.com, FINAL
 
 # ---------- ③ 游戏热更新下载 (走代理/FINAL 防卡进度条) ----------
@@ -42,7 +42,6 @@ HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
 HOST, gromelink-br.cf.sgameglobal.com, REJECT
 
 # ---------- ⑤ 动态哈希测速斩首 (KEYWORD 拼刺刀拦截) ----------
-# 必须写在 CDN 直连规则上方！
 HOST-KEYWORD, gromelink-link-in, REJECT
 HOST-KEYWORD, gromelink-link-br, REJECT
 HOST-KEYWORD, gromelink-link-sa, REJECT
@@ -53,7 +52,6 @@ HOST-KEYWORD, gromelink-link-fi, REJECT
 HOST-KEYWORD, gromelink-linkbr, REJECT
 
 # ---------- ⑥ 极窄特征 CDN 及调度直连 (绝对不影响其他App) ----------
-# 只有包含了游戏特征前缀的 CDN 才予以直连
 HOST-KEYWORD, sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-KEYWORD, zga.globalconnetct.com, DIRECT
 HOST-KEYWORD, eo.dnse3.com, DIRECT
@@ -104,7 +102,7 @@ HOST-SUFFIX, gamelet.games, DIRECT
 HOST-SUFFIX, listdl.com, DIRECT
 HOST-SUFFIX, singaporepaya.com, DIRECT
 
-# ---------- ⑩ 核心战斗服务器 IP 网 (根除开局 100ms) ----------
+# ---------- ⑩ 核心战斗服务器 IP 网 (根除 UDP 漏网超时) ----------
 IP-CIDR, 43.128.0.0/16, DIRECT, no-resolve
 IP-CIDR, 43.129.0.0/16, DIRECT, no-resolve
 IP-CIDR, 43.132.0.0/16, DIRECT, no-resolve
@@ -120,9 +118,11 @@ IP-CIDR, 43.175.0.0/16, DIRECT, no-resolve
 IP-CIDR, 49.51.0.0/16, DIRECT, no-resolve
 IP-CIDR, 80.222.0.0/16, DIRECT, no-resolve
 IP-CIDR, 96.0.0.0/16, DIRECT, no-resolve
+IP-CIDR, 96.159.0.0/16, DIRECT, no-resolve
 IP-CIDR, 96.239.0.0/16, DIRECT, no-resolve
 IP-CIDR, 101.32.0.0/16, DIRECT, no-resolve
 IP-CIDR, 112.229.0.0/16, DIRECT, no-resolve
+IP-CIDR, 144.166.0.0/16, DIRECT, no-resolve
 IP-CIDR, 144.201.0.0/16, DIRECT, no-resolve
 IP-CIDR, 160.96.0.0/16, DIRECT, no-resolve
 IP-CIDR, 160.224.0.0/16, DIRECT, no-resolve
