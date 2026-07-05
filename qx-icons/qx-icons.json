@@ -3,6 +3,10 @@
   "description": "144px 满格纯净版国旗，无光影，适配 #feffff 背景",
   "icons": [
     {
+      "name": "UN",
+      "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/UN.png"
+    },
+    {
       "name": "ad",
       "url": "https://raw.githubusercontent.com/wugejuhao/new-day/main/qx-icons/ad.png"
     },
