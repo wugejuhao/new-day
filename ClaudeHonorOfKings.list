@@ -1,53 +1,72 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 顶级精确防劫持版
-# 策略环境：
-# 1. 代理策略名：World
-# 2. 兜底策略 (FINAL)：直连 (DIRECT)
-# 逻辑：使用最霸道的 HOST-WILDCARD 拦截动态哈希云 CDN，全面碾压 Proxy List
+# 王者荣耀国际服 - Quantumult X 精简终版
+# FINAL = DIRECT，JP = 日本节点
 # ==========================================
 
-# ---------- ① 核心防查水表 (精确匹配拦截) ----------
+# ===== REJECT：锁区 + 地区检测 =====
+HOST, gromelink-mgr-de.sgameglobal.com, REJECT
+HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
+HOST, gromelink-pingin.sgameglobal.com, REJECT
+HOST, gromelink-pingbr.sgameglobal.com, REJECT
+HOST, gromelink-pingsa.sgameglobal.com, REJECT
+HOST, gromelink-pingtr.sgameglobal.com, REJECT
+HOST, gromelink-pingit.sgameglobal.com, REJECT
+HOST, gromelink-pingfi.sgameglobal.com, REJECT
+HOST, gromelink-ping-us-mia.sgameglobal.com, REJECT
+HOST, indspeed.ino.sgameglobal.com, REJECT
+HOST, brspeed.ino.sgameglobal.com, REJECT
+HOST, naspeed.ino.sgameglobal.com, REJECT
+HOST, trspeed.ino.sgameglobal.com, REJECT
+HOST, euspeed.ino.sgameglobal.com, REJECT
+HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
+HOST, gromelink-rs-tr.sgameglobal.com, REJECT
+HOST, gromelink-rs-us-dls-gcp.sgameglobal.com, REJECT
 HOST, hok-lbs.intlgame.com, REJECT
+HOST, lbsserver.sgameglobal.com, REJECT
+HOST, gate-prod.cloud-control.sgameglobal.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
-HOST, sg.galileotelemetry.tencent.com, REJECT
-HOST-SUFFIX, appsflyersdk.com, REJECT
+HOST-KEYWORD, gromelink-link-in, REJECT
+HOST-KEYWORD, gromelink-link-br, REJECT
+HOST-KEYWORD, gromelink-link-sa, REJECT
+HOST-KEYWORD, gromelink-link-us, REJECT
+HOST-KEYWORD, gromelink-link-tr, REJECT
+HOST-KEYWORD, gromelink-link-it, REJECT
+HOST-KEYWORD, gromelink-link-fi, REJECT
 
-# ---------- ② 账号鉴权与通行证 (精确匹配走 World) ----------
-HOST, hok.intlgame.com, World
-HOST, hok-sg-act.playerinfinite.com, World
+# ===== DIRECT：可能被 proxy lite/订阅截走的游戏域名 =====
+# hok-dr 在 log 里走过 FINAL（旧配置），现在 FINAL=DIRECT 没问题，
+# 但 proxy lite 里如果有 intlgame.com 代理规则会截走，显式写 DIRECT 保险
+HOST, hok.intlgame.com, DIRECT
+HOST, hok-dr.intlgame.com, DIRECT
+HOST, hok-vman.intlgame.com, DIRECT
+HOST-SUFFIX, intlgame.cn, DIRECT
 
-# ---------- ③ 游戏热更新 CDN (精确匹配走 World) ----------
-HOST, download.sgameglobal.com, World
-HOST, v2-down-gamelet.sgameglobal.com, World
-HOST, down.gamelet.games, World
-# 锁定：日志中带随机数字的动态游戏下载网段
-HOST-WILDCARD, download.*.hokglobalgcloud.iegcom.com, World
+# zga.net 在 log 里走过 FINAL，proxy lite 可能有 AWS 相关规则截走
+HOST-SUFFIX, zga.net, DIRECT
+HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
 
-# ---------- ④ 动态哈希全球加速 CDN (强通配符精确锁定直连) ----------
-# 【核心增强】拦截日志中所有被云厂商泛解析劫持的风险
-# 1. 锁定 EdgeOne 腾讯云动态哈希加速
-HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
-# 2. 锁定 ZGA 动态哈希全站加速
-HOST-WILDCARD, *.zga.globalconnetct.com, DIRECT
-# 3. 锁定 AWS 亚马逊全球高延迟加速器误杀
-HOST-WILDCARD, *.awsglobalaccelerator.com, DIRECT
-# 4. 锁定 Cloudflare 动态测速与资产分发
-HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, DIRECT
+# sgameglobal.com cdn 路径，proxy lite 里常见 cloudflare 规则会截走
+HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
+HOST-SUFFIX, 2c450f6kyrw9.eo.dnse3.com, DIRECT
 
-# ---------- ⑤ 局内静态资源及大厅 (精确匹配走 DIRECT) ----------
-# 再次加固：锁定常规非动态域名，防止被 Proxy List 的后缀规则吸走
-HOST, res.sgameglobal.com, DIRECT
-HOST, mna.sgameglobal.com, DIRECT
-HOST, prod-broker.sgameglobal.com, DIRECT
-HOST, act.sgameglobal.com, DIRECT
-HOST, hok-op-sg.sgameglobal.com, DIRECT
-HOST, camp.honorofkings.com, DIRECT
-HOST, api-camp.honorofkings.com, DIRECT
-HOST, sg.tux.qq.com, DIRECT
-HOST, dlied5.qq.com, DIRECT
+# ===== JP：资源下载 =====
+HOST, download.sgameglobal.com, JP
+HOST, v2-down-gamelet.sgameglobal.com, JP
+HOST, down.gamelet.games, JP
+HOST, dl.listdl.com, JP
+HOST-SUFFIX, hokglobalgcloud.iegcom.com, JP
 
-# ==========================================
-# 剩下的所有未匹配流量（包括局内 UDP 战斗 IP、
-# 漏网的测速域名等）自动顺行掉入你的 FINAL 走直连。
-# ==========================================
+# ===== DIRECT：对战服务器 IP 网段 =====
+# proxy lite 里通常有大段 IP 规则，这几个段必须显式写直连
+IP-CIDR, 96.0.64.0/18, DIRECT, no-resolve
+IP-CIDR, 160.32.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.96.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.224.0.0/16, DIRECT, no-resolve
+IP-CIDR, 176.251.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.160.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.132.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.134.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.153.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.160.0.0/16, DIRECT, no-resolve
