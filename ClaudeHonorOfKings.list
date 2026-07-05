@@ -1,64 +1,53 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 极简黑名单版
-# 策略环境配置：
+# 👑 王者荣耀国际服 (HoK Global) 顶级精确防劫持版
+# 策略环境：
 # 1. 代理策略名：World
 # 2. 兜底策略 (FINAL)：直连 (DIRECT)
-# 优势：无惧腾讯频繁扩容新IP/CDN，自动物理极速！
+# 逻辑：使用最霸道的 HOST-WILDCARD 拦截动态哈希云 CDN，全面碾压 Proxy List
 # ==========================================
 
-# ---------- ① 防定位与防测检测 (必须掐死) ----------
+# ---------- ① 核心防查水表 (精确匹配拦截) ----------
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
 HOST, sg.galileotelemetry.tencent.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 
-# ---------- ② 核心鉴权与伪装 (强制走 World 代理) ----------
-# 隐藏真实大陆 IP，解决登录限制与账号风控。
-# 游戏资源下载包通常会校验地区，也丢进代理防止卡进度条。
+# ---------- ② 账号鉴权与通行证 (精确匹配走 World) ----------
 HOST, hok.intlgame.com, World
-HOST-SUFFIX, playerinfinite.com, World
-HOST-SUFFIX, download.sgameglobal.com, World
-HOST-SUFFIX, v2-down-gamelet.sgameglobal.com, World
-HOST-SUFFIX, down.gamelet.games, World
+HOST, hok-sg-act.playerinfinite.com, World
 
-# ---------- ③ 非亚洲测速节点阻断 (必须掐死) ----------
-# 防止游戏在后台测通全球节点，强迫游戏调度系统只给你分配亚洲服
-# 动态哈希测速拦截：
-HOST-KEYWORD, gromelink-link-in, REJECT
-HOST-KEYWORD, gromelink-link-br, REJECT
-HOST-KEYWORD, gromelink-link-sa, REJECT
-HOST-KEYWORD, gromelink-link-us, REJECT
-HOST-KEYWORD, gromelink-link-tr, REJECT
-HOST-KEYWORD, gromelink-link-it, REJECT
-HOST-KEYWORD, gromelink-link-fi, REJECT
-HOST-KEYWORD, gromelink-linkbr, REJECT
+# ---------- ③ 游戏热更新 CDN (精确匹配走 World) ----------
+HOST, download.sgameglobal.com, World
+HOST, v2-down-gamelet.sgameglobal.com, World
+HOST, down.gamelet.games, World
+# 锁定：日志中带随机数字的动态游戏下载网段
+HOST-WILDCARD, download.*.hokglobalgcloud.iegcom.com, World
 
-# 静态测速拦截：
-HOST, gromelink-pingin.sgameglobal.com, REJECT
-HOST, indspeed.ino.sgameglobal.com, REJECT
-HOST, indspeed.ino.sgameglobal-err.com, REJECT
-HOST, gromelink-pingbr.sgameglobal.com, REJECT
-HOST, gromelink-pingsa.sgameglobal.com, REJECT
-HOST, brspeed.ino.sgameglobal.com, REJECT
-HOST, brspeed.ino.sgameglobal-err.com, REJECT
-HOST, gromelink-ping-us-mia.sgameglobal.com, REJECT
-HOST, naspeed.ino.sgameglobal.com, REJECT
-HOST, naspeed.ino.sgameglobal-err.com, REJECT
-HOST, gromelink-pingtr.sgameglobal.com, REJECT
-HOST, trspeed.ino.sgameglobal.com, REJECT
-HOST, trspeed.ino.sgameglobal-err.com, REJECT
-HOST, gromelink-pingit.sgameglobal.com, REJECT
-HOST, gromelink-pingfi.sgameglobal.com, REJECT
-HOST, euspeed.ino.sgameglobal.com, REJECT
-HOST, euspeed.ino.sgameglobal-err.com, REJECT
-HOST, gromelink-mgr-de.sgameglobal.com, REJECT
-HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
-HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
-HOST, gromelink-br.cf.sgameglobal.com, REJECT
+# ---------- ④ 动态哈希全球加速 CDN (强通配符精确锁定直连) ----------
+# 【核心增强】拦截日志中所有被云厂商泛解析劫持的风险
+# 1. 锁定 EdgeOne 腾讯云动态哈希加速
+HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
+# 2. 锁定 ZGA 动态哈希全站加速
+HOST-WILDCARD, *.zga.globalconnetct.com, DIRECT
+# 3. 锁定 AWS 亚马逊全球高延迟加速器误杀
+HOST-WILDCARD, *.awsglobalaccelerator.com, DIRECT
+# 4. 锁定 Cloudflare 动态测速与资产分发
+HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, DIRECT
+
+# ---------- ⑤ 局内静态资源及大厅 (精确匹配走 DIRECT) ----------
+# 再次加固：锁定常规非动态域名，防止被 Proxy List 的后缀规则吸走
+HOST, res.sgameglobal.com, DIRECT
+HOST, mna.sgameglobal.com, DIRECT
+HOST, prod-broker.sgameglobal.com, DIRECT
+HOST, act.sgameglobal.com, DIRECT
+HOST, hok-op-sg.sgameglobal.com, DIRECT
+HOST, camp.honorofkings.com, DIRECT
+HOST, api-camp.honorofkings.com, DIRECT
+HOST, sg.tux.qq.com, DIRECT
+HOST, dlied5.qq.com, DIRECT
 
 # ==========================================
-# 剩下的所有域名、CDN 调度、UDP 真实战斗服 IP
-# 都会因为“未匹配”自动走你设置的 FINAL (直连)
-# 自动实现 20ms 极速，无需再写任何规则！
+# 剩下的所有未匹配流量（包括局内 UDP 战斗 IP、
+# 漏网的测速域名等）自动顺行掉入你的 FINAL 走直连。
 # ==========================================
