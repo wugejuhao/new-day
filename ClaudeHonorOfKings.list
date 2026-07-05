@@ -1,44 +1,38 @@
 # ==========================================
-# 王者荣耀国际服 - Quantumult X 精简终版
-# FINAL = DIRECT，JP = 日本节点
+# 👑 王者荣耀国际服 (HoK Global) 纯净定制版
+# 策略环境：
+# 1. 代理策略：JP (账号鉴权与资源下载)
+# 2. 直连策略：DIRECT (CDN与大厅对局资源)
+# 3. 兜底策略：FINAL -> 直连 (负责底层 UDP 战斗流)
 # ==========================================
 
-# ===== 账号检测：走代理 =====
-HOST, hok-lbs.intlgame.com, JP
-HOST, gate-prod.cloud-control.sgameglobal.com, JP
-HOST, lbsserver.sgameglobal.com, JP
-HOST, hok-gcloudctrl.iegcom.com, JP
-
-# ===== sgameglobal.com 下载：走 JP =====
+# ---------- ① 账号鉴权与资源下载 (走 JP 代理) ----------
+HOST, hok.intlgame.com, JP
+HOST, hok-sg-act.playerinfinite.com, JP
 HOST, download.sgameglobal.com, JP
 HOST, v2-down-gamelet.sgameglobal.com, JP
+HOST, down.gamelet.games, JP
+HOST-WILDCARD, download.*.hokglobalgcloud.iegcom.com, JP
 
-# ===== sgameglobal.com 其余全部直连 =====
-HOST-SUFFIX, sgameglobal.com, DIRECT
+# ---------- ② 动态哈希全球加速 CDN (走 DIRECT 直连) ----------
+# 防止高权重的代理规则误杀这些动态资源节点，确保 20ms 极速加载
+HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
+HOST-WILDCARD, *.zga.globalconnetct.com, DIRECT
+HOST-WILDCARD, *.awsglobalaccelerator.com, DIRECT
+HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, DIRECT
 
-# ===== 其他游戏域名直连 =====
-HOST, hok.intlgame.com, DIRECT
-HOST, hok-dr.intlgame.com, DIRECT
-HOST, hok-vman.intlgame.com, DIRECT
-HOST-SUFFIX, intlgame.cn, DIRECT
-HOST-SUFFIX, zga.net, DIRECT
-HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
-HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
-HOST-SUFFIX, 2c450f6kyrw9.eo.dnse3.com, DIRECT
-HOST-SUFFIX, honorofkings.com, DIRECT
-HOST-SUFFIX, hokglobal.com, DIRECT
-HOST-SUFFIX, hok5v5.com, DIRECT
-HOST-SUFFIX, intlgame.cn, DIRECT
-HOST-SUFFIX, playerinfinite.com, DIRECT
-HOST-SUFFIX, globalconnetct.com, DIRECT
-HOST-SUFFIX, gcloudcs.com, DIRECT
-HOST-SUFFIX, gcloudsdk.com, DIRECT
-HOST-SUFFIX, anticheatexpert.com, DIRECT
-HOST-SUFFIX, wetest.net, DIRECT
-HOST-SUFFIX, vasdgame.com, DIRECT
-HOST-SUFFIX, tdos.vip, DIRECT
-HOST-SUFFIX, gamelet.games, DIRECT
-HOST-SUFFIX, listdl.com, DIRECT
-HOST-SUFFIX, singaporepaya.com, DIRECT
-HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
+# ---------- ③ 局内静态资源及大厅核心 (走 DIRECT 直连) ----------
+HOST, res.sgameglobal.com, DIRECT
+HOST, mna.sgameglobal.com, DIRECT
+HOST, prod-broker.sgameglobal.com, DIRECT
+HOST, act.sgameglobal.com, DIRECT
+HOST, hok-op-sg.sgameglobal.com, DIRECT
+HOST, camp.honorofkings.com, DIRECT
+HOST, api-camp.honorofkings.com, DIRECT
+HOST, sg.tux.qq.com, DIRECT
+HOST, dlied5.qq.com, DIRECT
+
+# ==========================================
+# 说明：未在此列表中的所有流量（包括测速、遥测、
+# 以及未来的新战斗服纯 IP）都会触发 FINAL 走本地直连。
+# ==========================================
