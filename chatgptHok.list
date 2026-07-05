@@ -1,0 +1,120 @@
+#########################################
+# Honor of Kings Global
+# 2026 Stable Version
+#########################################
+
+###############
+# ① 地区检测
+###############
+
+HOST,hok-lbs.intlgame.com,REJECT
+
+###############
+# ② 登录代理（只有这些）
+###############
+
+HOST-SUFFIX,playerinfinite.com,FINAL
+
+HOST,download.sgameglobal.com,FINAL
+HOST,v2-down-gamelet.sgameglobal.com,FINAL
+HOST,down.gamelet.games,FINAL
+
+###############
+# ③ 游戏所有调度（全部 DIRECT）
+###############
+
+HOST-SUFFIX,sgameglobal.com,DIRECT
+
+HOST-SUFFIX,honorofkings.com,DIRECT
+HOST-SUFFIX,hokglobal.com,DIRECT
+HOST-SUFFIX,hok5v5.com,DIRECT
+
+HOST-SUFFIX,intlgame.com,DIRECT
+
+HOST-SUFFIX,gamelet.games,DIRECT
+
+HOST-SUFFIX,gcloudcs.com,DIRECT
+HOST-SUFFIX,gcloudsdk.com,DIRECT
+
+HOST-SUFFIX,wetest.net,DIRECT
+
+HOST-SUFFIX,anticheatexpert.com,DIRECT
+
+HOST-SUFFIX,tdos.vip,DIRECT
+
+HOST-SUFFIX,vasdgame.com,DIRECT
+
+HOST-SUFFIX,listdl.com,DIRECT
+
+###############
+# ④ Gromelink（不要 REJECT）
+###############
+
+HOST-KEYWORD,gromelink,DIRECT
+
+HOST-KEYWORD,sgspeed,DIRECT
+HOST-KEYWORD,speedsvr,DIRECT
+
+HOST-KEYWORD,ino.sgameglobal,DIRECT
+
+###############
+# ⑤ Broker
+###############
+
+HOST,prod-broker.sgameglobal.com,DIRECT
+
+HOST,hok-op-sg.sgameglobal.com,DIRECT
+
+HOST,res.sgameglobal.com,DIRECT
+
+###############
+# ⑥ DNS 调度
+###############
+
+HOST-KEYWORD,dnse,DIRECT
+HOST-KEYWORD,dnsv,DIRECT
+
+###############
+# ⑦ Cloud
+###############
+
+HOST-SUFFIX,qcloud.com,DIRECT
+HOST-SUFFIX,myqcloud.com,DIRECT
+
+###############
+# ⑧ 已知 Battle Server IP
+###############
+
+IP-CIDR,43.128.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.129.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.132.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.134.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.152.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.153.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.156.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.159.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.160.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.168.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.174.0.0/16,DIRECT,no-resolve
+IP-CIDR,43.175.0.0/16,DIRECT,no-resolve
+
+IP-CIDR,49.51.0.0/16,DIRECT,no-resolve
+
+IP-CIDR,101.32.0.0/16,DIRECT,no-resolve
+
+IP-CIDR,129.226.0.0/16,DIRECT,no-resolve
+IP-CIDR,129.227.0.0/16,DIRECT,no-resolve
+IP-CIDR,129.228.0.0/16,DIRECT,no-resolve
+
+###############
+# ⑨ 腾讯海外
+###############
+
+HOST-SUFFIX,globalconnect.com,DIRECT
+HOST-SUFFIX,globalconnetct.com,DIRECT
+
+HOST-SUFFIX,proximabeta.com,DIRECT
+
+HOST-SUFFIX,levelinfinite.com,DIRECT
+
+HOST-SUFFIX,tencentgames.com,DIRECT
