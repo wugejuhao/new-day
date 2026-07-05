@@ -1,38 +1,48 @@
 # ==========================================
-# 王者荣耀国际服 - Quantumult X 精确规则
+# 👑 王者荣耀国际服 (HoK Global) 极窄CDN+测试版
+# 变动：intlgame.com 恢复直连 / 移除 GEOIP
 # ==========================================
 
-# ---------- ⑥ 游戏热更新下载 (按你要求走 FINAL) ----------
+# ---------- ① 防定位与隐私拦截 (最高优先级 HOST) ----------
+HOST, hok-lbs.intlgame.com, REJECT
+HOST, galileotelemetry.tencent.com, REJECT
+HOST, sg.galileotelemetry.tencent.com, REJECT
+HOST-SUFFIX, appsflyersdk.com, REJECT
+
+# ---------- ② 身份伪装 ----------
+# playerinfinite.com 仍保留走代理，若确需直连也可移走
+HOST-SUFFIX, playerinfinite.com, FINAL
+
+# ---------- ③ 游戏热更新下载 (走代理/FINAL 防卡进度条) ----------
 HOST-SUFFIX, download.sgameglobal.com, FINAL
 HOST-SUFFIX, v2-down-gamelet.sgameglobal.com, FINAL
 HOST-SUFFIX, down.gamelet.games, FINAL
 
-# ==========================================
-# 王者荣耀国际服 - Quantumult X 终版规则
-# 核心改动：去掉 sgameglobal.com 宽泛直连，改为精确枚举
-# 这样 HOST-KEYWORD REJECT 才能正常生效
-# ==========================================
-
-# ---------- ① REJECT 欧洲调度节点 ----------
-HOST, gromelink-mgr-de.sgameglobal.com, REJECT
-HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
-
-# ---------- ② REJECT 非亚洲 ping 测速节点 ----------
+# ---------- ④ 精确狙杀：静态非亚洲测速节点 (最高优先级 HOST) ----------
 HOST, gromelink-pingin.sgameglobal.com, REJECT
+HOST, indspeed.ino.sgameglobal.com, REJECT
+HOST, indspeed.ino.sgameglobal-err.com, REJECT
 HOST, gromelink-pingbr.sgameglobal.com, REJECT
 HOST, gromelink-pingsa.sgameglobal.com, REJECT
+HOST, brspeed.ino.sgameglobal.com, REJECT
+HOST, brspeed.ino.sgameglobal-err.com, REJECT
+HOST, gromelink-ping-us-mia.sgameglobal.com, REJECT
+HOST, naspeed.ino.sgameglobal.com, REJECT
+HOST, naspeed.ino.sgameglobal-err.com, REJECT
 HOST, gromelink-pingtr.sgameglobal.com, REJECT
+HOST, trspeed.ino.sgameglobal.com, REJECT
+HOST, trspeed.ino.sgameglobal-err.com, REJECT
 HOST, gromelink-pingit.sgameglobal.com, REJECT
 HOST, gromelink-pingfi.sgameglobal.com, REJECT
-HOST, gromelink-ping-us-mia.sgameglobal.com, REJECT
-HOST, indspeed.ino.sgameglobal.com, REJECT
-HOST, brspeed.ino.sgameglobal.com, REJECT
-HOST, naspeed.ino.sgameglobal.com, REJECT
-HOST, trspeed.ino.sgameglobal.com, REJECT
 HOST, euspeed.ino.sgameglobal.com, REJECT
+HOST, euspeed.ino.sgameglobal-err.com, REJECT
+HOST, gromelink-mgr-de.sgameglobal.com, REJECT
+HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
+HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
+HOST, gromelink-br.cf.sgameglobal.com, REJECT
 
-# ---------- ③ REJECT 非亚洲 CDN link 节点 ----------
-# 现在没有宽泛的 sgameglobal.com DIRECT 截胡，KEYWORD 可以正常生效
+# ---------- ⑤ 动态哈希测速斩首 (KEYWORD 拼刺刀拦截) ----------
+# 必须写在 CDN 直连规则上方！
 HOST-KEYWORD, gromelink-link-in, REJECT
 HOST-KEYWORD, gromelink-link-br, REJECT
 HOST-KEYWORD, gromelink-link-sa, REJECT
@@ -40,64 +50,50 @@ HOST-KEYWORD, gromelink-link-us, REJECT
 HOST-KEYWORD, gromelink-link-tr, REJECT
 HOST-KEYWORD, gromelink-link-it, REJECT
 HOST-KEYWORD, gromelink-link-fi, REJECT
-# gromelink-linkbr（无横线变体，log里也出现过）
-HOST, gromelink-linkbr.sgameglobal.com, REJECT
-# gromelink-br.cf（巴西cf节点）
-HOST, gromelink-br.cf.sgameglobal.com, REJECT
-# 印度relay节点（不是link但也是印度路径）
-HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
+HOST-KEYWORD, gromelink-linkbr, REJECT
 
-# ---------- ④ 地区检测域名 REJECT ----------
-HOST, hok-lbs.intlgame.com, REJECT
-HOST, lbsserver.sgameglobal.com, REJECT
-HOST, gate-prod.cloud-control.sgameglobal.com, REJECT
-HOST, hok-gcloudctrl.iegcom.com, REJECT
+# ---------- ⑥ 极窄特征 CDN 及调度直连 (绝对不影响其他App) ----------
+# 只有包含了游戏特征前缀的 CDN 才予以直连
+HOST-KEYWORD, sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-KEYWORD, zga.globalconnetct.com, DIRECT
+HOST-KEYWORD, eo.dnse3.com, DIRECT
+HOST-KEYWORD, eo.dnse4.com, DIRECT
+HOST-KEYWORD, eo.dnse5.com, DIRECT
+HOST-KEYWORD, acc.edgeonedy1.com, DIRECT
+HOST-KEYWORD, awsglobalaccelerator.com, DIRECT
+HOST-KEYWORD, zga.net, DIRECT
+HOST-KEYWORD, sgameglobal-err, DIRECT
 
-# ---------- ⑤ 调度节点直连 ----------
-HOST, gromelink-mgr.sgameglobal.com, DIRECT
-HOST, gromelink-mgr-sg-rs.sgameglobal.com, DIRECT
-
-# ---------- ⑥ 东南亚 ping / link 直连 ----------
+# ---------- ⑦ 亚洲主节点调度保送 (直连确立20ms优势) ----------
 HOST, gromelink-pingsg.sgameglobal.com, DIRECT
 HOST, gromelink-pingsg-clb-good-bgp-ip.sgameglobal.com, DIRECT
 HOST, gromelink-pinghk.sgameglobal.com, DIRECT
-HOST-KEYWORD, gromelink-link-sg, DIRECT
-HOST-KEYWORD, gromelink-link-hk, DIRECT
 HOST, gromelink-rs-sg.sgameglobal.com, DIRECT
-
-# ---------- ⑦ 游戏核心服务域名直连（精确枚举，不再用宽泛后缀）----------
-HOST, res.sgameglobal.com, DIRECT
-HOST, mna.sgameglobal.com, DIRECT
-HOST, prod-broker.sgameglobal.com, DIRECT
-HOST, act.sgameglobal.com, DIRECT
-HOST, hok-op-sg.sgameglobal.com, DIRECT
-HOST, download.sgameglobal.com, DIRECT
-HOST, v2-down-gamelet.sgameglobal.com, DIRECT
+HOST, gromelink-mgr.sgameglobal.com, DIRECT
+HOST, gromelink-mgr-sg-rs.sgameglobal.com, DIRECT
 HOST, sgspeed.ino.sgameglobal.com, DIRECT
 HOST, speedsvr.ino.sgameglobal.com, DIRECT
 HOST, speedsvrnew.ino.sgameglobal.com, DIRECT
 HOST, 2speedsvrnew.ino.sgameglobal.com, DIRECT
+HOST-KEYWORD, gromelink-link-sg, DIRECT
+HOST-KEYWORD, gromelink-link-hk, DIRECT
 
-# ---------- ⑧ EdgeOne CDN 直连（精确，不用宽泛后缀）----------
-HOST-SUFFIX, gromelink-link-sg.2c450f6kyrw9.eo.dnse3.com, DIRECT
-HOST-SUFFIX, gromelink-link-hk.2c450f6kyrw9.eo.dnse3.com, DIRECT
-HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
-
-# ---------- ⑨ Cloudflare CDN 直连（精确，不用宽泛后缀）----------
-HOST-SUFFIX, gromelink-link-sg.sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-SUFFIX, gromelink-link-hk.sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-SUFFIX, zga.net, DIRECT
-HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
-
-# ---------- ⑩ 其他游戏域名直连 ----------
+# ---------- ⑧ 常规游戏资产与大厅框架 ----------
+HOST-SUFFIX, intlgame.com, DIRECT
+HOST-SUFFIX, intlgame.cn, DIRECT
+HOST-SUFFIX, res.sgameglobal.com, DIRECT
+HOST-SUFFIX, mna.sgameglobal.com, DIRECT
+HOST-SUFFIX, prod-broker.sgameglobal.com, DIRECT
+HOST-SUFFIX, act.sgameglobal.com, DIRECT
+HOST-SUFFIX, hok-op-sg.sgameglobal.com, DIRECT
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, hokglobal.com, DIRECT
 HOST-SUFFIX, hok5v5.com, DIRECT
-HOST-SUFFIX, intlgame.cn, DIRECT
-HOST-SUFFIX, playerinfinite.com, DIRECT
+HOST-SUFFIX, sgameglobal.com, DIRECT
 HOST-SUFFIX, globalconnetct.com, DIRECT
+HOST-SUFFIX, globalconnect.com, DIRECT
 
-# ---------- ⑪ 语音 / SDK / 反作弊 ----------
+# ---------- ⑨ 语音 / SDK / 反作弊组件 ----------
 HOST-SUFFIX, gcloudcs.com, DIRECT
 HOST-SUFFIX, gcloudsdk.com, DIRECT
 HOST-SUFFIX, anticheatexpert.com, DIRECT
@@ -107,5 +103,28 @@ HOST-SUFFIX, tdos.vip, DIRECT
 HOST-SUFFIX, gamelet.games, DIRECT
 HOST-SUFFIX, listdl.com, DIRECT
 HOST-SUFFIX, singaporepaya.com, DIRECT
-HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
 
+# ---------- ⑩ 核心战斗服务器 IP 网 (根除开局 100ms) ----------
+IP-CIDR, 43.128.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.129.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.132.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.134.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.152.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.153.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.156.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.159.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.160.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.168.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.174.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.175.0.0/16, DIRECT, no-resolve
+IP-CIDR, 49.51.0.0/16, DIRECT, no-resolve
+IP-CIDR, 80.222.0.0/16, DIRECT, no-resolve
+IP-CIDR, 96.0.0.0/16, DIRECT, no-resolve
+IP-CIDR, 96.239.0.0/16, DIRECT, no-resolve
+IP-CIDR, 101.32.0.0/16, DIRECT, no-resolve
+IP-CIDR, 112.229.0.0/16, DIRECT, no-resolve
+IP-CIDR, 144.201.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.96.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.224.0.0/16, DIRECT, no-resolve
+IP-CIDR, 162.62.0.0/16, DIRECT, no-resolve
+IP-CIDR, 18.199.0.0/16, DIRECT, no-resolve
