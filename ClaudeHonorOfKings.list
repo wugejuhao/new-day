@@ -3,70 +3,42 @@
 # FINAL = DIRECT，JP = 日本节点
 # ==========================================
 
-# ===== REJECT：锁区 + 地区检测 =====
-HOST, gromelink-mgr-de.sgameglobal.com, REJECT
-HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
-HOST, gromelink-pingin.sgameglobal.com, REJECT
-HOST, gromelink-pingbr.sgameglobal.com, REJECT
-HOST, gromelink-pingsa.sgameglobal.com, REJECT
-HOST, gromelink-pingtr.sgameglobal.com, REJECT
-HOST, gromelink-pingit.sgameglobal.com, REJECT
-HOST, gromelink-pingfi.sgameglobal.com, REJECT
-HOST, gromelink-ping-us-mia.sgameglobal.com, REJECT
-HOST, indspeed.ino.sgameglobal.com, REJECT
-HOST, brspeed.ino.sgameglobal.com, REJECT
-HOST, naspeed.ino.sgameglobal.com, REJECT
-HOST, trspeed.ino.sgameglobal.com, REJECT
-HOST, euspeed.ino.sgameglobal.com, REJECT
-HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
-HOST, gromelink-rs-tr.sgameglobal.com, REJECT
-HOST, gromelink-rs-us-dls-gcp.sgameglobal.com, REJECT
-HOST, hok-lbs.intlgame.com, REJECT
-HOST, lbsserver.sgameglobal.com, REJECT
-HOST, gate-prod.cloud-control.sgameglobal.com, REJECT
-HOST, hok-gcloudctrl.iegcom.com, REJECT
-HOST, galileotelemetry.tencent.com, REJECT
-HOST-KEYWORD, gromelink-link-in, REJECT
-HOST-KEYWORD, gromelink-link-br, REJECT
-HOST-KEYWORD, gromelink-link-sa, REJECT
-HOST-KEYWORD, gromelink-link-us, REJECT
-HOST-KEYWORD, gromelink-link-tr, REJECT
-HOST-KEYWORD, gromelink-link-it, REJECT
-HOST-KEYWORD, gromelink-link-fi, REJECT
+# ===== 账号检测：走代理 =====
+HOST, hok-lbs.intlgame.com, JP
+HOST, gate-prod.cloud-control.sgameglobal.com, JP
+HOST, lbsserver.sgameglobal.com, JP
+HOST, hok-gcloudctrl.iegcom.com, JP
 
-# ===== DIRECT：可能被 proxy lite/订阅截走的游戏域名 =====
-# hok-dr 在 log 里走过 FINAL（旧配置），现在 FINAL=DIRECT 没问题，
-# 但 proxy lite 里如果有 intlgame.com 代理规则会截走，显式写 DIRECT 保险
+# ===== sgameglobal.com 下载：走 JP =====
+HOST, download.sgameglobal.com, JP
+HOST, v2-down-gamelet.sgameglobal.com, JP
+
+# ===== sgameglobal.com 其余全部直连 =====
+HOST-SUFFIX, sgameglobal.com, DIRECT
+
+# ===== 其他游戏域名直连 =====
 HOST, hok.intlgame.com, DIRECT
 HOST, hok-dr.intlgame.com, DIRECT
 HOST, hok-vman.intlgame.com, DIRECT
 HOST-SUFFIX, intlgame.cn, DIRECT
-
-# zga.net 在 log 里走过 FINAL，proxy lite 可能有 AWS 相关规则截走
 HOST-SUFFIX, zga.net, DIRECT
 HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
-
-# sgameglobal.com cdn 路径，proxy lite 里常见 cloudflare 规则会截走
 HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
 HOST-SUFFIX, 2c450f6kyrw9.eo.dnse3.com, DIRECT
-
-# ===== JP：资源下载 =====
-HOST, download.sgameglobal.com, JP
-HOST, v2-down-gamelet.sgameglobal.com, JP
-HOST, down.gamelet.games, JP
-HOST, dl.listdl.com, JP
-HOST-SUFFIX, hokglobalgcloud.iegcom.com, JP
-
-# ===== DIRECT：对战服务器 IP 网段 =====
-# proxy lite 里通常有大段 IP 规则，这几个段必须显式写直连
-IP-CIDR, 96.0.64.0/18, DIRECT, no-resolve
-IP-CIDR, 160.32.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.96.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.224.0.0/16, DIRECT, no-resolve
-IP-CIDR, 176.251.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.160.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.132.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.134.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.153.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.160.0.0/16, DIRECT, no-resolve
+HOST-SUFFIX, honorofkings.com, DIRECT
+HOST-SUFFIX, hokglobal.com, DIRECT
+HOST-SUFFIX, hok5v5.com, DIRECT
+HOST-SUFFIX, intlgame.cn, DIRECT
+HOST-SUFFIX, playerinfinite.com, DIRECT
+HOST-SUFFIX, globalconnetct.com, DIRECT
+HOST-SUFFIX, gcloudcs.com, DIRECT
+HOST-SUFFIX, gcloudsdk.com, DIRECT
+HOST-SUFFIX, anticheatexpert.com, DIRECT
+HOST-SUFFIX, wetest.net, DIRECT
+HOST-SUFFIX, vasdgame.com, DIRECT
+HOST-SUFFIX, tdos.vip, DIRECT
+HOST-SUFFIX, gamelet.games, DIRECT
+HOST-SUFFIX, listdl.com, DIRECT
+HOST-SUFFIX, singaporepaya.com, DIRECT
+HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
