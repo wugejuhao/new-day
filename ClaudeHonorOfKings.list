@@ -1,24 +1,40 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 极致稳定版
-# 修复：补齐 96.159.x.x / 144.166.x.x 等全新战斗IP
+# 👑 王者荣耀国际服 (HoK Global) 极简黑名单版
+# 策略环境配置：
+# 1. 代理策略名：World
+# 2. 兜底策略 (FINAL)：直连 (DIRECT)
+# 优势：无惧腾讯频繁扩容新IP/CDN，自动物理极速！
 # ==========================================
 
-# ---------- ① 防定位、遥测与隐私拦截 (最高优先级 HOST) ----------
+# ---------- ① 防定位与防测检测 (必须掐死) ----------
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
 HOST, sg.galileotelemetry.tencent.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 
-# ---------- ② 身份伪装 ----------
-HOST-SUFFIX, playerinfinite.com, FINAL
+# ---------- ② 核心鉴权与伪装 (强制走 World 代理) ----------
+# 隐藏真实大陆 IP，解决登录限制与账号风控。
+# 游戏资源下载包通常会校验地区，也丢进代理防止卡进度条。
+HOST, hok.intlgame.com, World
+HOST-SUFFIX, playerinfinite.com, World
+HOST-SUFFIX, download.sgameglobal.com, World
+HOST-SUFFIX, v2-down-gamelet.sgameglobal.com, World
+HOST-SUFFIX, down.gamelet.games, World
 
-# ---------- ③ 游戏热更新下载 (走代理/FINAL 防卡进度条) ----------
-HOST-SUFFIX, download.sgameglobal.com, FINAL
-HOST-SUFFIX, v2-down-gamelet.sgameglobal.com, FINAL
-HOST-SUFFIX, down.gamelet.games, FINAL
+# ---------- ③ 非亚洲测速节点阻断 (必须掐死) ----------
+# 防止游戏在后台测通全球节点，强迫游戏调度系统只给你分配亚洲服
+# 动态哈希测速拦截：
+HOST-KEYWORD, gromelink-link-in, REJECT
+HOST-KEYWORD, gromelink-link-br, REJECT
+HOST-KEYWORD, gromelink-link-sa, REJECT
+HOST-KEYWORD, gromelink-link-us, REJECT
+HOST-KEYWORD, gromelink-link-tr, REJECT
+HOST-KEYWORD, gromelink-link-it, REJECT
+HOST-KEYWORD, gromelink-link-fi, REJECT
+HOST-KEYWORD, gromelink-linkbr, REJECT
 
-# ---------- ④ 精确狙杀：静态非亚洲测速节点 (最高优先级 HOST) ----------
+# 静态测速拦截：
 HOST, gromelink-pingin.sgameglobal.com, REJECT
 HOST, indspeed.ino.sgameglobal.com, REJECT
 HOST, indspeed.ino.sgameglobal-err.com, REJECT
@@ -41,96 +57,8 @@ HOST, gromelink-mgr-eu.sgameglobal.com, REJECT
 HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
 HOST, gromelink-br.cf.sgameglobal.com, REJECT
 
-# ---------- ⑤ 动态哈希测速斩首 (KEYWORD 拼刺刀拦截) ----------
-HOST-KEYWORD, gromelink-link-in, REJECT
-HOST-KEYWORD, gromelink-link-br, REJECT
-HOST-KEYWORD, gromelink-link-sa, REJECT
-HOST-KEYWORD, gromelink-link-us, REJECT
-HOST-KEYWORD, gromelink-link-tr, REJECT
-HOST-KEYWORD, gromelink-link-it, REJECT
-HOST-KEYWORD, gromelink-link-fi, REJECT
-HOST-KEYWORD, gromelink-linkbr, REJECT
-
-# ---------- ⑥ 极窄特征 CDN 及调度直连 (绝对不影响其他App) ----------
-HOST-KEYWORD, sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-KEYWORD, zga.globalconnetct.com, DIRECT
-HOST-KEYWORD, eo.dnse3.com, DIRECT
-HOST-KEYWORD, eo.dnse4.com, DIRECT
-HOST-KEYWORD, eo.dnse5.com, DIRECT
-HOST-KEYWORD, acc.edgeonedy1.com, DIRECT
-HOST-KEYWORD, awsglobalaccelerator.com, DIRECT
-HOST-KEYWORD, zga.net, DIRECT
-HOST-KEYWORD, sgameglobal-err, DIRECT
-
-# ---------- ⑦ 亚洲主节点调度保送 (直连确立20ms优势) ----------
-HOST, gromelink-pingsg.sgameglobal.com, DIRECT
-HOST, gromelink-pingsg-clb-good-bgp-ip.sgameglobal.com, DIRECT
-HOST, gromelink-pinghk.sgameglobal.com, DIRECT
-HOST, gromelink-rs-sg.sgameglobal.com, DIRECT
-HOST, gromelink-mgr.sgameglobal.com, DIRECT
-HOST, gromelink-mgr-sg-rs.sgameglobal.com, DIRECT
-HOST, sgspeed.ino.sgameglobal.com, DIRECT
-HOST, speedsvr.ino.sgameglobal.com, DIRECT
-HOST, speedsvrnew.ino.sgameglobal.com, DIRECT
-HOST, 2speedsvrnew.ino.sgameglobal.com, DIRECT
-HOST-KEYWORD, gromelink-link-sg, DIRECT
-HOST-KEYWORD, gromelink-link-hk, DIRECT
-
-# ---------- ⑧ 常规游戏资产与大厅框架 ----------
-HOST-SUFFIX, intlgame.com, DIRECT
-HOST-SUFFIX, intlgame.cn, DIRECT
-HOST-SUFFIX, res.sgameglobal.com, DIRECT
-HOST-SUFFIX, mna.sgameglobal.com, DIRECT
-HOST-SUFFIX, prod-broker.sgameglobal.com, DIRECT
-HOST-SUFFIX, act.sgameglobal.com, DIRECT
-HOST-SUFFIX, hok-op-sg.sgameglobal.com, DIRECT
-HOST-SUFFIX, honorofkings.com, DIRECT
-HOST-SUFFIX, hokglobal.com, DIRECT
-HOST-SUFFIX, hok5v5.com, DIRECT
-HOST-SUFFIX, sgameglobal.com, DIRECT
-HOST-SUFFIX, globalconnetct.com, DIRECT
-HOST-SUFFIX, globalconnect.com, DIRECT
-
-# ---------- ⑨ 语音 / SDK / 反作弊组件 ----------
-HOST-SUFFIX, gcloudcs.com, DIRECT
-HOST-SUFFIX, gcloudsdk.com, DIRECT
-HOST-SUFFIX, anticheatexpert.com, DIRECT
-HOST-SUFFIX, wetest.net, DIRECT
-HOST-SUFFIX, vasdgame.com, DIRECT
-HOST-SUFFIX, tdos.vip, DIRECT
-HOST-SUFFIX, gamelet.games, DIRECT
-HOST-SUFFIX, listdl.com, DIRECT
-HOST-SUFFIX, singaporepaya.com, DIRECT
-
-# ---------- ⑩ 核心战斗服务器 IP 网 (持续补全防超时) ----------
-IP-CIDR, 32.107.0.0/16, DIRECT, no-resolve
-IP-CIDR, 34.89.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.128.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.129.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.132.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.134.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.152.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.153.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.156.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.159.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.160.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.168.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.174.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.175.0.0/16, DIRECT, no-resolve
-IP-CIDR, 49.51.0.0/16, DIRECT, no-resolve
-IP-CIDR, 64.99.0.0/16, DIRECT, no-resolve
-IP-CIDR, 80.222.0.0/16, DIRECT, no-resolve
-IP-CIDR, 96.0.0.0/16, DIRECT, no-resolve
-IP-CIDR, 96.159.0.0/16, DIRECT, no-resolve
-IP-CIDR, 96.239.0.0/16, DIRECT, no-resolve
-IP-CIDR, 101.32.0.0/16, DIRECT, no-resolve
-IP-CIDR, 112.229.0.0/16, DIRECT, no-resolve
-IP-CIDR, 128.95.0.0/16, DIRECT, no-resolve
-IP-CIDR, 144.166.0.0/16, DIRECT, no-resolve
-IP-CIDR, 144.201.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.93.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.96.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.224.0.0/16, DIRECT, no-resolve
-IP-CIDR, 162.62.0.0/16, DIRECT, no-resolve
-IP-CIDR, 18.199.0.0/16, DIRECT, no-resolve
-
+# ==========================================
+# 剩下的所有域名、CDN 调度、UDP 真实战斗服 IP
+# 都会因为“未匹配”自动走你设置的 FINAL (直连)
+# 自动实现 20ms 极速，无需再写任何规则！
+# ==========================================
