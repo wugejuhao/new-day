@@ -1,27 +1,36 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 纯净定制版
-# 策略环境：
-# 1. 代理策略：JP (账号鉴权与资源下载)
-# 2. 直连策略：DIRECT (CDN与大厅对局资源)
-# 3. 兜底策略：FINAL -> 直连 (负责底层 UDP 战斗流)
+# 👑 王者荣耀国际服 (HoK Global) 亚洲优选直连版
+# 策略环境配置要求：
+# 1. 代理策略名必须为：JP
+# 2. 【核心要求】请务必在 QX 中将 JP 策略指定为一个 日本、香港 或 新加坡 的节点！
+# 3. 兜底策略 (FINAL)：直连 (DIRECT)
+# 
+# 逻辑说明：
+# 使用亚洲代理节点完成账号鉴权，确保大厅初次调度即锁定亚洲服务器。
+# 随后所有对局内战斗流量、测速流量以及大厅静态资源，全部通过规则
+# 引导走本地宽带直连，享受物理极限 20ms 低延迟。
 # ==========================================
 
-# ---------- ① 账号鉴权与资源下载 (走 JP 代理) ----------
+# ---------- ① 账号鉴权与防封锁检测 (走 JP 亚洲代理) ----------
+# 关键：必须用亚洲IP登录，让系统把你锁在亚洲区，避免被分配到欧美高延迟服。
 HOST, hok.intlgame.com, JP
 HOST, hok-sg-act.playerinfinite.com, JP
+HOST-SUFFIX, playerinfinite.com, JP
+
+# ---------- ② 游戏热更新及下载 CDN (走 JP 亚洲代理) ----------
 HOST, download.sgameglobal.com, JP
 HOST, v2-down-gamelet.sgameglobal.com, JP
 HOST, down.gamelet.games, JP
 HOST-WILDCARD, download.*.hokglobalgcloud.iegcom.com, JP
 
-# ---------- ② 动态哈希全球加速 CDN (走 DIRECT 直连) ----------
-# 防止高权重的代理规则误杀这些动态资源节点，确保 20ms 极速加载
+# ---------- ③ 局内动态哈希全球加速 CDN (强制走 DIRECT 直连) ----------
+# 防止高权重的通用代理规则（Proxy List）误杀这些动态资源节点，确保局内丝滑不卡顿。
 HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
 HOST-WILDCARD, *.zga.globalconnetct.com, DIRECT
 HOST-WILDCARD, *.awsglobalaccelerator.com, DIRECT
 HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, DIRECT
 
-# ---------- ③ 局内静态资源及大厅核心 (走 DIRECT 直连) ----------
+# ---------- ④ 局内核心静态资源及大厅调度 (强制走 DIRECT 直连) ----------
 HOST, res.sgameglobal.com, DIRECT
 HOST, mna.sgameglobal.com, DIRECT
 HOST, prod-broker.sgameglobal.com, DIRECT
@@ -33,6 +42,8 @@ HOST, sg.tux.qq.com, DIRECT
 HOST, dlied5.qq.com, DIRECT
 
 # ==========================================
-# 说明：未在此列表中的所有流量（包括测速、遥测、
-# 以及未来的新战斗服纯 IP）都会触发 FINAL 走本地直连。
+# 说明：
+# 1. 已经按照要求删除了所有 REJECT 规则。
+# 2. 未包含在上述列表中的所有其他流量（例如战斗时的 UDP 纯 IP 流量、
+#    各种测速请求等）都会自动触发你设置的 FINAL (兜底直连) 规则。
 # ==========================================
