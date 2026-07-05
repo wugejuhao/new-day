@@ -102,7 +102,8 @@ HOST-SUFFIX, gamelet.games, DIRECT
 HOST-SUFFIX, listdl.com, DIRECT
 HOST-SUFFIX, singaporepaya.com, DIRECT
 
-# ---------- ⑩ 核心战斗服务器 IP 网 (根除 UDP 漏网超时) ----------
+# ---------- ⑩ 核心战斗服务器 IP 网 (根除开局 100ms 漏网超时) ----------
+IP-CIDR, 34.89.0.0/16, DIRECT, no-resolve
 IP-CIDR, 43.128.0.0/16, DIRECT, no-resolve
 IP-CIDR, 43.129.0.0/16, DIRECT, no-resolve
 IP-CIDR, 43.132.0.0/16, DIRECT, no-resolve
@@ -116,6 +117,7 @@ IP-CIDR, 43.168.0.0/16, DIRECT, no-resolve
 IP-CIDR, 43.174.0.0/16, DIRECT, no-resolve
 IP-CIDR, 43.175.0.0/16, DIRECT, no-resolve
 IP-CIDR, 49.51.0.0/16, DIRECT, no-resolve
+IP-CIDR, 64.99.0.0/16, DIRECT, no-resolve
 IP-CIDR, 80.222.0.0/16, DIRECT, no-resolve
 IP-CIDR, 96.0.0.0/16, DIRECT, no-resolve
 IP-CIDR, 96.159.0.0/16, DIRECT, no-resolve
@@ -124,7 +126,9 @@ IP-CIDR, 101.32.0.0/16, DIRECT, no-resolve
 IP-CIDR, 112.229.0.0/16, DIRECT, no-resolve
 IP-CIDR, 144.166.0.0/16, DIRECT, no-resolve
 IP-CIDR, 144.201.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.93.0.0/16, DIRECT, no-resolve
 IP-CIDR, 160.96.0.0/16, DIRECT, no-resolve
 IP-CIDR, 160.224.0.0/16, DIRECT, no-resolve
 IP-CIDR, 162.62.0.0/16, DIRECT, no-resolve
 IP-CIDR, 18.199.0.0/16, DIRECT, no-resolve
+
