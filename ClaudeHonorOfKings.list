@@ -1,17 +1,9 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 大陆物理直连终极版
-# 核心逻辑：拦截腾讯自带中转加速器，强制触发底层物理 IP 直连机制！
+# 👑 王者荣耀国际服 (HoK Global) 强杀中转回源版
+# 请务必放在 [filter_local] 的最顶部！
 # ==========================================
 
-# ---------- ① 核心防封与定位拦截 ----------
-HOST, hok-lbs.intlgame.com, REJECT
-HOST, hok-gcloudctrl.iegcom.com, REJECT
-HOST, galileotelemetry.tencent.com, REJECT
-HOST, sg.galileotelemetry.tencent.com, REJECT
-HOST-SUFFIX, appsflyersdk.com, REJECT
-HOST-SUFFIX, app-analytics-services.com, REJECT
-
-# ---------- ② 【关键】拦截内置“毒瘤”加速器 (强制回源物理IP) ----------
+# ---------- ① 强杀腾讯海外“毒瘤”加速器 (逼迫客户端直连 20ms 物理服务器) ----------
 HOST-KEYWORD, gromelink, REJECT
 HOST-SUFFIX, zga.net, REJECT
 HOST-SUFFIX, zga.globalconnetct.com, REJECT
@@ -19,19 +11,17 @@ HOST-SUFFIX, awsglobalaccelerator.com, REJECT
 HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, REJECT
 HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, REJECT
 
-# ---------- ③ 账号大厅与下载更新 (保持全直连) ----------
-HOST, hok.intlgame.com, DIRECT
-HOST, hok-sg-act.playerinfinite.com, DIRECT
-HOST, download.sgameglobal.com, DIRECT
-HOST, v2-down-gamelet.sgameglobal.com, DIRECT
-HOST, down.gamelet.games, DIRECT
-HOST-WILDCARD, download.*.hokglobalgcloud.iegcom.com, DIRECT
-HOST, res.sgameglobal.com, DIRECT
-HOST, mna.sgameglobal.com, DIRECT
-HOST, prod-broker.sgameglobal.com, DIRECT
-HOST, act.sgameglobal.com, DIRECT
-HOST, hok-op-sg.sgameglobal.com, DIRECT
-HOST, camp.honorofkings.com, DIRECT
-HOST, api-camp.honorofkings.com, DIRECT
+# ---------- ② 核心防封锁检测 ----------
+HOST, hok-lbs.intlgame.com, REJECT
+HOST, hok-gcloudctrl.iegcom.com, REJECT
+HOST, galileotelemetry.tencent.com, REJECT
+HOST, sg.galileotelemetry.tencent.com, REJECT
+
+# ---------- ③ 大厅、下载与资源 (强制全直连) ----------
+HOST-SUFFIX, intlgame.com, DIRECT
+HOST-SUFFIX, sgameglobal.com, DIRECT
+HOST-SUFFIX, honorofkings.com, DIRECT
+HOST-SUFFIX, gamelet.games, DIRECT
+HOST-WILDCARD, *.hokglobalgcloud.iegcom.com, DIRECT
 HOST, sg.tux.qq.com, DIRECT
 HOST, dlied5.qq.com, DIRECT
