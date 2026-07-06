@@ -1,10 +1,9 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 大陆裸连完美 20ms 版
-# 策略环境：全直连 (DIRECT) + 强力防封锁 (REJECT)
-# 优势：首局即 20ms 极速，彻底摆脱“荷兰”卧底节点的缓存干扰！
+# 👑 王者荣耀国际服 (HoK Global) 大陆物理直连终极版
+# 核心逻辑：拦截腾讯自带中转加速器，强制触发底层物理 IP 直连机制！
 # ==========================================
 
-# ---------- ① 核心防封锁检测 (不可删除，必须拦截) ----------
+# ---------- ① 核心防封与定位拦截 ----------
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
@@ -12,23 +11,21 @@ HOST, sg.galileotelemetry.tencent.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 HOST-SUFFIX, app-analytics-services.com, REJECT
 
-# ---------- ② 账号鉴权大厅与测速 (强制全直连) ----------
+# ---------- ② 【关键】拦截内置“毒瘤”加速器 (强制回源物理IP) ----------
+HOST-KEYWORD, gromelink, REJECT
+HOST-SUFFIX, zga.net, REJECT
+HOST-SUFFIX, zga.globalconnetct.com, REJECT
+HOST-SUFFIX, awsglobalaccelerator.com, REJECT
+HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, REJECT
+HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, REJECT
+
+# ---------- ③ 账号大厅与下载更新 (保持全直连) ----------
 HOST, hok.intlgame.com, DIRECT
 HOST, hok-sg-act.playerinfinite.com, DIRECT
-
-# ---------- ③ 游戏热更新及下载 CDN (强制全直连) ----------
 HOST, download.sgameglobal.com, DIRECT
 HOST, v2-down-gamelet.sgameglobal.com, DIRECT
 HOST, down.gamelet.games, DIRECT
 HOST-WILDCARD, download.*.hokglobalgcloud.iegcom.com, DIRECT
-
-# ---------- ④ 动态哈希全球加速 CDN (强制全直连) ----------
-HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
-HOST-WILDCARD, *.zga.globalconnetct.com, DIRECT
-HOST-WILDCARD, *.awsglobalaccelerator.com, DIRECT
-HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, DIRECT
-
-# ---------- ⑤ 局内静态资源及对局核心 (强制全直连) ----------
 HOST, res.sgameglobal.com, DIRECT
 HOST, mna.sgameglobal.com, DIRECT
 HOST, prod-broker.sgameglobal.com, DIRECT
@@ -38,7 +35,3 @@ HOST, camp.honorofkings.com, DIRECT
 HOST, api-camp.honorofkings.com, DIRECT
 HOST, sg.tux.qq.com, DIRECT
 HOST, dlied5.qq.com, DIRECT
-
-# ==========================================
-# 兜底：FINAL -> DIRECT (让未知的局内纯 IP 流量全部直连)
-# ==========================================
