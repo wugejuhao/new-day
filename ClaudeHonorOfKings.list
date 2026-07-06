@@ -1,13 +1,10 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 国内全直连防封版
-# 策略环境：
-# 1. 核心策略：全直连 (DIRECT) + 强力防查水表 (REJECT)
-# 2. 兜底策略：FINAL -> 直连 (负责底层 UDP 战斗流)
-# 优势：首局即 20ms 极速，彻底摆脱“假亚洲”节点的干扰！
+# 👑 王者荣耀国际服 (HoK Global) 大陆裸连完美 20ms 版
+# 策略环境：全直连 (DIRECT) + 强力防封锁 (REJECT)
+# 优势：首局即 20ms 极速，彻底摆脱“荷兰”卧底节点的缓存干扰！
 # ==========================================
 
-# ---------- ① 核心防查水表 (绝不可删，必须拦截) ----------
-# 彻底阻断腾讯 LBS 物理定位、基站扫描以及应用数据分析！
+# ---------- ① 核心防封锁检测 (不可删除，必须拦截) ----------
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
@@ -15,8 +12,7 @@ HOST, sg.galileotelemetry.tencent.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 HOST-SUFFIX, app-analytics-services.com, REJECT
 
-# ---------- ② 账号鉴权与大厅登录 (强制全直连) ----------
-# 避开假代理节点，让服务器直接感知你的极低物理延迟
+# ---------- ② 账号鉴权大厅与测速 (强制全直连) ----------
 HOST, hok.intlgame.com, DIRECT
 HOST, hok-sg-act.playerinfinite.com, DIRECT
 
@@ -44,5 +40,5 @@ HOST, sg.tux.qq.com, DIRECT
 HOST, dlied5.qq.com, DIRECT
 
 # ==========================================
-# 说明：剩下的所有未知战斗流量将自动掉入 FINAL 走本地物理直连！
+# 兜底：FINAL -> DIRECT (让未知的局内纯 IP 流量全部直连)
 # ==========================================
