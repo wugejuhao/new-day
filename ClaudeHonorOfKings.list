@@ -1,13 +1,13 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 终极物理直连版
+# 👑 王者荣耀国际服 (HoK Global) 国内全直连防封版
 # 策略环境：
 # 1. 核心策略：全直连 (DIRECT) + 强力防查水表 (REJECT)
 # 2. 兜底策略：FINAL -> 直连 (负责底层 UDP 战斗流)
-# 优势：首局即 20ms 极速，摆脱节点依赖，无需退出重进！
+# 优势：首局即 20ms 极速，彻底摆脱“假亚洲”节点的干扰！
 # ==========================================
 
-# ---------- ① 核心防查水表 (不可删除，必须拦截) ----------
-# 拦截后台 GPS、基站定位以及应用数据收集，这是裸连不被弹窗的唯一底牌！
+# ---------- ① 核心防查水表 (绝不可删，必须拦截) ----------
+# 彻底阻断腾讯 LBS 物理定位、基站扫描以及应用数据分析！
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
@@ -15,23 +15,24 @@ HOST, sg.galileotelemetry.tencent.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 HOST-SUFFIX, app-analytics-services.com, REJECT
 
-# ---------- ② 账号鉴权与资源下载 (强制走 DIRECT 直连) ----------
-# 彻底移除代理！让服务器看到你的物理低延迟，开局直接分配亚洲服！
+# ---------- ② 账号鉴权与大厅登录 (强制全直连) ----------
+# 避开假代理节点，让服务器直接感知你的极低物理延迟
 HOST, hok.intlgame.com, DIRECT
 HOST, hok-sg-act.playerinfinite.com, DIRECT
+
+# ---------- ③ 游戏热更新及下载 CDN (强制全直连) ----------
 HOST, download.sgameglobal.com, DIRECT
 HOST, v2-down-gamelet.sgameglobal.com, DIRECT
 HOST, down.gamelet.games, DIRECT
 HOST-WILDCARD, download.*.hokglobalgcloud.iegcom.com, DIRECT
 
-# ---------- ③ 动态哈希全球加速 CDN (强制走 DIRECT 直连) ----------
-# 防止高权重的代理分流规则误杀这些动态资源节点，确保局内加载丝滑
+# ---------- ④ 动态哈希全球加速 CDN (强制全直连) ----------
 HOST-WILDCARD, *.sgameglobal.com.acc.edgeonedy1.com, DIRECT
 HOST-WILDCARD, *.zga.globalconnetct.com, DIRECT
 HOST-WILDCARD, *.awsglobalaccelerator.com, DIRECT
 HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, DIRECT
 
-# ---------- ④ 局内静态资源及大厅核心 (强制走 DIRECT 直连) ----------
+# ---------- ⑤ 局内静态资源及对局核心 (强制全直连) ----------
 HOST, res.sgameglobal.com, DIRECT
 HOST, mna.sgameglobal.com, DIRECT
 HOST, prod-broker.sgameglobal.com, DIRECT
@@ -43,7 +44,5 @@ HOST, sg.tux.qq.com, DIRECT
 HOST, dlied5.qq.com, DIRECT
 
 # ==========================================
-# 说明：未在此列表中的所有流量（包括全球测速包、
-# 未知的战斗服 UDP 纯 IP）都会因为无匹配项，
-# 自动掉入 FINAL 走本地物理直连，享受极限 20ms。
+# 说明：剩下的所有未知战斗流量将自动掉入 FINAL 走本地物理直连！
 # ==========================================
