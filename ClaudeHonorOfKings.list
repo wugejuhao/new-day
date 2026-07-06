@@ -1,27 +1,68 @@
 # ==========================================
-# 👑 王者荣耀国际服 (HoK Global) 强杀中转回源版
-# 请务必放在 [filter_local] 的最顶部！
+# 王者荣耀国际服 - Quantumult X 精简终版
+# FINAL = DIRECT，JP = 日本节点
 # ==========================================
 
-# ---------- ① 强杀腾讯海外“毒瘤”加速器 (逼迫客户端直连 20ms 物理服务器) ----------
-HOST-KEYWORD, gromelink, REJECT
-HOST-SUFFIX, zga.net, REJECT
-HOST-SUFFIX, zga.globalconnetct.com, REJECT
-HOST-SUFFIX, awsglobalaccelerator.com, REJECT
-HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, REJECT
-HOST-WILDCARD, *.sgameglobal.com.cdn.cloudflare.net, REJECT
+# ===== 账号检测：走 JP =====
+HOST, hok-lbs.intlgame.com, JP
+HOST, gate-prod.cloud-control.sgameglobal.com, JP
+HOST, lbsserver.sgameglobal.com, JP
+HOST, hok-gcloudctrl.iegcom.com, JP
 
-# ---------- ② 核心防封锁检测 ----------
-HOST, hok-lbs.intlgame.com, REJECT
-HOST, hok-gcloudctrl.iegcom.com, REJECT
-HOST, galileotelemetry.tencent.com, REJECT
-HOST, sg.galileotelemetry.tencent.com, REJECT
+# ===== 香港 QoS 测速：必须直连，是真正的香港延迟通道 =====
+HOST, qoshw.gcloudsdk.com, DIRECT
+# ↑ CNAME 到 qos.hk.gcloudcs.com，走 UDP 8011
+#   这个直连才是游戏测到香港延迟的关键，不是 gromelink-pinghk
 
-# ---------- ③ 大厅、下载与资源 (强制全直连) ----------
-HOST-SUFFIX, intlgame.com, DIRECT
+# ===== sgameglobal.com 下载：走 JP =====
+HOST, download.sgameglobal.com, JP
+HOST, v2-down-gamelet.sgameglobal.com, JP
+
+# ===== sgameglobal.com 其余全部直连 =====
 HOST-SUFFIX, sgameglobal.com, DIRECT
+
+# ===== 其他游戏域名直连 =====
+HOST, hok.intlgame.com, DIRECT
+HOST, hok-dr.intlgame.com, DIRECT
+HOST, hok-vman.intlgame.com, DIRECT
+HOST-SUFFIX, intlgame.cn, DIRECT
+HOST-SUFFIX, zga.net, DIRECT
+HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
+HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
+HOST-SUFFIX, 2c450f6kyrw9.eo.dnse3.com, DIRECT
 HOST-SUFFIX, honorofkings.com, DIRECT
+HOST-SUFFIX, hokglobal.com, DIRECT
+HOST-SUFFIX, hok5v5.com, DIRECT
+HOST-SUFFIX, playerinfinite.com, DIRECT
+HOST-SUFFIX, globalconnetct.com, DIRECT
+HOST-SUFFIX, gcloudcs.com, DIRECT
+HOST-SUFFIX, gcloudsdk.com, DIRECT
+HOST-SUFFIX, anticheatexpert.com, DIRECT
+HOST-SUFFIX, wetest.net, DIRECT
+HOST-SUFFIX, vasdgame.com, DIRECT
+HOST-SUFFIX, tdos.vip, DIRECT
 HOST-SUFFIX, gamelet.games, DIRECT
-HOST-WILDCARD, *.hokglobalgcloud.iegcom.com, DIRECT
-HOST, sg.tux.qq.com, DIRECT
-HOST, dlied5.qq.com, DIRECT
+HOST-SUFFIX, listdl.com, DIRECT
+HOST-SUFFIX, singaporepaya.com, DIRECT
+HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
+
+# ===== 对战服务器 IP 网段直连 =====
+IP-CIDR, 96.0.64.0/18, DIRECT, no-resolve
+IP-CIDR, 96.226.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.32.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.96.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.160.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.224.0.0/16, DIRECT, no-resolve
+IP-CIDR, 160.233.0.0/16, DIRECT, no-resolve
+IP-CIDR, 176.251.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.132.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.134.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.153.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.156.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.159.0.0/16, DIRECT, no-resolve
+IP-CIDR, 43.160.0.0/16, DIRECT, no-resolve
+IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
+IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
+IP-CIDR, 162.62.125.251/32, DIRECT, no-resolve
+IP-CIDR, 58.251.57.75/32, DIRECT, no-resolve
