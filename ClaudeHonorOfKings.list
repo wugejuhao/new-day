@@ -7,15 +7,16 @@
 # ==========================================
 
 # ---------- ① 核心防查水表 (不可删除，必须拦截) ----------
-# 拦截后台 GPS 和基站定位上报，这是裸连不被弹窗的唯一底牌！
+# 拦截后台 GPS、基站定位以及应用数据收集，这是裸连不被弹窗的唯一底牌！
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, hok-gcloudctrl.iegcom.com, REJECT
 HOST, galileotelemetry.tencent.com, REJECT
 HOST, sg.galileotelemetry.tencent.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
+HOST-SUFFIX, app-analytics-services.com, REJECT
 
 # ---------- ② 账号鉴权与资源下载 (强制走 DIRECT 直连) ----------
-# 【关键修改】彻底移除代理！让服务器看到你的物理低延迟，开局直接分配亚洲服！
+# 彻底移除代理！让服务器看到你的物理低延迟，开局直接分配亚洲服！
 HOST, hok.intlgame.com, DIRECT
 HOST, hok-sg-act.playerinfinite.com, DIRECT
 HOST, download.sgameglobal.com, DIRECT
