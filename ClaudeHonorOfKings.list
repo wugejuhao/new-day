@@ -1,4 +1,1 @@
-HOST, hok-lbs.intlgame.com, JP
-HOST, gate-prod.cloud-control.sgameglobal.com, JP
-HOST, lbsserver.sgameglobal.com, JP
-HOST, hok-gcloudctrl.iegcom.com, JP
+HOST, hok-lbs.intlgame.com, REJECT
