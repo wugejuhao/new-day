@@ -1,46 +1,6 @@
-# ==========================================
-# 王者荣耀国际服 - Quantumult X 终版
-# FINAL = DIRECT，JP = 日本节点
-# ==========================================
-
 # ===== REJECT：地区检测 =====
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, APP-ANALYTICS-SERVICES.COM, REJECT
 
-# ===== REJECT：非亚洲 mgr =====
-HOST, gromelink-mgr.sgameglobal.com, DIRECT
-HOST, gromelink-mgr-sg-rs.sgameglobal.com, DIRECT
-HOST-SUFFIX, gromelink-mgr.sgameglobal.com, REJECT
 
-# ===== REJECT：非亚洲 link 中转 =====
-HOST-KEYWORD, gromelink-link-in, REJECT
-HOST-KEYWORD, gromelink-link-br, REJECT
-HOST-KEYWORD, gromelink-link-sa, REJECT
-HOST-KEYWORD, gromelink-link-us, REJECT
-HOST-KEYWORD, gromelink-link-tr, REJECT
-HOST-KEYWORD, gromelink-link-it, REJECT
-HOST-KEYWORD, gromelink-link-fi, REJECT
-HOST, gromelink-linkbr.sgameglobal.com, REJECT
-HOST, gromelink-br.cf.sgameglobal.com, REJECT
-HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
-HOST, gromelink-rs-tr.sgameglobal.com, REJECT
-HOST, gromelink-rs-us-dls-gcp.sgameglobal.com, REJECT
 
-# ===== DIRECT：东南亚 link（精确后缀，不用宽泛的 eo.dnse3.com）=====
-HOST-SUFFIX, gromelink-link-sg.2c450f6kyrw9.eo.dnse3.com, DIRECT
-HOST-SUFFIX, gromelink-link-hk.2c450f6kyrw9.eo.dnse3.com, DIRECT
-HOST-SUFFIX, gromelink-link-sg.sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-SUFFIX, gromelink-link-hk.sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-KEYWORD, gromelink-link-sg, DIRECT
-HOST-KEYWORD, gromelink-link-hk, DIRECT
-HOST, gromelink-rs-sg.sgameglobal.com, DIRECT
-
-# ===== DIRECT：测速节点全部直连 =====
-HOST, gromelink-mgr.sgameglobal.com, DIRECT
-HOST, gromelink-mgr-sg-rs.sgameglobal.com, DIRECT
-HOST, gromelink-pingsg.sgameglobal.com, DIRECT
-HOST, gromelink-pingsg-clb-good-bgp-ip.sgameglobal.com, DIRECT
-HOST, gromelink-pinghk.sgameglobal.com, DIRECT
-HOST, gromelink-pingin.sgameglobal.com, DIRECT
-HOST, gromelink-pingbr.sgameglobal.com, DIRECT
-HOST, gromelink-pingsa
