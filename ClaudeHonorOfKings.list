@@ -5,6 +5,7 @@
 
 # ===== REJECT：地区检测 =====
 HOST, hok-lbs.intlgame.com, REJECT
+HOST, APP-ANALYTICS-SERVICES.COM, REJECT
 
 # ===== REJECT：非亚洲 mgr =====
 HOST, gromelink-mgr.sgameglobal.com, DIRECT
