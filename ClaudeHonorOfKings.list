@@ -1,27 +1,17 @@
-
 # ==========================================
 # 王者荣耀国际服 - Quantumult X 终版
 # FINAL = DIRECT，JP = 日本节点
-# 核心：sgameglobal.com 精确枚举，让 KEYWORD REJECT 能正常生效
 # ==========================================
 
 # ===== REJECT：地区检测 =====
 HOST, hok-lbs.intlgame.com, REJECT
-HOST, lbsserver.sgameglobal.com, REJECT
-HOST, gate-prod.cloud-control.sgameglobal.com, REJECT
-HOST, hok-gcloudctrl.iegcom.com, REJECT
-HOST, galileotelemetry.tencent.com, REJECT
-HOST, sg.galileotelemetry.tencent.com, REJECT
-HOST-SUFFIX, appsflyersdk.com, REJECT
 
-# ===== REJECT：非亚洲 mgr 调度节点 =====
-# HOST 精确直连在前，HOST-SUFFIX REJECT 兜底所有子域
+# ===== REJECT：非亚洲 mgr =====
 HOST, gromelink-mgr.sgameglobal.com, DIRECT
 HOST, gromelink-mgr-sg-rs.sgameglobal.com, DIRECT
 HOST-SUFFIX, gromelink-mgr.sgameglobal.com, REJECT
 
-# ===== REJECT：非亚洲 CDN link 中转节点 =====
-# KEYWORD 现在能生效，因为没有宽泛的 sgameglobal.com DIRECT 截胡
+# ===== REJECT：非亚洲 link 中转 =====
 HOST-KEYWORD, gromelink-link-in, REJECT
 HOST-KEYWORD, gromelink-link-br, REJECT
 HOST-KEYWORD, gromelink-link-sa, REJECT
@@ -35,92 +25,21 @@ HOST, gromelink-rs-in-ccu-aws.sgameglobal.com, REJECT
 HOST, gromelink-rs-tr.sgameglobal.com, REJECT
 HOST, gromelink-rs-us-dls-gcp.sgameglobal.com, REJECT
 
-# ===== DIRECT：东南亚 link 节点 =====
+# ===== DIRECT：东南亚 link（精确后缀，不用宽泛的 eo.dnse3.com）=====
+HOST-SUFFIX, gromelink-link-sg.2c450f6kyrw9.eo.dnse3.com, DIRECT
+HOST-SUFFIX, gromelink-link-hk.2c450f6kyrw9.eo.dnse3.com, DIRECT
+HOST-SUFFIX, gromelink-link-sg.sgameglobal.com.cdn.cloudflare.net, DIRECT
+HOST-SUFFIX, gromelink-link-hk.sgameglobal.com.cdn.cloudflare.net, DIRECT
 HOST-KEYWORD, gromelink-link-sg, DIRECT
 HOST-KEYWORD, gromelink-link-hk, DIRECT
 HOST, gromelink-rs-sg.sgameglobal.com, DIRECT
 
-# ===== DIRECT：所有测速节点（全部直连让游戏自己选最优）=====
+# ===== DIRECT：测速节点全部直连 =====
+HOST, gromelink-mgr.sgameglobal.com, DIRECT
+HOST, gromelink-mgr-sg-rs.sgameglobal.com, DIRECT
 HOST, gromelink-pingsg.sgameglobal.com, DIRECT
 HOST, gromelink-pingsg-clb-good-bgp-ip.sgameglobal.com, DIRECT
 HOST, gromelink-pinghk.sgameglobal.com, DIRECT
 HOST, gromelink-pingin.sgameglobal.com, DIRECT
 HOST, gromelink-pingbr.sgameglobal.com, DIRECT
-HOST, gromelink-pingsa.sgameglobal.com, DIRECT
-HOST, gromelink-pingtr.sgameglobal.com, DIRECT
-HOST, gromelink-pingit.sgameglobal.com, DIRECT
-HOST, gromelink-pingfi.sgameglobal.com, DIRECT
-HOST, gromelink-ping-us-mia.sgameglobal.com, DIRECT
-
-# ===== DIRECT：游戏核心服务（sgameglobal.com 精确枚举）=====
-HOST, res.sgameglobal.com, DIRECT
-HOST, mna.sgameglobal.com, DIRECT
-HOST, prod-broker.sgameglobal.com, DIRECT
-HOST, act.sgameglobal.com, DIRECT
-HOST, hok-op-sg.sgameglobal.com, DIRECT
-HOST, sgspeed.ino.sgameglobal.com, DIRECT
-HOST, awssgspeed.ino.sgameglobal.com, DIRECT
-HOST, speedsvr.ino.sgameglobal.com, DIRECT
-HOST, speedsvrnew.ino.sgameglobal.com, DIRECT
-HOST, 2speedsvrnew.ino.sgameglobal.com, DIRECT
-HOST, 757117d71aacf773.sgameglobal.com, DIRECT
-HOST, a3a90994f94021b7.sgameglobal.com, DIRECT
-HOST, bd623fd22871cf1b.sgameglobal.com, DIRECT
-
-# ===== JP：资源下载 =====
-HOST, download.sgameglobal.com, JP
-HOST, v2-down-gamelet.sgameglobal.com, JP
-
-# ===== DIRECT：其他游戏域名 =====
-HOST, hok.intlgame.com, DIRECT
-HOST, hok-dr.intlgame.com, DIRECT
-HOST, hok-vman.intlgame.com, DIRECT
-HOST-SUFFIX, intlgame.cn, DIRECT
-HOST-SUFFIX, honorofkings.com, DIRECT
-HOST-SUFFIX, hokglobal.com, DIRECT
-HOST-SUFFIX, hok5v5.com, DIRECT
-HOST-SUFFIX, playerinfinite.com, DIRECT
-HOST-SUFFIX, globalconnetct.com, DIRECT
-HOST-SUFFIX, gcloudcs.com, DIRECT
-HOST-SUFFIX, gcloudsdk.com, DIRECT
-HOST-SUFFIX, anticheatexpert.com, DIRECT
-HOST-SUFFIX, wetest.net, DIRECT
-HOST-SUFFIX, vasdgame.com, DIRECT
-HOST-SUFFIX, tdos.vip, DIRECT
-HOST-SUFFIX, gamelet.games, DIRECT
-HOST-SUFFIX, listdl.com, DIRECT
-HOST-SUFFIX, singaporepaya.com, DIRECT
-HOST-SUFFIX, hokglobalgcloud.iegcom.com, DIRECT
-HOST-SUFFIX, zga.net, DIRECT
-HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
-HOST-SUFFIX, sgameglobal.com.cdn.cloudflare.net, DIRECT
-HOST-SUFFIX, sgameglobal.com.acc.edgeonedy1.com, DIRECT
-HOST-SUFFIX, 2c450f6kyrw9.eo.dnse3.com, DIRECT
-
-# ===== DIRECT：对战服务器 IP 网段 =====
-IP-CIDR, 48.0.0.0/8, DIRECT, no-resolve
-IP-CIDR, 96.0.0.0/16, DIRECT, no-resolve
-IP-CIDR, 96.226.0.0/16, DIRECT, no-resolve
-IP-CIDR, 96.239.0.0/16, DIRECT, no-resolve
-IP-CIDR, 101.32.0.0/16, DIRECT, no-resolve
-IP-CIDR, 112.95.0.0/16, DIRECT, no-resolve
-IP-CIDR, 119.28.0.0/16, DIRECT, no-resolve
-IP-CIDR, 124.156.0.0/16, DIRECT, no-resolve
-IP-CIDR, 129.226.0.0/16, DIRECT, no-resolve
-IP-CIDR, 150.109.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.32.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.96.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.160.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.224.0.0/16, DIRECT, no-resolve
-IP-CIDR, 160.233.0.0/16, DIRECT, no-resolve
-IP-CIDR, 162.62.0.0/16, DIRECT, no-resolve
-IP-CIDR, 175.27.0.0/16, DIRECT, no-resolve
-IP-CIDR, 176.251.0.0/16, DIRECT, no-resolve
-IP-CIDR, 43.128.0.0/14, DIRECT, no-resolve
-IP-CIDR, 58.251.0.0/16, DIRECT, no-resolve
-IP-CIDR, 64.34.0.0/16, DIRECT, no-resolve
-IP-CIDR, 80.43.0.0/16, DIRECT, no-resolve
-IP-CIDR, 80.100.0.0/16, DIRECT, no-resolve
-IP-CIDR, 34.89.234.43/32, DIRECT, no-resolve
-IP-CIDR, 18.199.59.216/32, DIRECT, no-resolve
-
+HOST, gromelink-pingsa
