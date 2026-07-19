@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="flagRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF4B2B" />
+      <stop offset="100%" stop-color="#D31027" />
+    </linearGradient>
+  </defs>
+  <!-- 外框：标准 4:3 横向长方形旗帜，如需纯直角请将 rx="24" 改为 rx="0" -->
+  <rect width="640" height="480" rx="24" fill="url(#flagRed)" />
+  
+  <!-- 核心：宽幅长方形居中的白墙家园象征 -->
+  <path d="M320 130 L170 255 C161 262 165 278 177 278 L200 278 L200 380 C200 391 209 400 220 400 L280 400 L280 300 L360 300 L360 400 L420 400 C431 400 440 391 440 380 L440 278 L463 278 C475 278 479 262 470 255 Z" fill="#FFFFFF" />
+  
+  <!-- 点缀：房屋正上方中央的金色指引星 -->
+  <path d="M320 60 L331 88 L360 88 L337 105 L346 133 L320 115 L294 133 L303 105 L280 88 L309 88 Z" fill="#FFDE00" />
+</svg>
