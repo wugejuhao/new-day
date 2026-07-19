@@ -4,7 +4,9 @@ HOST, hok-lbs.intlgame.com, REJECT
 
 HOST, APP-ANALYTICS-SERVICES.COM, REJECT
 
-HOST, oalstv-launches.appsflyersdk.com, REJECT
+HOST, appsflyersdk.com, REJECT
+
+
 
 
 
