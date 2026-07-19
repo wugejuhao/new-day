@@ -1,0 +1,22 @@
+# Alexa 核心 API / 账号
+HOST-SUFFIX,alexa.amazon.com,BackHome
+HOST-SUFFIX,na-api-alexa.amazon.com,BackHome
+HOST-SUFFIX,api.amazon.com,BackHome
+HOST-SUFFIX,api.amazonalexa.com,BackHome
+
+# 语音识别/响应 (AVS)
+HOST-SUFFIX,avs-alexa-12-na.amazon.com,BackHome
+
+# 通话/Comms(重点,含 SIP 中转)
+HOST-SUFFIX,alexa-comms-mobile-service.amazon.com,BackHome
+HOST,prod.sip-edge.amc.amazon.dev,BackHome
+
+# 设备状态/同步
+HOST-SUFFIX,alexa-dice-na.amazon.com,BackHome
+HOST-SUFFIX,arcus-uswest.amazon.com,BackHome
+
+# 图片/配置
+HOST,alexa.ios-config.photos.amazon.dev,BackHome
+
+# 遥测/日志(可选,非核心通话链路)
+HOST-SUFFIX,alexa-mobile.amazon.dev,BackHome
