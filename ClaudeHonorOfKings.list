@@ -5,7 +5,9 @@ HOST, hok-lbs.intlgame.com, REJECT
 HOST, APP-ANALYTICS-SERVICES.COM, REJECT
 
 HOST, appsflyersdk.com, REJECT
-
+# 下载
+HOST, download.sgameglobal.com, World
+HOST, v2-down-gamelet.sgameglobal.com, World
 
 
 
