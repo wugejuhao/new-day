@@ -47,3 +47,7 @@ HOST-SUFFIX, sgameglobal.com, DIRECT
 HOST-SUFFIX, intlgame.com, DIRECT
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, playerinfinite.com, DIRECT
+# 腾讯 GCloud 基础框架 (含 QoS 测速、对局语音与配置)
+HOST-SUFFIX, gcloudcs.com, DIRECT
+HOST-SUFFIX, gcloudsdk.com, DIRECT
+
