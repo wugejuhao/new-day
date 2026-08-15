@@ -1,0 +1,49 @@
+# ===== 1. 隐私防追踪 & 定位屏蔽 (强制拒绝) =====
+HOST, hok-lbs.intlgame.com, REJECT
+HOST-SUFFIX, appsflyersdk.com, REJECT
+HOST-SUFFIX, app-analytics-services.com, REJECT
+HOST-SUFFIX, crashsight.wetest.net, REJECT
+
+# ===== 2. 游戏资源下载 (走代理，解决直连下载慢) =====
+HOST, download.sgameglobal.com, World
+HOST, v2-down-gamelet.sgameglobal.com, World
+
+# ===== 3. 远端赛区隔离：测速与连接 (强制拒绝，防止乱匹) =====
+# 屏蔽拉美、欧洲、美服、印度等连接节点
+HOST-KEYWORD, gromelink-link-in, REJECT
+HOST-KEYWORD, gromelink-link-tr, REJECT
+HOST-KEYWORD, gromelink-link-br, REJECT
+HOST-KEYWORD, gromelink-link-sa, REJECT
+HOST-KEYWORD, gromelink-link-us, REJECT
+HOST-KEYWORD, gromelink-link-it, REJECT
+HOST-KEYWORD, gromelink-link-fi, REJECT
+# 屏蔽远端赛区的专属测速 (含 speed 和 ping)
+HOST-KEYWORD, gromelink-pingtr, REJECT
+HOST-KEYWORD, gromelink-pingfi, REJECT
+HOST-KEYWORD, gromelink-pingit, REJECT
+HOST-KEYWORD, gromelink-pingsa, REJECT
+HOST-KEYWORD, gromelink-pingbr, REJECT
+HOST-KEYWORD, gromelink-ping-us, REJECT
+HOST-KEYWORD, brspeed.ino, REJECT
+HOST-KEYWORD, indspeed.ino, REJECT
+
+# ===== 4. 彻底锁死香港节点 (剔除新加坡) =====
+# 屏蔽新加坡测速与连接，强迫系统只认香港
+HOST-KEYWORD, gromelink-link-sg, REJECT
+HOST-KEYWORD, gromelink-pingsg, REJECT
+HOST-KEYWORD, sgspeed.ino, REJECT
+
+# ===== 5. 核心大厅、调度与香港对局 (极致直连) =====
+# 命中香港连接节点
+HOST-KEYWORD, gromelink-link-hk, DIRECT
+# 通用调度与通用测速放行直连，保证进游戏不卡
+HOST-KEYWORD, gromelink-mgr, DIRECT
+HOST-KEYWORD, speedsvr.ino, DIRECT
+HOST, mna.sgameglobal.com, DIRECT
+# 游戏底层专线加速器 (ZGA/AWS) 直连
+HOST-SUFFIX, zga.globalconnetct.com, DIRECT
+HOST-SUFFIX, zga.net, DIRECT
+HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
+# 游戏主域名托底直连
+HOST-SUFFIX, sgameglobal.com, DIRECT
+HOST-SUFFIX, intlgame.com, DIRECT
