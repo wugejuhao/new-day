@@ -17,9 +17,9 @@ HOST-KEYWORD, gromelink-link-sa, REJECT
 HOST-KEYWORD, gromelink-link-us, REJECT
 HOST-KEYWORD, gromelink-link-it, REJECT
 HOST-KEYWORD, gromelink-link-fi, REJECT
-HOST-KEYWORD, gromelink-link-sg, REJECT
-# cdn直连
 
+# cdn直连
+HOST-KEYWORD, gromelink-link-sg, DIRECT
 HOST-KEYWORD, gromelink-link-hk, DIRECT
 
 
