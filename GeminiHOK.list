@@ -29,13 +29,15 @@ HOST-KEYWORD, indspeed.ino, REJECT
 
 # ===== 4. 彻底锁死香港节点 (剔除新加坡) =====
 # 屏蔽新加坡测速与连接，强迫系统只认香港
-HOST-KEYWORD, gromelink-link-sg, REJECT
-HOST-KEYWORD, gromelink-pingsg, REJECT
-HOST-KEYWORD, sgspeed.ino, REJECT
+
+
 
 # ===== 5. 核心大厅、调度与香港对局 (极致直连) =====
 # 命中香港连接节点
+HOST-KEYWORD, gromelink-link-sg, DIRECT
 HOST-KEYWORD, gromelink-link-hk, DIRECT
+HOST-KEYWORD, gromelink-pingsg, DIRECT
+HOST-KEYWORD, sgspeed.ino, DIRECT
 # 通用调度与通用测速放行直连，保证进游戏不卡
 HOST-KEYWORD, gromelink-mgr, DIRECT
 HOST-KEYWORD, speedsvr.ino, DIRECT
