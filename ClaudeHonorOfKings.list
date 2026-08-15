@@ -4,7 +4,7 @@ HOST, hok-lbs.intlgame.com, REJECT
 
 HOST, APP-ANALYTICS-SERVICES.COM, REJECT
 
-HOST-SUFFIX, appsflyersdk.com, REJECT
+HOST-SUFFIX, appsflyersdk.com, DIRECT
 
 # 下载
 HOST, download.sgameglobal.com, World
