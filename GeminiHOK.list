@@ -3,12 +3,12 @@ HOST, hok-lbs.intlgame.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 HOST-SUFFIX, app-analytics-services.com, REJECT
 
-# ===== 2. 游戏大包与静态资源下载 (走代理/World，提速) =====
+# ===== 2. 游戏大包与静态资源下载 (走World代理策略) =====
 HOST, download.sgameglobal.com, World
 HOST, v2-down-gamelet.sgameglobal.com, World
+HOST-SUFFIX, gamelet.games, World
 
-# ===== 3. 远端赛区隔离：测速与连接 (强制拒绝，只留新/港) =====
-# 屏蔽偏远赛区的连接分配
+# ===== 3. 远端赛区隔离：实际对局连接 (强制拒绝防乱匹) =====
 HOST-KEYWORD, gromelink-link-in, REJECT
 HOST-KEYWORD, gromelink-link-tr, REJECT
 HOST-KEYWORD, gromelink-link-br, REJECT
@@ -16,34 +16,22 @@ HOST-KEYWORD, gromelink-link-sa, REJECT
 HOST-KEYWORD, gromelink-link-us, REJECT
 HOST-KEYWORD, gromelink-link-it, REJECT
 HOST-KEYWORD, gromelink-link-fi, REJECT
-# 屏蔽偏远赛区的底层 Ping 测速
-HOST-KEYWORD, gromelink-pingtr, REJECT
-HOST-KEYWORD, gromelink-pingfi, REJECT
-HOST-KEYWORD, gromelink-pingit, REJECT
-HOST-KEYWORD, gromelink-pingsa, REJECT
-HOST-KEYWORD, gromelink-pingbr, REJECT
-HOST-KEYWORD, gromelink-ping-us, REJECT
-HOST-KEYWORD, brspeed.ino, REJECT
-HOST-KEYWORD, indspeed.ino, REJECT
 
-# ===== 4. 新加坡与香港核心对局通道 (极致直连) =====
-# 新加坡与香港专属节点
-HOST-KEYWORD, gromelink-link-sg, DIRECT
-HOST-KEYWORD, gromelink-pingsg, DIRECT
-HOST-KEYWORD, sgspeed.ino, DIRECT
-HOST-KEYWORD, gromelink-link-hk, DIRECT
-# 游戏大厅通用调度与测速
-HOST-KEYWORD, gromelink-mgr, DIRECT
+# ===== 4. 全球测速与 Ping 检测 (全部直连) =====
+# 命中所有区域的 ping (如 gromelink-pingbr / pingsg)
+HOST-KEYWORD, gromelink-ping, DIRECT
+# 命中各类区域测速 (如 sgspeed.ino / brspeed.ino)
+HOST-KEYWORD, speed.ino, DIRECT
 HOST-KEYWORD, speedsvr, DIRECT
-# 腾讯 ZGA 专属游戏加速骨干网 (高度精确，不影响其他 App)
+
+# ===== 5. 核心大厅、调度、港新对局与基础架构 (极致直连) =====
+HOST-KEYWORD, gromelink-link-sg, DIRECT
+HOST-KEYWORD, gromelink-link-hk, DIRECT
+HOST-KEYWORD, gromelink-mgr, DIRECT
 HOST-SUFFIX, zga.globalconnetct.com, DIRECT
-HOST-SUFFIX, zga.net, DIRECT
-# 游戏核心 API 通信主域名托底直连
+HOST-SUFFIX, gcloudcs.com, DIRECT
+HOST-SUFFIX, gcloudsdk.com, DIRECT
 HOST-SUFFIX, sgameglobal.com, DIRECT
 HOST-SUFFIX, intlgame.com, DIRECT
 HOST-SUFFIX, honorofkings.com, DIRECT
 HOST-SUFFIX, playerinfinite.com, DIRECT
-# 腾讯 GCloud 基础框架 (含 QoS 测速、对局语音与配置)
-HOST-SUFFIX, gcloudcs.com, DIRECT
-HOST-SUFFIX, gcloudsdk.com, DIRECT
-
