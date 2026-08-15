@@ -3,13 +3,15 @@ HOST, hok-lbs.intlgame.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 HOST-SUFFIX, app-analytics-services.com, REJECT
 HOST-SUFFIX, crashsight.wetest.net, REJECT
+HOST-SUFFIX, singaporepaya.com, REJECT
 
-# ===== 2. 游戏资源下载 (走代理，解决直连下载慢) =====
+# ===== 2. 游戏大包与静态资源下载 (走代理/World，提速) =====
 HOST, download.sgameglobal.com, World
 HOST, v2-down-gamelet.sgameglobal.com, World
+HOST-SUFFIX, gamelet.games, World
 
-# ===== 3. 远端赛区隔离：测速与连接 (强制拒绝，防止乱匹) =====
-# 屏蔽拉美、欧洲、美服、印度等连接节点
+# ===== 3. 远端赛区隔离：测速与连接 (强制拒绝，只留新/港) =====
+# 屏蔽偏远赛区的连接分配
 HOST-KEYWORD, gromelink-link-in, REJECT
 HOST-KEYWORD, gromelink-link-tr, REJECT
 HOST-KEYWORD, gromelink-link-br, REJECT
@@ -17,7 +19,7 @@ HOST-KEYWORD, gromelink-link-sa, REJECT
 HOST-KEYWORD, gromelink-link-us, REJECT
 HOST-KEYWORD, gromelink-link-it, REJECT
 HOST-KEYWORD, gromelink-link-fi, REJECT
-# 屏蔽远端赛区的专属测速 (含 speed 和 ping)
+# 屏蔽偏远赛区的底层 Ping 测速
 HOST-KEYWORD, gromelink-pingtr, REJECT
 HOST-KEYWORD, gromelink-pingfi, REJECT
 HOST-KEYWORD, gromelink-pingit, REJECT
@@ -27,25 +29,21 @@ HOST-KEYWORD, gromelink-ping-us, REJECT
 HOST-KEYWORD, brspeed.ino, REJECT
 HOST-KEYWORD, indspeed.ino, REJECT
 
-# ===== 4. 彻底锁死香港节点 (剔除新加坡) =====
-# 屏蔽新加坡测速与连接，强迫系统只认香港
-
-
-
-# ===== 5. 核心大厅、调度与香港对局 (极致直连) =====
-# 命中香港连接节点
+# ===== 4. 新加坡与香港核心对局通道 (极致直连) =====
+# 新加坡与香港专属节点
 HOST-KEYWORD, gromelink-link-sg, DIRECT
-HOST-KEYWORD, gromelink-link-hk, DIRECT
 HOST-KEYWORD, gromelink-pingsg, DIRECT
 HOST-KEYWORD, sgspeed.ino, DIRECT
-# 通用调度与通用测速放行直连，保证进游戏不卡
+HOST-KEYWORD, gromelink-link-hk, DIRECT
+# 游戏大厅通用调度与测速
 HOST-KEYWORD, gromelink-mgr, DIRECT
-HOST-KEYWORD, speedsvr.ino, DIRECT
+HOST-KEYWORD, speedsvr, DIRECT
 HOST, mna.sgameglobal.com, DIRECT
-# 游戏底层专线加速器 (ZGA/AWS) 直连
+# 腾讯 ZGA 专属游戏加速骨干网 (高度精确，不影响其他 App)
 HOST-SUFFIX, zga.globalconnetct.com, DIRECT
 HOST-SUFFIX, zga.net, DIRECT
-HOST-SUFFIX, awsglobalaccelerator.com, DIRECT
-# 游戏主域名托底直连
+# 游戏核心 API 通信主域名托底直连
 HOST-SUFFIX, sgameglobal.com, DIRECT
 HOST-SUFFIX, intlgame.com, DIRECT
+HOST-SUFFIX, honorofkings.com, DIRECT
+HOST-SUFFIX, playerinfinite.com, DIRECT
