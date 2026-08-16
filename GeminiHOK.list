@@ -1,11 +1,11 @@
 # ===== 1. 隐私防追踪 & 定位屏蔽 (强制拒绝) =====
-HOST, hok-lbs.intlgame.com, REJECT
-HOST-SUFFIX, appsflyersdk.com, REJECT
+HOST, hok-lbs.intlgame.com, JP
+HOST-SUFFIX, appsflyersdk.com, JP
 HOST-SUFFIX, app-analytics-services.com, REJECT
 
-# ===== 2. 游戏大包与静态资源下载 (走World代理策略) =====
-HOST, download.sgameglobal.com, World
-HOST, v2-down-gamelet.sgameglobal.com, World
+# ===== 2. 游戏大包与静态资源下载 (走JP代理策略) =====
+HOST, download.sgameglobal.com, JP
+HOST, v2-down-gamelet.sgameglobal.com, JP
 
 # ===== 3. 远端赛区隔离：实际对局连接 (REJECT，需排在第5节泛匹配之前) =====
 HOST-SUFFIX, gromelink-link-in-ccu.sgameglobal.com, REJECT
