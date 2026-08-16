@@ -1,17 +1,16 @@
-# ===== 1. 禁用 HTTPDNS (强制游戏降级走隧道本地 DNS，防止调度污染) =====
+# ===== 1. 禁用 HTTPDNS (强制降级走本地 DNS，防止调度污染) =====
 IP-CIDR, 43.132.55.55/32, REJECT, no-resolve
 
 # ===== 2. 隐私防追踪 & 定位屏蔽 =====
-# 将 LBS 设为 REJECT，防止初次上报日区 IP 导致首局被分流至远端对局池
 HOST, hok-lbs.intlgame.com, REJECT
 HOST-SUFFIX, appsflyersdk.com, REJECT
 HOST-SUFFIX, app-analytics-services.com, REJECT
 
-# ===== 3. 游戏大包与静态资源下载 (走JP代理策略) =====
+# ===== 3. 游戏大包与静态资源下载 (走 World 代理策略) =====
 HOST, download.sgameglobal.com, World
 HOST, v2-down-gamelet.sgameglobal.com, World
 
-# ===== 4. 远端赛区隔离：实际对局连接 (必须强制 REJECT，阻断高延迟赛区) =====
+# ===== 4. 远端赛区隔离：实际对局连接 (强制 REJECT 阻断高延迟对局) =====
 HOST-SUFFIX, gromelink-link-in-ccu.sgameglobal.com, REJECT
 HOST-KEYWORD, gromelink-link-in, REJECT
 HOST-KEYWORD, gromelink-link-tr, REJECT
@@ -21,7 +20,7 @@ HOST-KEYWORD, gromelink-link-us, REJECT
 HOST-KEYWORD, gromelink-link-it, REJECT
 HOST-KEYWORD, gromelink-link-fi, REJECT
 
-# ===== 5. 全球测速与 Ping 检测 (直连) =====
+# ===== 5. 全球测速与 Ping 检测 (全部直连) =====
 HOST-KEYWORD, gromelink-ping, DIRECT
 HOST-KEYWORD, speed.ino, DIRECT
 HOST-KEYWORD, speedsvr, DIRECT
