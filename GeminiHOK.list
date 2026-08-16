@@ -1,16 +1,21 @@
-# ===== 1. 禁用 HTTPDNS (强制降级走本地 DNS，防止调度污染) =====
-IP-CIDR, 43.132.55.55/32, REJECT, no-resolve
+# ===== 1. 彻底封死腾讯 HTTPDNS (涵盖全部服务 IP 段，强制走本地 DNS) =====
+IP-CIDR, 43.132.0.0/16, REJECT, no-resolve
+IP-CIDR, 182.254.116.0/24, REJECT, no-resolve
+IP-CIDR, 119.29.29.98/32, REJECT, no-resolve
+IP-CIDR, 119.29.29.99/32, REJECT, no-resolve
 
-# ===== 2. 隐私防追踪 & 定位屏蔽 =====
-HOST, hok-lbs.intlgame.com, REJECT
-HOST-SUFFIX, appsflyersdk.com, REJECT
-HOST-SUFFIX, app-analytics-services.com, REJECT
+# ===== 2. 远端 Ping 测速强制拦截 (必须置于港新测速之前，让远端测速 100% 丢包) =====
+HOST-KEYWORD, gromelink-ping-us, REJECT
+HOST-KEYWORD, gromelink-pingtr, REJECT
+HOST-KEYWORD, gromelink-pingbr, REJECT
+HOST-KEYWORD, gromelink-pingsa, REJECT
+HOST-KEYWORD, gromelink-pingit, REJECT
+HOST-KEYWORD, gromelink-pingfi, REJECT
+HOST-KEYWORD, gromelink-pingin, REJECT
+HOST-KEYWORD, indspeed.ino, REJECT
+HOST-KEYWORD, brspeed.ino, REJECT
 
-# ===== 3. 游戏大包与静态资源下载 (走 World 代理策略) =====
-HOST, download.sgameglobal.com, World
-HOST, v2-down-gamelet.sgameglobal.com, World
-
-# ===== 4. 远端赛区隔离：实际对局连接 (强制 REJECT 阻断高延迟对局) =====
+# ===== 3. 远端对局与调度连接隔离 (强制 REJECT) =====
 HOST-SUFFIX, gromelink-link-in-ccu.sgameglobal.com, REJECT
 HOST-KEYWORD, gromelink-link-in, REJECT
 HOST-KEYWORD, gromelink-link-tr, REJECT
@@ -20,12 +25,23 @@ HOST-KEYWORD, gromelink-link-us, REJECT
 HOST-KEYWORD, gromelink-link-it, REJECT
 HOST-KEYWORD, gromelink-link-fi, REJECT
 
-# ===== 5. 全球测速与 Ping 检测 (全部直连) =====
-HOST-KEYWORD, gromelink-ping, DIRECT
-HOST-KEYWORD, speed.ino, DIRECT
-HOST-KEYWORD, speedsvr, DIRECT
+# ===== 4. 隐私防追踪 & 定位屏蔽 =====
+HOST, hok-lbs.intlgame.com, REJECT
+HOST-SUFFIX, appsflyersdk.com, REJECT
+HOST-SUFFIX, app-analytics-services.com, REJECT
 
-# ===== 6. 核心大厅、调度、反作弊与港新对局 (极致直连) =====
+# ===== 5. 游戏大包与静态资源下载 (走 World 策略) =====
+HOST, download.sgameglobal.com, World
+HOST, v2-down-gamelet.sgameglobal.com, World
+
+# ===== 6. 港新低延迟测速与 Ping (极致直连) =====
+HOST-KEYWORD, gromelink-pingsg, DIRECT
+HOST-KEYWORD, gromelink-pinghk, DIRECT
+HOST-KEYWORD, sgspeed.ino, DIRECT
+HOST-KEYWORD, speedsvr, DIRECT
+HOST-KEYWORD, speed.ino, DIRECT
+
+# ===== 7. 核心大厅、反作弊、调度与港新对局 (极致直连) =====
 HOST-KEYWORD, gromelink-link-sg, DIRECT
 HOST-KEYWORD, gromelink-link-hk, DIRECT
 HOST-KEYWORD, gromelink-mgr, DIRECT
