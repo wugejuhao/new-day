@@ -8,8 +8,8 @@ HOST-SUFFIX, appsflyersdk.com, REJECT
 HOST-SUFFIX, app-analytics-services.com, REJECT
 
 # ===== 3. 游戏大包与静态资源下载 (走JP代理策略) =====
-HOST, download.sgameglobal.com, WORLD
-HOST, v2-down-gamelet.sgameglobal.com, WORLD
+HOST, download.sgameglobal.com, World
+HOST, v2-down-gamelet.sgameglobal.com, World
 
 # ===== 4. 远端赛区隔离：实际对局连接 (必须强制 REJECT，阻断高延迟赛区) =====
 HOST-SUFFIX, gromelink-link-in-ccu.sgameglobal.com, REJECT
