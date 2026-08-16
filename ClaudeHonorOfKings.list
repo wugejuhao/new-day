@@ -4,20 +4,11 @@ HOST, hok-lbs.intlgame.com, REJECT
 
 HOST, APP-ANALYTICS-SERVICES.COM, REJECT
 
-HOST-SUFFIX, appsflyersdk.com, DIRECT
+
 
 # 下载
 HOST, download.sgameglobal.com, World
 HOST, v2-down-gamelet.sgameglobal.com, World
-
-#服务区屏蔽
-HOST-KEYWORD, gromelink-link-in, REJECT
-HOST-KEYWORD, gromelink-link-tr, REJECT
-HOST-KEYWORD, gromelink-link-br, REJECT
-HOST-KEYWORD, gromelink-link-sa, REJECT
-HOST-KEYWORD, gromelink-link-us, REJECT
-HOST-KEYWORD, gromelink-link-it, REJECT
-HOST-KEYWORD, gromelink-link-fi, REJECT
 
 # cdn直连
 HOST-KEYWORD, gromelink-link-sg, DIRECT
