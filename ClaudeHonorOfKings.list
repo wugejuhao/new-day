@@ -3,6 +3,8 @@ HOST, hok-lbs.intlgame.com, REJECT
 HOST, ep2.facebook.com, REJECT
 HOST, app-analytics-services.com, REJECT
 HOST-SUFFIX, intlgame.com, DIRECT
+HOST-SUFFIX, sgameglobal-err.com, DIRECT
+
 
 # 下载
 HOST, download.sgameglobal.com, World
