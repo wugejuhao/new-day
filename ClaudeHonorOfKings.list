@@ -3,6 +3,7 @@ HOST, hok-lbs.intlgame.com, REJECT
 
 
 HOST, APP-ANALYTICS-SERVICES.COM, REJECT
+HOST-SUFFIX, intlgame.com, DIRECT
 
 
 
