@@ -1,5 +1,6 @@
 # ===== REJECT：地区检测 =====
 HOST, hok-lbs.intlgame.com, REJECT
+HOST, ep2.facebook.com, REJECT
 
 
 HOST, APP-ANALYTICS-SERVICES.COM, REJECT
