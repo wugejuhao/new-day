@@ -1,12 +1,8 @@
 # ===== REJECT：地区检测 =====
 HOST, hok-lbs.intlgame.com, REJECT
 HOST, ep2.facebook.com, REJECT
-
-
-HOST, APP-ANALYTICS-SERVICES.COM, REJECT
+HOST, app-analytics-services.com, REJECT
 HOST-SUFFIX, intlgame.com, DIRECT
-
-
 
 # 下载
 HOST, download.sgameglobal.com, World
@@ -15,10 +11,3 @@ HOST, v2-down-gamelet.sgameglobal.com, World
 # cdn直连
 HOST-KEYWORD, gromelink-link-sg, DIRECT
 HOST-KEYWORD, gromelink-link-hk, DIRECT
-
-
-
-
-
-
-
