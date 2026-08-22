@@ -4,6 +4,7 @@ HOST, ep2.facebook.com, REJECT
 HOST, app-analytics-services.com, REJECT
 HOST-SUFFIX, intlgame.com, DIRECT
 HOST-SUFFIX, sgameglobal-err.com, DIRECT
+HOST-SUFFIX, sgameglobal.com, DIRECT
 
 
 # 下载
