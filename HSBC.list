@@ -3,23 +3,14 @@
 #!author=wugejuhao
 
 # =========================================
-# 1. 分流规则部分 (Filter)
+# 1. 分流规则部分 (供 [filter_remote] 读取)
 # =========================================
-
-# > 汇丰专属底层云服务 (日志中发现的 1865 内部云，承载偏好设置与消息推送)
 host-suffix, vv1865.com, direct
-
-# > 风控、安全盾与生物识别 (必须与主业务同路，绝对不可走跨国代理)
 host-suffix, online-metrix.net, direct
 host-suffix, we-stats.com, direct
 host, hsbc.edge.sdk.awswaf.com, direct
-
-# > Reward+ 与最红优惠静态资源 (防止被微软 Azure 泛规则截胡)
-# 注：如果发现在当前网络下打开 Reward+ 优惠页一直转圈，可将下面这两条单独改为你的香港节点
 host, www.redhotoffers.hsbc.com.hk, direct
 host, cdnhsbcrhostorage.azureedge.net, direct
-
-# > 汇丰核心主域名与关键字
 host-keyword, hsbc, direct
 host-suffix, hsbc.com, direct
 host-suffix, hsbc.com.hk, direct
@@ -27,12 +18,8 @@ host-suffix, hsbc.com.cn, direct
 host-suffix, hsbc.co.uk, direct
 host-suffix, hsbc.net, direct
 host-suffix, hsbcpb.com, direct
-
-# > 在线客服系统 (LivePerson)
 host-suffix, liveperson.net, direct
 host-suffix, lpsnmedia.net, direct
-
-# > App 内置组件、动态标签与数据统计 (统一走直连，加快 App 加载速度)
 host, c-hsbc.lytics.io, direct
 host-suffix, tiqcdn.com, direct
 host-suffix, tealiumiq.com, direct
@@ -40,6 +27,9 @@ host-suffix, eum-appdynamics.com, direct
 host, cdn.optimizely.com, direct
 
 # =========================================
-# 2. MitM 豁免部分 (Hostname)
+# 2. 重写与 MitM 豁免部分 (供 [rewrite_remote] 读取)
 # =========================================
+# ⚠️ 下面这一行是“占位规则”，用来强制激活重写订阅，使下方的 hostname 生效，切勿删除！
+^https?:\/\/hsbc-mitm-bypass\.invalid\/ url reject-200
+
 hostname = -*.hsbc.com.hk, -*.hsbc.com, -*.hsbc.com.cn, -*.hsbc.co.uk, -*.hsbc.net, -*.hsbcpb.com, -*.vv1865.com, -*.online-metrix.net, -*.we-stats.com, -hsbc.edge.sdk.awswaf.com
