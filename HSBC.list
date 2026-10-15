@@ -1,0 +1,17 @@
+# =========================================
+# 汇丰银行 (HSBC) 分流规则
+# 默认走直连，避免代理 IP 变动触发账户风控
+# =========================================
+
+# 核心主域名与关键字
+host-keyword, hsbc, direct
+host-suffix, hsbc.com, direct
+host-suffix, hsbc.com.hk, direct
+host-suffix, hsbc.com.cn, direct
+host-suffix, hsbc.co.uk, direct
+host-suffix, hsbc.net, direct
+host-suffix, hsbcpb.com, direct
+
+# 汇丰附属及香港本地服务 (PayMe, 保险等)
+host-suffix, payme.hsbc.com.hk, direct
+host-suffix, health.hsbc.com.hk, direct
