@@ -1,29 +1,42 @@
-# 下厨房高性能去广告与 VIP 点亮规则 (Quantumult X Snippet)
-# 仓库路径: wugejuhao/new-day
+#!name=下厨房 VIP 点亮与纯净去广告规则
+#!desc=底层秒切广告 SDK，本地完美模拟 VIP 与 Plus 会员权益。
+#!author=wugejuhao
 
-#[filter_local]
-# > 1. 第三方广告联盟与统计 SDK（网络层直接丢弃，最省电）
+# =========================================
+# 1. 分流与底层拦截部分 (供 [filter_local] 读取)
+# =========================================
+
+# > 强制放行下厨房核心数据与 CDN 静态资源
+host-suffix, xiachufang.com, direct
+host-suffix, chuimg.com, direct
+
+# > 第三方广告联盟、统计埋点与归因 SDK (底层直接拒绝，零解密损耗)
 host-suffix, uyunad.com, reject
 host-suffix, mosspf.net, reject
 host-suffix, hookspf.com, reject
 host-suffix, vungle.com, reject
-host-suffix, doubleclick-cn.net, reject
-host-suffix, app-ads-services.com, reject
-host-suffix, gepush.com, reject
-host-suffix, getui.com, reject
 host-keyword, uyunad, reject
+host-keyword, umeng, reject
+host-keyword, getui, reject
 
-#[rewrite_local]
-# > 2. 应用内自建开屏/弹窗与日志上报（直接丢弃响应）
+
+# =========================================
+# 2. 内部广告 API 欺骗与会员重写部分 (供 [rewrite_local] 读取)
+# =========================================
+
+# > 下厨房应用内自建开屏、推广活动与统计埋点拦截 (返回 200 伪造成功)
 ^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(ads|app_home|recommend_activities) url reject-200
 ^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/ad\/lookup_(hybrid_)?ad url reject-200
 ^https?:\/\/trackbeat\.xiachufang\.com\/(sa|sa\.gif) url reject-200
 ^https?:\/\/track\.xiachufang\.com\/.* url reject-200
-^https?:\/\/ulogs\.umeng\.com\/.* url reject-200
-^https?:\/\/utoken\.umeng\.com\/.* url reject-200
 
-# > 3. 会员与个人主页核心权益解锁 (JS 脚本处理)
+# > 会员与个人主页核心权益解锁 (走 JS 脚本本地动态改写)
 ^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(account\/detail|user\/(get_profile|show))\.json url script-response-body https://raw.githubusercontent.com/wugejuhao/new-day/refs/heads/main/Xiachufang.js
 
-#[mitm]
-hostname = api.xiachufang.com
+
+# =========================================
+# 3. MitM 声明部分
+# =========================================
+
+# > 仅对必须改写响应体和拦截广告的 api 域名开启 MitM 解密，最大化节省手机电量
+hostname = api.xiachufang.com, trackbeat.xiachufang.com
