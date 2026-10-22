@@ -1,0 +1,32 @@
+# 下厨房去广告与会员解锁规则（Quantumult X 远程整合片段）
+# 适用仓库: wugejuhao/new-day
+
+[filter_local]
+# > 广告联盟与统计追踪域名拦截（直接丢弃）
+host-suffix, uyunad.com, reject
+host-suffix, mosspf.net, reject
+host-suffix, hookspf.com, reject
+host-suffix, vungle.com, reject
+host-suffix, doubleclick-cn.net, reject
+host-suffix, app-ads-services.com, reject
+host-suffix, gepush.com, reject
+host-keyword, uyunad, reject
+
+[rewrite_local]
+# > 1. 拦截下厨房自身应用内开屏、推广活动与统计埋点
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(ads|app_home|recommend_activities) url reject-200
+^https?:\/\/trackbeat\.xiachufang\.com\/sa\?.* url reject-200
+^https?:\/\/track\.xiachufang\.com\/.* url reject-200
+
+# > 2. 拦截第三方穿山甲/优云/Vungle广告 SDK 请求
+^https?:\/\/(ztoken|adx)\.uyunad\.com\/.* url reject-200
+^https?:\/\/da\.(mosspf|hookspf)\.(net|com)\/.* url reject-200
+^https?:\/\/tk\.(mosspf|hookspf)\.(net|com)\/.* url reject-200
+^https?:\/\/logs-cn\.ads\.vungle\.com\/.* url reject-200
+
+# > 3. 下厨房会员 VIP 状态修改与本地鉴权模拟（需 MitM 配合）
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/users\/show\.json response-body "is_plus":false response-body "is_plus":true
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/users\/show\.json response-body "is_vip":false response-body "is_vip":true
+
+[mitm]
+hostname = api.xiachufang.com, trackbeat.xiachufang.com
