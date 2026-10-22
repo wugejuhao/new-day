@@ -1,7 +1,7 @@
 # 下厨房高性能去广告与 VIP 点亮规则 (Quantumult X Snippet)
 # 仓库路径: wugejuhao/new-day
 
-[filter_local]
+#[filter_local]
 # > 1. 第三方广告联盟与统计 SDK（网络层直接丢弃，最省电）
 host-suffix, uyunad.com, reject
 host-suffix, mosspf.net, reject
@@ -13,7 +13,7 @@ host-suffix, gepush.com, reject
 host-suffix, getui.com, reject
 host-keyword, uyunad, reject
 
-[rewrite_local]
+#[rewrite_local]
 # > 2. 应用内自建开屏/弹窗与日志上报（直接丢弃响应）
 ^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(ads|app_home|recommend_activities) url reject-200
 ^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/ad\/lookup_(hybrid_)?ad url reject-200
@@ -25,5 +25,5 @@ host-keyword, uyunad, reject
 # > 3. 会员与个人主页核心权益解锁 (JS 脚本处理)
 ^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(account\/detail|user\/(get_profile|show))\.json url script-response-body https://raw.githubusercontent.com/wugejuhao/new-day/refs/heads/main/Xiachufang.js
 
-[mitm]
+#[mitm]
 hostname = api.xiachufang.com
