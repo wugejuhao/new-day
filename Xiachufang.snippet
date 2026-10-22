@@ -1,8 +1,8 @@
-# 下厨房去广告与会员解锁规则（Quantumult X 远程整合片段）
-# 适用仓库: wugejuhao/new-day
+# 下厨房高性能去广告与 VIP 点亮规则 (Quantumult X Snippet)
+# 仓库路径: wugejuhao/new-day
 
 [filter_local]
-# > 广告联盟与统计追踪域名拦截（直接丢弃）
+# > 1. 第三方广告联盟与统计 SDK（网络层直接丢弃，最省电）
 host-suffix, uyunad.com, reject
 host-suffix, mosspf.net, reject
 host-suffix, hookspf.com, reject
@@ -10,23 +10,20 @@ host-suffix, vungle.com, reject
 host-suffix, doubleclick-cn.net, reject
 host-suffix, app-ads-services.com, reject
 host-suffix, gepush.com, reject
+host-suffix, getui.com, reject
 host-keyword, uyunad, reject
 
 [rewrite_local]
-# > 1. 拦截下厨房自身应用内开屏、推广活动与统计埋点
+# > 2. 应用内自建开屏/弹窗与日志上报（直接丢弃响应）
 ^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(ads|app_home|recommend_activities) url reject-200
-^https?:\/\/trackbeat\.xiachufang\.com\/sa\?.* url reject-200
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/ad\/lookup_(hybrid_)?ad url reject-200
+^https?:\/\/trackbeat\.xiachufang\.com\/(sa|sa\.gif) url reject-200
 ^https?:\/\/track\.xiachufang\.com\/.* url reject-200
+^https?:\/\/ulogs\.umeng\.com\/.* url reject-200
+^https?:\/\/utoken\.umeng\.com\/.* url reject-200
 
-# > 2. 拦截第三方穿山甲/优云/Vungle广告 SDK 请求
-^https?:\/\/(ztoken|adx)\.uyunad\.com\/.* url reject-200
-^https?:\/\/da\.(mosspf|hookspf)\.(net|com)\/.* url reject-200
-^https?:\/\/tk\.(mosspf|hookspf)\.(net|com)\/.* url reject-200
-^https?:\/\/logs-cn\.ads\.vungle\.com\/.* url reject-200
-
-# > 3. 下厨房会员 VIP 状态修改与本地鉴权模拟（需 MitM 配合）
-^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/users\/show\.json response-body "is_plus":false response-body "is_plus":true
-^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/users\/show\.json response-body "is_vip":false response-body "is_vip":true
+# > 3. 会员与个人主页核心权益解锁 (JS 脚本处理)
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(account\/detail|user\/(get_profile|show))\.json url script-response-body https://raw.githubusercontent.com/wugejuhao/new-day/refs/heads/main/xiachufang.js
 
 [mitm]
-hostname = api.xiachufang.com, trackbeat.xiachufang.com
+hostname = api.xiachufang.com
