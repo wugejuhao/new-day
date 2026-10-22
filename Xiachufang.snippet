@@ -1,4 +1,7 @@
-[filter_local]
+#!name=下厨房去广告
+#!desc=拦截下厨房广告 SDK 域名、埋点与广告位接口
+
+# > 第三方广告 SDK 与埋点（底层直接拒绝，无需解密）
 host-suffix, ads.vungle.com, reject
 host-suffix, chinaliftoff.io, reject
 host-suffix, chinaliftoff-creatives.io, reject
@@ -11,8 +14,7 @@ host, imasdk.googleapis.com, reject
 host, track.xiachufang.com, reject
 host, trackbeat.xiachufang.com, reject
 
-[rewrite_local]
-^https?://api\.xiachufang\.com/v[0-9]+/ad/lookup_(hybrid_)?ad_by_slot_name\.json url reject
+# > 下厨房自家广告位接口（需 MitM 解密）
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/ad\/lookup_(hybrid_)?ad_by_slot_name\.json url reject
 
-[mitm]
 hostname = api.xiachufang.com
