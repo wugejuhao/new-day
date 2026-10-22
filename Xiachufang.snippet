@@ -1,7 +1,12 @@
-^https://api.xiachufang.com/v[0-9]+/ad/lookup_ad_by_slot_name.json url reject
-^https://api.xiachufang.com/v[0-9]+/ad/lookup_hybrid_ad_by_slot_name.json url reject
-^https://api.xiachufang.com/v[0-9]+/ads(?:/|.|$) url reject
-^https://api.xiachufang.com/v[0-9]+/app_home(?:/|.|$) url reject
-^https://api.xiachufang.com/v[0-9]+/recommend_activities(?:/|.|$) url reject
-^https://trackbeat.xiachufang.com/sa(?:.gif)?(?:?.)?$ url reject
-^https://track.xiachufang.com/. url reject
+# ===== 下厨房：精准拦截广告接口 =====
+
+# 广告位查询
+^https?://api\.xiachufang\.com/v[0-9]+/ad/lookup_ad_by_slot_name\.json url reject
+
+# 混合内容广告位查询（菜谱详情页等）
+^https?://api\.xiachufang\.com/v[0-9]+/ad/lookup_hybrid_ad_by_slot_name\.json url reject
+
+# ===== 下厨房：拦截已知的专属追踪请求 =====
+
+^https?://trackbeat\.xiachufang\.com/ url reject
+^https?://track\.xiachufang\.com/ url reject
