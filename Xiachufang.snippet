@@ -23,7 +23,7 @@ host-keyword, uyunad, reject
 ^https?:\/\/utoken\.umeng\.com\/.* url reject-200
 
 # > 3. 会员与个人主页核心权益解锁 (JS 脚本处理)
-^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(account\/detail|user\/(get_profile|show))\.json url script-response-body https://raw.githubusercontent.com/wugejuhao/new-day/refs/heads/main/xiachufang.js
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(account\/detail|user\/(get_profile|show))\.json url script-response-body https://raw.githubusercontent.com/wugejuhao/new-day/refs/heads/main/Xiachufang.js
 
 [mitm]
 hostname = api.xiachufang.com
