@@ -1,12 +1,18 @@
-# ===== 下厨房：精准拦截广告接口 =====
+[filter_local]
+host-suffix, ads.vungle.com, reject
+host-suffix, chinaliftoff.io, reject
+host-suffix, chinaliftoff-creatives.io, reject
+host-suffix, mosspf.net, reject
+host-suffix, hookspf.com, reject
+host-suffix, uyunad.com, reject
+host-suffix, doubleclick-cn.net, reject
+host-suffix, app-ads-services.com, reject
+host, imasdk.googleapis.com, reject
+host, track.xiachufang.com, reject
+host, trackbeat.xiachufang.com, reject
 
-# 广告位查询
-^https?://api\.xiachufang\.com/v[0-9]+/ad/lookup_ad_by_slot_name\.json url reject
+[rewrite_local]
+^https?://api\.xiachufang\.com/v[0-9]+/ad/lookup_(hybrid_)?ad_by_slot_name\.json url reject
 
-# 混合内容广告位查询（菜谱详情页等）
-^https?://api\.xiachufang\.com/v[0-9]+/ad/lookup_hybrid_ad_by_slot_name\.json url reject
-
-# ===== 下厨房：拦截已知的专属追踪请求 =====
-
-^https?://trackbeat\.xiachufang\.com/ url reject
-^https?://track\.xiachufang\.com/ url reject
+[mitm]
+hostname = api.xiachufang.com
