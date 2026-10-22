@@ -1,10 +1,11 @@
+^https://api.xiachufang.com/v[0-9]+/ad/lookup_ad_by_slot_name.json url reject
+^https://api.xiachufang.com/v[0-9]+/ad/lookup_hybrid_ad_by_slot_name.json url reject
 
-# ==========================================
-# 下厨房 Xiachufang
-# Quantumult X - Lightweight Ad Blocking
-# No JS / No scheduled tasks
-# ==========================================
 
-# 下厨房广告位接口
-^https:\/\/api\.xiachufang\.com\/v2\/ad\/lookup_ad_by_slot_name\.json(?:\?.*)?$ url reject
-^https:\/\/api\.xiachufang\.com\/v2\/ad\/lookup_hybrid_ad_by_slot_name\.json(?:\?.*)?$ url reject
+^https://api.xiachufang.com/v[0-9]+/ads(?:/|.|$) url reject
+^https://api.xiachufang.com/v[0-9]+/app_home(?:/|.|$) url reject
+^https://api.xiachufang.com/v[0-9]+/recommend_activities(?:/|.|$) url reject
+
+
+^https://trackbeat.xiachufang.com/sa(?:.gif)?(?:?.)?$ url reject
+^https://track.xiachufang.com/. url reject
