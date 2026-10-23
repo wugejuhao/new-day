@@ -1,20 +1,30 @@
-#!name=下厨房去广告
-#!desc=拦截下厨房广告 SDK 域名、埋点与广告位接口
+// ==UserScript==
+// @ScriptName        下厨房净化与VIP点亮[wugejuhao版]
+// @Author            @wugejuhao
+// @Function          拦截下厨房内各类广告联盟，本地点亮 VIP 与 Plus 会员
+// @UpdateTime        2026-10-22
+// @Attention         如需生效，请确保 QX 的 MitM 开关已打开并信任证书
+// @Version           V1.0.0
+// @ScriptURL         https://raw.githubusercontent.com/wugejuhao/new-day/refs/heads/main/Xiachufang.conf
+// ==/UserScript==
 
-# > 第三方广告 SDK 与埋点（底层直接拒绝，无需解密）
-host-suffix, ads.vungle.com, reject
-host-suffix, chinaliftoff.io, reject
-host-suffix, chinaliftoff-creatives.io, reject
+hostname = api.xiachufang.com, trackbeat.xiachufang.com
+
+# > 1. 第三方广告联盟与统计 SDK (底层直接拒绝，节省解密算力)
+host-suffix, uyunad.com, reject
 host-suffix, mosspf.net, reject
 host-suffix, hookspf.com, reject
-host-suffix, uyunad.com, reject
+host-suffix, vungle.com, reject
 host-suffix, doubleclick-cn.net, reject
 host-suffix, app-ads-services.com, reject
-host, imasdk.googleapis.com, reject
-host, track.xiachufang.com, reject
-host, trackbeat.xiachufang.com, reject
+host-suffix, gepush.com, reject
+host-keyword, uyunad, reject
 
-# > 下厨房自家广告位接口（需 MitM 解密）
-^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/ad\/lookup_(hybrid_)?ad_by_slot_name\.json url reject
+# > 2. 下厨房应用内开屏、推广活动与统计埋点拦截
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(ads|app_home|recommend_activities) url reject-200
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/ad\/lookup_(hybrid_)?ad url reject-200
+^https?:\/\/trackbeat\.xiachufang\.com\/(sa|sa\.gif) url reject-200
+^https?:\/\/track\.xiachufang\.com\/.* url reject-200
 
-hostname = api.xiachufang.com
+# > 3. 会员权益与个人主页核心信息解锁 (调用 GitHub 远端 JS 脚本)
+^https?:\/\/api\.xiachufang\.com\/v[0-9]+\/(account\/detail|user\/(get_profile|show))\.json url script-response-body https://raw.githubusercontent.com/wugejuhao/new-day/refs/heads/main/Xiachufang.js
