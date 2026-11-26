@@ -82,6 +82,8 @@ if (!body) {
                             .replace(/&quot;enable_spa&quot;:true/g, "&quot;enable_spa&quot;:false")
                             .replace(/"enable_spa":true/g, '"enable_spa":false')
                             .replace(/&quot;enableIosRewardedPoddedSkspvc&quot;:true/g, "&quot;enableIosRewardedPoddedSkspvc&quot;:false")
+                            // 将所有 gcache 缓存键统一指向全新的干净 ID，彻底绕开此前 raw.githubusercontent.com 遗留在手机本地的坏缓存，且后续所有广告 0 流量永久复用同一份 6KB 空白视频
+                            .replace(/gcache:\/\/video\/media\/-?\d+\?/g, "gcache://video/media/8888888888888888?")
                             // VAST XML 中的视频时长（HTML 转义格式）缩短为 1 秒，与 0.1 秒 blank.mp4 匹配
                             .replace(/&lt;Duration&gt;00:0[0-9]:[0-9]{2}&lt;\/Duration&gt;/g, "&lt;Duration&gt;00:00:01&lt;/Duration&gt;");
 
