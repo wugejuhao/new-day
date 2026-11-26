@@ -1,16 +1,9 @@
-#!name=汇丰银行 (HSBC & Reward+) 完整分流与防风控
-#!desc=确保汇丰主业务、1865底层云与反欺诈指纹IP高度统一，并强制豁免MitM解密防止断连。
-#!author=wugejuhao
+# =========================================
+# 汇丰银行 (HSBC & Reward+) 纯净分流规则
+# 适用位置：[filter_local] 或 远程分流引用 (无需挂重写)
+# =========================================
 
-# =========================================
-# 1. 分流规则部分 (供 [filter_remote] 读取)
-# =========================================
-host-suffix, vv1865.com, direct
-host-suffix, online-metrix.net, direct
-host-suffix, we-stats.com, direct
-host, hsbc.edge.sdk.awswaf.com, direct
-host, www.redhotoffers.hsbc.com.hk, direct
-host, cdnhsbcrhostorage.azureedge.net, direct
+# > 1. 汇丰主业务与底层云 (统一走直连，保持大陆/本地 IP 一致防风控)
 host-keyword, hsbc, direct
 host-suffix, hsbc.com, direct
 host-suffix, hsbc.com.hk, direct
@@ -18,18 +11,29 @@ host-suffix, hsbc.com.cn, direct
 host-suffix, hsbc.co.uk, direct
 host-suffix, hsbc.net, direct
 host-suffix, hsbcpb.com, direct
+host-suffix, vv1865.com, direct
+host-suffix, azureedge.net, direct
+
+# > 2. Reward+ 奖赏钱核心后台与礼券商户接口 (本次日志新增，解决加载转圈)
+host-suffix, eunoia.asia, direct
+host-suffix, wogi.gifts, direct
+host-suffix, cloudflarestorage.com, direct
+
+# > 3. 反欺诈、设备指纹与安全风控 SDK (必须与主业务保持同网络出口)
+host-suffix, online-metrix.net, direct
+host-suffix, we-stats.com, direct
+host-suffix, zimperium.com, direct
+host, hsbc.edge.sdk.awswaf.com, direct
+
+# > 4. 客服组件、统计与性能遥测
 host-suffix, liveperson.net, direct
 host-suffix, lpsnmedia.net, direct
-host, c-hsbc.lytics.io, direct
 host-suffix, tiqcdn.com, direct
 host-suffix, tealiumiq.com, direct
 host-suffix, eum-appdynamics.com, direct
+host, c-hsbc.lytics.io, direct
 host, cdn.optimizely.com, direct
 
-# =========================================
-# 2. 重写与 MitM 豁免部分 (供 [rewrite_remote] 读取)
-# =========================================
-# ⚠️ 下面这一行是“占位规则”，用来强制激活重写订阅，使下方的 hostname 生效，切勿删除！
-^https?:\/\/hsbc-mitm-bypass\.invalid\/ url reject-200
-
-hostname = -*.hsbc.com.hk, -*.hsbc.com, -*.hsbc.com.cn, -*.hsbc.co.uk, -*.hsbc.net, -*.hsbcpb.com, -*.vv1865.com, -*.online-metrix.net, -*.we-stats.com, -hsbc.edge.sdk.awswaf.com
+# > 5. 解决国内直连超时 4 秒的优惠活动页面 (放在 host-keyword, hsbc 之前！)
+# 注意：请将下方第一行的 World 替换为你自己的香港或低延迟代理策略组名称
+host, www.redhotoffers.hsbc.com.hk, World
